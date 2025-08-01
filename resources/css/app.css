@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@import "../../vendor/livewire/flux/dist/flux.css";
+@import "./popular-classes.css";
+
+@plugin "flowbite/plugin";
+
+@source "../../node_modules/flowbite";
+
+@source "../views";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom font classes */
+.font-quicksand {
+    font-family: "Quicksand", sans-serif;
+}
+
+.font-inter {
+    font-family: "Inter", sans-serif;
+}
+
+.font-nunito {
+    font-family: "Nunito", sans-serif;
+}
