@@ -26,9 +26,11 @@ class UserSeeder extends Seeder
         ]);
 
         // Create additional dummy users
-        User::factory(20)->create([
-            'role' => 'student',
-            'name' => fake()->name() . ' (DUMMY)',
-        ]);
+        for ($i = 1; $i <= 20; $i++) {
+            User::factory()->create([
+                'role' => 'student',
+                'name' => fake()->name() . ' (DUMMY)',
+            ]);
+        }
     }
 }
