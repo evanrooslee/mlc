@@ -25,9 +25,10 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
         ]);
 
-        // Create additional fake users
+        // Create additional dummy users
         User::factory(20)->create([
             'role' => 'student',
+            'name' => fake()->name() . ' (DUMMY)',
         ]);
     }
 }

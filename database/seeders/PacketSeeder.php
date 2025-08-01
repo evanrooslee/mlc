@@ -41,7 +41,7 @@ class PacketSeeder extends Seeder
             $benefit = implode("\n", $benefitSentences);
 
             Packet::create([
-                'title' => 'Paket ' . fake()->randomNumber(1) . ' - ' . $subject . ' Kelas ' . $grade,
+                'title' => '[DUMMY PACKET] Paket ' . fake()->randomNumber(1) . ' - ' . $subject . ' Kelas ' . $grade,
                 'code' => $code,
                 'grade' => $grade,
                 'subject' => $subject,
@@ -55,7 +55,7 @@ class PacketSeeder extends Seeder
 
         // Create some specific packets for better testing
         Packet::create([
-            'title' => 'Paket Lengkap Matematika - Kelas 12',
+            'title' => '[DUMMY PACKET] Paket Lengkap Matematika - Kelas 12',
             'code' => 'MAT12001',
             'grade' => 12,
             'subject' => 'Matematika',
@@ -67,7 +67,7 @@ class PacketSeeder extends Seeder
         ]);
 
         Packet::create([
-            'title' => 'Dasar-dasar Fisika - Kelas 11',
+            'title' => '[DUMMY PACKET] Dasar-dasar Fisika - Kelas 11',
             'code' => 'FIS11001',
             'grade' => 11,
             'subject' => 'Fisika',
@@ -79,7 +79,7 @@ class PacketSeeder extends Seeder
         ]);
 
         Packet::create([
-            'title' => 'Fisika Kuantum - Kelas 12',
+            'title' => '[DUMMY PACKET] Fisika Kuantum - Kelas 12',
             'code' => 'FIS12001',
             'grade' => 12,
             'subject' => 'Fisika',
@@ -91,7 +91,7 @@ class PacketSeeder extends Seeder
         ]);
 
         Packet::create([
-            'title' => 'Matematika Dasar - Kelas 7',
+            'title' => '[DUMMY PACKET] Matematika Dasar - Kelas 7',
             'code' => 'MAT07001',
             'grade' => 7,
             'subject' => 'Matematika',

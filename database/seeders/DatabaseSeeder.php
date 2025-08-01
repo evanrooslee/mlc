@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             MaterialSeeder::class,
             ArticleSeeder::class,
             BannerSeeder::class,
-            PaymentSeeder::class,
+            // PaymentSeeder::class
         ]);
     }
 }

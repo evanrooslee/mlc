@@ -59,27 +59,27 @@ class MaterialSeeder extends Seeder
     {
         $materials = [
             [
-                'title' => 'Logaritma Dasar',
+                'title' => '[DUMMY VIDEO] Logaritma Dasar',
                 'subject' => 'Matematika',
-                'publisher' => 'Mr. Chris',
+                'publisher' => 'Mr. Chris (Dummy)',
                 'video' => 'videos/thumbnail1.jpg',
             ],
             [
-                'title' => 'Integral dan Turunan',
+                'title' => '[DUMMY VIDEO] Integral dan Turunan',
                 'subject' => 'Matematika',
-                'publisher' => 'Ms. Sarah',
+                'publisher' => 'Ms. Sarah (Dummy)',
                 'video' => 'videos/thumbnail2.jpg',
             ],
             [
-                'title' => 'Hukum Newton dan Aplikasinya',
+                'title' => '[DUMMY VIDEO] Hukum Newton dan Aplikasinya',
                 'subject' => 'Fisika',
-                'publisher' => 'Mr. Robert',
+                'publisher' => 'Mr. Robert (Dummy)',
                 'video' => 'videos/thumbnail3.jpg',
             ],
             [
-                'title' => 'Gelombang Elektromagnetik',
+                'title' => '[DUMMY VIDEO] Gelombang Elektromagnetik',
                 'subject' => 'Fisika',
-                'publisher' => 'Ms. Linda',
+                'publisher' => 'Ms. Linda (Dummy)',
                 'video' => 'videos/thumbnail4.jpg',
             ],
         ];
