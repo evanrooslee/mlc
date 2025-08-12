@@ -62,25 +62,25 @@ class MaterialSeeder extends Seeder
                 'title' => '[DUMMY VIDEO] Logaritma Dasar',
                 'subject' => 'Matematika',
                 'publisher' => 'Mr. Chris (Dummy)',
-                'video' => 'videos/thumbnail1.jpg',
+                'video' => 'https://via.placeholder.com/640x360/EF4444/FFFFFF?text=DUMMY+VIDEO+1',
             ],
             [
                 'title' => '[DUMMY VIDEO] Integral dan Turunan',
                 'subject' => 'Matematika',
                 'publisher' => 'Ms. Sarah (Dummy)',
-                'video' => 'videos/thumbnail2.jpg',
+                'video' => 'https://via.placeholder.com/640x360/EF4444/FFFFFF?text=DUMMY+VIDEO+2',
             ],
             [
                 'title' => '[DUMMY VIDEO] Hukum Newton dan Aplikasinya',
                 'subject' => 'Fisika',
                 'publisher' => 'Mr. Robert (Dummy)',
-                'video' => 'videos/thumbnail3.jpg',
+                'video' => 'https://via.placeholder.com/640x360/EF4444/FFFFFF?text=DUMMY+VIDEO+3',
             ],
             [
                 'title' => '[DUMMY VIDEO] Gelombang Elektromagnetik',
                 'subject' => 'Fisika',
                 'publisher' => 'Ms. Linda (Dummy)',
-                'video' => 'videos/thumbnail4.jpg',
+                'video' => 'https://via.placeholder.com/640x360/EF4444/FFFFFF?text=DUMMY+VIDEO+4',
             ],
         ];
 

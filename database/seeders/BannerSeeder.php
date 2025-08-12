@@ -21,20 +21,12 @@ class BannerSeeder extends Seeder
             File::makeDirectory($storagePath, 0755, true);
         }
 
-        // Copy a sample image from public to storage
-        $sourcePath = public_path('images/article-illustration.png');
-        $destinationPath = 'banners/sample-banner.png';
-
         // Clear existing records to ensure only one banner
         Banner::truncate();
 
-        if (File::exists($sourcePath)) {
-            Storage::disk('public')->put($destinationPath, File::get($sourcePath));
-        }
-
-        // Create exactly one banner record
+        // Create exactly one banner record with placeholder
         Banner::create([
-            'image' => $destinationPath
+            'image' => 'https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=DUMMY+BANNER'
         ]);
     }
 }

@@ -656,7 +656,7 @@
         });
 
         // Nomor WhatsApp
-        const whatsappNumber = '6287761497186';
+        const whatsappNumber = '62816811020';
 
         //Message diskon
         const discountMessage =

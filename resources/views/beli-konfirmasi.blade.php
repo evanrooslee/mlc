@@ -37,23 +37,24 @@
         <script>
             let countdown = 5;
             const countdownElement = document.getElementById('countdown');
-            
-            const userName = '{{ Auth::user()->name ?? "Customer" }}';
-            const whatsappNumber = '6281286939189';
-            
-            const message = `Halo, saya ${userName}. Saya telah melakukan pemesanan paket belajar. Mohon konfirmasi untuk proses pembayaran selanjutnya. Terima kasih.`;
-            
+
+            const userName = '{{ Auth::user()->name ?? 'Customer' }}';
+            const whatsappNumber = '62816811020';
+
+            const message =
+                `Halo, saya ${userName}. Saya telah melakukan pemesanan paket belajar. Mohon konfirmasi untuk proses pembayaran selanjutnya. Terima kasih.`;
+
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-            
+
             const timer = setInterval(() => {
                 countdown--;
                 countdownElement.textContent = countdown;
-                
+
                 if (countdown <= 0) {
                     clearInterval(timer);
                     // Redirect ke WhatsApp
                     window.open(whatsappUrl, '_blank');
-                    
+
                     document.querySelector('.bg-yellow-50').innerHTML = `
                         <p class="font-quicksand text-sm text-green-800">
                             WhatsApp telah dibuka! Jika tidak terbuka otomatis, <a href="${whatsappUrl}" target="_blank" class="text-blue-600 underline">klik di sini</a>.
@@ -63,7 +64,7 @@
                     document.querySelector('.bg-yellow-50').classList.add('bg-green-50', 'border-green-200');
                 }
             }, 1000);
-            
+
             window.addEventListener('beforeunload', () => {
                 clearInterval(timer);
             });
