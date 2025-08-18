@@ -110,7 +110,7 @@
                                         @foreach ($packet->benefits as $benefit)
                                             <li class="flex items-start">
                                                 <span class="text-green-500 mr-2 flex-shrink-0">✓</span>
-                                                <span class="flex-1">{{ Str::limit(trim($benefit), 50) }}</span>
+                                                <span class="flex-1">{{ $benefit }}</span>
                                             </li>
                                         @endforeach
                                     </ul>
