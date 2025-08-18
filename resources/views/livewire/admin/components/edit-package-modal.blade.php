@@ -16,7 +16,8 @@
     <!-- Modal Header -->
     <div class="bg-white p-4 sm:px-6 sm:pt-6 sm:pb-4">
         <div class="flex justify-between items-center">
-            <h2 id="modal-title" class="text-lg sm:text-xl font-medium text-gray-900 font-['Quicksand',_sans-serif]">Edit
+            <h2 id="modal-title" class="text-lg sm:text-xl font-medium text-gray-900 font-['Quicksand',_sans-serif]">
+                Edit
                 Paket</h2>
             <button type="button" wire:click="cancel"
                 class="text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-1"
@@ -210,16 +211,16 @@
                                 class="text-red-500" aria-label="wajib diisi">*</span></label>
                         <select id="edit-grade" wire:model.live="grade"
                             class="w-full px-3 py-2 border @error('grade') border-red-300 @else border-gray-300 @enderror rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                            aria-required="true"
-                            aria-invalid="@error('grade')true @else false @enderror"
+                            aria-required="true" aria-invalid="@error('grade')true @else false @enderror"
                             @error('grade') aria-describedby="edit-grade-error" @enderror>
                             <option value="">Pilih Kelas</option>
-                            @for($i = 7; $i <= 12; $i++)
+                            @for ($i = 7; $i <= 12; $i++)
                                 <option value="{{ $i }}">Kelas {{ $i }}</option>
                             @endfor
                         </select>
                         @error('grade')
-                            <span id="edit-grade-error" class="text-red-500 text-sm mt-1 flex items-center" role="alert">
+                            <span id="edit-grade-error" class="text-red-500 text-sm mt-1 flex items-center"
+                                role="alert">
                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
@@ -235,20 +236,21 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <!-- Subject Field -->
                     <div>
-                        <label for="edit-subject" class="block text-sm font-medium text-gray-700 mb-2">Mata Pelajaran <span
-                                class="text-red-500" aria-label="wajib diisi">*</span></label>
+                        <label for="edit-subject" class="block text-sm font-medium text-gray-700 mb-2">Mata Pelajaran
+                            <span class="text-red-500" aria-label="wajib diisi">*</span></label>
                         <select id="edit-subject" wire:model.live="subject"
                             class="w-full px-3 py-2 border @error('subject') border-red-300 @else border-gray-300 @enderror rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                            aria-required="true"
-                            aria-invalid="@error('subject')true @else false @enderror"
+                            aria-required="true" aria-invalid="@error('subject')true @else false @enderror"
                             @error('subject') aria-describedby="edit-subject-error" @enderror>
                             <option value="">Pilih Mata Pelajaran</option>
                             <option value="Matematika">Matematika</option>
                             <option value="Fisika">Fisika</option>
                             <option value="Kimia">Kimia</option>
+                            <option value="Campuran">Campuran</option>
                         </select>
                         @error('subject')
-                            <span id="edit-subject-error" class="text-red-500 text-sm mt-1 flex items-center" role="alert">
+                            <span id="edit-subject-error" class="text-red-500 text-sm mt-1 flex items-center"
+                                role="alert">
                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
@@ -265,15 +267,15 @@
                                 class="text-red-500" aria-label="wajib diisi">*</span></label>
                         <select id="edit-type" wire:model.live="type"
                             class="w-full px-3 py-2 border @error('type') border-red-300 @else border-gray-300 @enderror rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                            aria-required="true"
-                            aria-invalid="@error('type')true @else false @enderror"
+                            aria-required="true" aria-invalid="@error('type')true @else false @enderror"
                             @error('type') aria-describedby="edit-type-error" @enderror>
                             <option value="">Pilih Tipe</option>
                             <option value="standard">Standard</option>
                             <option value="premium">Premium</option>
                         </select>
                         @error('type')
-                            <span id="edit-type-error" class="text-red-500 text-sm mt-1 flex items-center" role="alert">
+                            <span id="edit-type-error" class="text-red-500 text-sm mt-1 flex items-center"
+                                role="alert">
                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                     <path fill-rule="evenodd"
                                         d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
@@ -293,8 +295,8 @@
                         <div class="flex items-center mb-3">
                             <input type="checkbox" id="edit-has_discount" wire:model.live="has_discount"
                                 class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                            <label for="edit-has_discount"
-                                class="ml-2 text-sm font-medium text-gray-700">Tambahkan Diskon</label>
+                            <label for="edit-has_discount" class="ml-2 text-sm font-medium text-gray-700">Tambahkan
+                                Diskon</label>
                         </div>
 
                         <div x-show="$wire.has_discount" x-transition>
@@ -305,38 +307,48 @@
                                         class="block text-sm font-medium text-gray-700 mb-2">Pilih Diskon <span
                                             class="text-red-500" aria-label="wajib diisi">*</span></label>
                                     <div class="relative">
-                                        <input type="text" id="edit-discount_search" wire:model.live="discount_search"
+                                        <input type="text" id="edit-discount_search"
+                                            wire:model.live="discount_search"
                                             class="w-full px-3 py-2 border @error('selected_discount_id') border-red-300 @else border-gray-300 @enderror rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 pr-10"
-                                            placeholder="Cari kode diskon atau persentase..."
-                                            autocomplete="off"
+                                            placeholder="Cari kode diskon atau persentase..." autocomplete="off"
                                             aria-invalid="@error('selected_discount_id')true @else false @enderror"
                                             @error('selected_discount_id') aria-describedby="edit-discount-error" @enderror>
-                                        
-                                        @if($selected_discount_id)
+
+                                        @if ($selected_discount_id)
                                             <button type="button" wire:click="clearDiscountSelection"
                                                 class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600">
-                                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                <svg class="h-4 w-4" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                                 </svg>
                                             </button>
                                         @else
-                                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                                <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                            <div
+                                                class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                                <svg class="h-4 w-4 text-gray-400" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                                 </svg>
                                             </div>
                                         @endif
                                     </div>
-                                    
+
                                     <!-- Dropdown Results -->
-                                    @if($show_discount_dropdown && count($discount_search_results) > 0)
-                                        <div class="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
-                                            @foreach($discount_search_results as $discount)
-                                                <button type="button" wire:click="selectDiscount({{ $discount->id }})"
+                                    @if ($show_discount_dropdown && count($discount_search_results) > 0)
+                                        <div
+                                            class="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
+                                            @foreach ($discount_search_results as $discount)
+                                                <button type="button"
+                                                    wire:click="selectDiscount({{ $discount->id }})"
                                                     class="w-full px-3 py-2 text-left hover:bg-gray-50 border-b border-gray-100 last:border-b-0 focus:outline-none focus:bg-blue-50">
                                                     <div class="flex justify-between items-center">
-                                                        <span class="font-mono text-sm text-gray-900">{{ $discount->code }}</span>
-                                                        <span class="text-sm text-blue-600 font-medium">{{ $discount->percentage }}%</span>
+                                                        <span
+                                                            class="font-mono text-sm text-gray-900">{{ $discount->code }}</span>
+                                                        <span
+                                                            class="text-sm text-blue-600 font-medium">{{ $discount->percentage }}%</span>
                                                     </div>
                                                     <div class="text-xs text-gray-500 mt-1">
                                                         Status: <span class="text-green-600">Aktif</span>
@@ -345,16 +357,19 @@
                                             @endforeach
                                         </div>
                                     @elseif($show_discount_dropdown && strlen($discount_search) >= 1)
-                                        <div class="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg py-2">
+                                        <div
+                                            class="absolute z-50 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg py-2">
                                             <div class="px-3 py-2 text-sm text-gray-500 text-center">
                                                 Tidak ada diskon ditemukan
                                             </div>
                                         </div>
                                     @endif
-                                    
+
                                     @error('selected_discount_id')
-                                        <span id="edit-discount-error" class="text-red-500 text-sm mt-1 flex items-center" role="alert">
-                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <span id="edit-discount-error" class="text-red-500 text-sm mt-1 flex items-center"
+                                            role="alert">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"
+                                                aria-hidden="true">
                                                 <path fill-rule="evenodd"
                                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
                                                     clip-rule="evenodd"></path>
@@ -362,12 +377,13 @@
                                             {{ $message }}
                                         </span>
                                     @enderror
-                                    
+
                                     <div class="text-xs text-gray-500 mt-1">
                                         <p>Ketik untuk mencari diskon berdasarkan kode atau persentase</p>
                                         <p class="mt-1">
-                                            <span class="font-medium">Tip:</span> 
-                                            Ketik <code class="bg-gray-100 px-1 rounded text-gray-700">~</code> untuk melihat semua diskon yang tersedia
+                                            <span class="font-medium">Tip:</span>
+                                            Ketik <code class="bg-gray-100 px-1 rounded text-gray-700">~</code> untuk
+                                            melihat semua diskon yang tersedia
                                         </p>
                                     </div>
                                 </div>
@@ -378,17 +394,17 @@
 
                 <!-- Manfaat Field -->
                 <div>
-                    <label for="edit-benefit"
-                        class="block text-sm font-medium text-gray-700 mb-2">Manfaat Paket</label>
+                    <label for="edit-benefit" class="block text-sm font-medium text-gray-700 mb-2">Manfaat
+                        Paket</label>
                     <textarea id="edit-benefit" wire:model.live="benefit" rows="4"
                         class="w-full px-3 py-2 border @error('benefit') border-red-300 @else border-gray-300 @enderror rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 resize-none"
-                        placeholder="Kurikulum matematika lengkap untuk kelas 12 termasuk kalkulus, statistik, dan aljabar lanjutan.&#10;Dilengkapi dengan tutorial video, latihan soal, dan simulasi ujian.&#10;Akses ke forum diskusi untuk tanya jawab dengan tutor." maxlength="2000"
-                        aria-invalid="@error('benefit')true @else false @enderror"
+                        placeholder="Kurikulum matematika lengkap untuk kelas 12 termasuk kalkulus, statistik, dan aljabar lanjutan.&#10;Dilengkapi dengan tutorial video, latihan soal, dan simulasi ujian.&#10;Akses ke forum diskusi untuk tanya jawab dengan tutor."
+                        maxlength="2000" aria-invalid="@error('benefit')true @else false @enderror"
                         @error('benefit') aria-describedby="edit-benefit-error" @enderror></textarea>
-                    <div class="text-xs text-gray-500 mt-1">Pisahkan setiap manfaat dengan baris baru untuk tampilan yang lebih rapi</div>
+                    <div class="text-xs text-gray-500 mt-1">Pisahkan setiap manfaat dengan baris baru untuk tampilan
+                        yang lebih rapi</div>
                     @error('benefit')
-                        <span id="edit-benefit-error" class="text-red-500 text-sm mt-1 flex items-center"
-                            role="alert">
+                        <span id="edit-benefit-error" class="text-red-500 text-sm mt-1 flex items-center" role="alert">
                             <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                                 <path fill-rule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
@@ -403,14 +419,16 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Gambar Paket</label>
                     <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-8 text-center bg-gray-50">
-                        @if($image)
+                        @if ($image)
                             <div class="flex flex-col items-center">
                                 <div class="mb-4">
-                                    <img src="{{ $image->temporaryUrl() }}" alt="Preview gambar paket" class="h-32 w-32 object-cover rounded-lg border border-gray-300">
+                                    <img src="{{ $image->temporaryUrl() }}" alt="Preview gambar paket"
+                                        class="h-32 w-32 object-cover rounded-lg border border-gray-300">
                                 </div>
                                 <p class="text-sm text-gray-600 mb-3">{{ $image->getClientOriginalName() }}</p>
                                 <div class="flex gap-2">
-                                    <button type="button" onclick="document.getElementById('edit-image-upload').click()"
+                                    <button type="button"
+                                        onclick="document.getElementById('edit-image-upload').click()"
                                         class="px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         Ganti Gambar
                                     </button>
@@ -423,7 +441,9 @@
                         @elseif($current_image)
                             <div class="flex flex-col items-center">
                                 <div class="mb-4">
-                                    <img src="{{ asset('storage/images/' . $current_image) }}" alt="Gambar paket saat ini" class="h-32 w-32 object-cover rounded-lg border border-gray-300">
+                                    <img src="{{ asset('storage/images/' . $current_image) }}"
+                                        alt="Gambar paket saat ini"
+                                        class="h-32 w-32 object-cover rounded-lg border border-gray-300">
                                 </div>
                                 <p class="text-sm text-gray-600 mb-3">Gambar saat ini</p>
                                 <button type="button" onclick="document.getElementById('edit-image-upload').click()"
@@ -434,10 +454,11 @@
                         @else
                             <div class="flex flex-col items-center">
                                 <div class="border-2 border-dashed border-gray-400 rounded-lg p-3 sm:p-4 mb-3">
-                                    <svg class="h-6 w-6 sm:h-8 sm:w-8 text-gray-400" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
+                                    <svg class="h-6 w-6 sm:h-8 sm:w-8 text-gray-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
                                     </svg>
                                 </div>
                                 <button type="button" onclick="document.getElementById('edit-image-upload').click()"
@@ -445,7 +466,8 @@
                                     aria-label="Pilih file gambar untuk paket">
                                     Pilih Gambar
                                 </button>
-                                <p id="edit-image-help" class="text-xs text-gray-500 mt-2">Format: JPG, PNG, GIF (Max: 2MB)</p>
+                                <p id="edit-image-help" class="text-xs text-gray-500 mt-2">Format: JPG, PNG, GIF (Max:
+                                    2MB)</p>
                             </div>
                         @endif
                         <input type="file" wire:model="image" accept="image/*" class="hidden"

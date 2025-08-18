@@ -55,6 +55,9 @@
                         data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
                     <button
                         class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
+                    <button
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="7">Kelas 7</button>
                     <button
                         class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
