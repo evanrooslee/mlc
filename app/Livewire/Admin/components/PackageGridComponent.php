@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Admin\components;
+namespace App\Livewire\Admin\Components;
 
 use Livewire\Component;
 use App\Models\Packet;
@@ -32,7 +32,7 @@ class PackageGridComponent extends Component
     {
         // Reload packages from database to show the newly added package
         $this->loadPackages();
-        
+
         // Show success message if provided
         if (isset($data['message'])) {
             session()->flash('success', $data['message']);
@@ -43,7 +43,7 @@ class PackageGridComponent extends Component
     {
         // Reload packages from database to show updated data
         $this->loadPackages();
-        
+
         // Show success message if provided
         if (isset($data['message'])) {
             session()->flash('success', $data['message']);
@@ -54,7 +54,7 @@ class PackageGridComponent extends Component
     {
         // Reload packages from database to reflect deletion
         $this->loadPackages();
-        
+
         // Show success message if provided
         if (isset($data['message'])) {
             session()->flash('success', $data['message']);
