@@ -78,10 +78,25 @@ class AddPackageModal extends ModalComponent
         // Clear network error when user starts typing
         $this->networkError = '';
 
+        // Debug: Log when subject is updated
+        if ($propertyName === 'subject') {
+            Log::info('Subject updated', [
+                'subject' => $this->subject,
+                'rules' => $this->rules()['subject'] ?? 'not found'
+            ]);
+        }
+
         // Validate specific field on update
         try {
             $this->validateOnly($propertyName);
         } catch (\Illuminate\Validation\ValidationException $e) {
+            // Debug: Log validation errors
+            if ($propertyName === 'subject') {
+                Log::error('Subject validation failed', [
+                    'subject' => $this->subject,
+                    'errors' => $e->errors()
+                ]);
+            }
             // Validation errors are automatically handled by Livewire
         }
 
@@ -187,6 +202,19 @@ class AddPackageModal extends ModalComponent
         $this->isSubmitting = true;
 
         try {
+            // Debug: Log the current subject value and validation rules
+            Log::info('AddPackageModal Debug', [
+                'subject' => $this->subject,
+                'validation_rules' => $this->rules(),
+                'all_data' => [
+                    'title' => $this->title,
+                    'code' => $this->code,
+                    'grade' => $this->grade,
+                    'subject' => $this->subject,
+                    'type' => $this->type,
+                ]
+            ]);
+
             // Validate all fields
             $this->validate();
 
@@ -239,7 +267,16 @@ class AddPackageModal extends ModalComponent
             throw $e;
         } catch (\Exception $e) {
             // Handle network/server errors
-            $this->networkError = 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.';
+            Log::error('Package save error', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+                'data' => [
+                    'title' => $this->title,
+                    'subject' => $this->subject,
+                    'code' => $this->code
+                ]
+            ]);
+            $this->networkError = 'Error: ' . $e->getMessage();
             $this->isSubmitting = false;
         }
     }
@@ -298,6 +335,36 @@ class AddPackageModal extends ModalComponent
     public static function modalMaxWidth(): string
     {
         return 'md';
+    }
+
+    // Diagnostic method to test validation rules
+    public function testValidation()
+    {
+        // Simple test to see if method is called
+        $this->networkError = 'Test button clicked! Subject validation test running...';
+
+        $this->subject = 'Campuran';
+        $rules = $this->rules();
+
+        Log::info('=== CAMPURAN TEST START ===');
+        Log::info('Test Validation', [
+            'subject' => $this->subject,
+            'subject_rule' => $rules['subject'] ?? 'not found',
+            'all_rules' => $rules
+        ]);
+
+        try {
+            $this->validateOnly('subject');
+            Log::info('Validation passed for Campuran');
+            $this->networkError = 'SUCCESS: Campuran validation passed!';
+        } catch (\Exception $e) {
+            Log::error('Validation failed for Campuran', [
+                'error' => $e->getMessage(),
+                'errors' => method_exists($e, 'errors') ? $e->errors() : 'no errors method'
+            ]);
+            $this->networkError = 'FAILED: ' . $e->getMessage();
+        }
+        Log::info('=== CAMPURAN TEST END ===');
     }
 
     public function render()
