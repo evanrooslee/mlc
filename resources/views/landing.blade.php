@@ -279,11 +279,10 @@
     <!-- Banner Cards Section -->
     <section class="py-16 bg-[#FAFAFA]">
         <div class="container mx-auto px-6">
-            <!-- Single line flexbox container for all 6 cards -->
-            <div class="flex gap-4 overflow-x-auto scrollbar-hide">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 @forelse($bannerCards as $index => $card)
                     @php
-                        // Define emojis for each card based on their content/order
+                        // Define emojis for each card as a fallback
                         $emojis = [
                             1 => '📚', // Regular Class
                             2 => '📝', // Try Out Center
@@ -293,7 +292,7 @@
                             6 => '🆓', // Free Trial Class
                         ];
                         $emoji = $emojis[$card->display_order] ?? '🎓';
-
+    
                         // Define background colors for each card to match Figma design
                         $backgroundColors = [
                             1 => 'bg-teal-300', // Light teal for Regular Class
@@ -305,39 +304,39 @@
                         ];
                         $bgColor = $backgroundColors[$card->display_order] ?? 'bg-blue-300';
                     @endphp
-
-                    <div class="flex-shrink-0 w-64">
-                        <!-- Static Card Container -->
+    
+                    <div class="w-full">
                         <div class="relative h-40 rounded-2xl overflow-hidden {{ $bgColor }}">
-                            <!-- Background Image (if available) -->
                             @if ($card->background_image && Storage::disk('public')->exists($card->background_image))
                                 <img src="{{ Storage::url($card->background_image) }}" alt="{{ $card->title }}"
                                     class="w-full h-full object-cover">
                             @endif
-
-                            <!-- Content -->
+    
                             <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                                <!-- Title and Description -->
                                 <div class="text-black">
-                                    <h3 class="text-sm font-bold font-quicksand mb-1 leading-tight">
+                                    <h3 class="text-sm font-bold font-quicksand mb-2 leading-tight">
                                         {{ $card->title }}
                                     </h3>
-                                    <p class="text-xs font-inter leading-relaxed line-clamp-3">
+                                    <p class="text-xs font-inter leading-relaxed line-clamp-2">
                                         {{ $card->description }}
                                     </p>
                                 </div>
-
-                                <!-- Emoji positioned in bottom-left -->
-                                <div class="flex justify-start">
-                                    <div class="text-2xl">
-                                        {{ $emoji }}
-                                    </div>
+    
+                                <div>
+                                    {{-- Assuming you have an 'icon' field in your database for the card.
+                                         This will better match the Figma design's custom icons. --}}
+                                    @if ($card->icon && Storage::disk('public')->exists($card->icon))
+                                        <img src="{{ Storage::url($card->icon) }}" alt="{{ $card->title }} icon" class="w-8 h-8">
+                                    @else
+                                        <div class="text-2xl">
+                                            {{ $emoji }}
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <!-- Fallback when no banner cards are available -->
                     <div class="col-span-full">
                         <div
                             class="relative h-[322px] border border-gray-200 shadow-lg flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200">
