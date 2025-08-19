@@ -2,6 +2,7 @@
 @import "flowbite/src/themes/default";
 @import "../../vendor/livewire/flux/dist/flux.css";
 @import "./popular-classes.css";
+@import "./banner-cards.css";
 
 @plugin "flowbite/plugin";
 

@@ -6,6 +6,7 @@ import {
 import Clipboard from "@ryangjchandler/alpine-clipboard";
 import "flowbite";
 import PopularClassesPagination from "./components/PopularClassesPagination.js";
+import "./banner-card-sorter.js";
 
 window.Alpine = Alpine;
 window.PopularClassesPagination = PopularClassesPagination;

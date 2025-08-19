@@ -276,16 +276,79 @@
         </div>
     </section>
 
-    <!-- Banner Section -->
+    <!-- Banner Cards Section -->
     <section class="py-16 bg-[#FAFAFA]">
         <div class="container mx-auto px-6">
-            <div
-                class="relative w-full h-[322px] border-y-1 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.25)] flex items-center justify-center">
-                @if (isset($banner) && $banner && $banner->image)
-                    <img src="{{ $banner->image }}" alt="Banner" class="w-full h-full object-cover">
-                @else
-                    <h2 class="font-quicksand font-bold text-base text-black">No Banner Available</h2>
-                @endif
+            <!-- Single line flexbox container for all 6 cards -->
+            <div class="flex gap-4 overflow-x-auto scrollbar-hide">
+                @forelse($bannerCards as $index => $card)
+                    @php
+                        // Define emojis for each card based on their content/order
+                        $emojis = [
+                            1 => '📚', // Regular Class
+                            2 => '📝', // Try Out Center
+                            3 => '💬', // Forum Diskusi
+                            4 => '🎯', // Counseling
+                            5 => '💻', // Learning Management System
+                            6 => '🆓', // Free Trial Class
+                        ];
+                        $emoji = $emojis[$card->display_order] ?? '🎓';
+
+                        // Define background colors for each card to match Figma design
+                        $backgroundColors = [
+                            1 => 'bg-teal-300', // Light teal for Regular Class
+                            2 => 'bg-orange-300', // Light orange for Try Out Center
+                            3 => 'bg-green-300', // Light green for Forum Diskusi
+                            4 => 'bg-purple-300', // Light purple for Counseling
+                            5 => 'bg-yellow-300', // Light yellow for LMS
+                            6 => 'bg-lime-300', // Light lime for Free Trial
+                        ];
+                        $bgColor = $backgroundColors[$card->display_order] ?? 'bg-blue-300';
+                    @endphp
+
+                    <div class="flex-shrink-0 w-64">
+                        <!-- Static Card Container -->
+                        <div class="relative h-40 rounded-2xl overflow-hidden {{ $bgColor }}">
+                            <!-- Background Image (if available) -->
+                            @if ($card->background_image && Storage::disk('public')->exists($card->background_image))
+                                <img src="{{ Storage::url($card->background_image) }}" alt="{{ $card->title }}"
+                                    class="w-full h-full object-cover">
+                            @endif
+
+                            <!-- Content -->
+                            <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                                <!-- Title and Description -->
+                                <div class="text-black">
+                                    <h3 class="text-sm font-bold font-quicksand mb-1 leading-tight">
+                                        {{ $card->title }}
+                                    </h3>
+                                    <p class="text-xs font-inter leading-relaxed line-clamp-3">
+                                        {{ $card->description }}
+                                    </p>
+                                </div>
+
+                                <!-- Emoji positioned in bottom-left -->
+                                <div class="flex justify-start">
+                                    <div class="text-2xl">
+                                        {{ $emoji }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <!-- Fallback when no banner cards are available -->
+                    <div class="col-span-full">
+                        <div
+                            class="relative h-[322px] border border-gray-200 shadow-lg flex items-center justify-center rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200">
+                            <div class="text-center">
+                                <div class="text-6xl mb-4">🎓</div>
+                                <h2 class="font-quicksand font-bold text-xl text-gray-700 mb-2">Segera Hadir!</h2>
+                                <p class="font-inter text-gray-600">Banner cards akan segera tersedia</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>

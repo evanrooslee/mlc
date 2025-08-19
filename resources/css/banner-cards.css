@@ -1,0 +1,330 @@
+/* Banner Card Management Styles */
+
+/* Line clamp utilities for text truncation */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Drag and drop visual enhancements */
+.banner-card-dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+}
+
+.banner-card-placeholder {
+    border: 2px dashed #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+    opacity: 0.7;
+}
+
+.banner-card-drop-zone {
+    background-color: rgba(59, 130, 246, 0.05);
+    border: 2px dashed #3b82f6;
+}
+
+/* Hover effects for cards */
+.banner-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.banner-card {
+    transition: all 0.3s ease;
+}
+
+/* Action button improvements */
+.action-button {
+    transition: all 0.2s ease;
+    border-radius: 9999px;
+    font-weight: 500;
+}
+
+.action-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal enhancements */
+.modal-backdrop {
+    backdrop-filter: blur(4px);
+}
+
+/* File upload area improvements */
+.file-upload-area {
+    transition: all 0.3s ease;
+}
+
+.file-upload-area:hover {
+    border-color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.02);
+}
+
+/* Status badges */
+.status-badge {
+    font-weight: 600;
+    letter-spacing: 0.025em;
+}
+
+/* Drag handle styling */
+.drag-handle {
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.drag-handle:hover {
+    color: #3b82f6;
+}
+
+/* Grid responsive improvements */
+@media (max-width: 768px) {
+    .banner-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .banner-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .banner-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Loading states */
+.loading-overlay {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+/* Success/Error message styling */
+.alert-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border: none;
+    color: white;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Form field enhancements */
+.form-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Button loading state */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Landing Page Banner Cards Styles */
+
+/* Hide scrollbar for banner cards container */
+.scrollbar-hide {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+/* Static banner cards - no hover effects */
+.banner-card-static {
+    /* No transitions or hover effects */
+}
+
+/* Gradient overlays for different card types */
+.banner-card-overlay-1 {
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.3) 0%,
+        rgba(147, 51, 234, 0.3) 100%
+    );
+}
+
+.banner-card-overlay-2 {
+    background: linear-gradient(
+        135deg,
+        rgba(16, 185, 129, 0.3) 0%,
+        rgba(5, 150, 105, 0.3) 100%
+    );
+}
+
+.banner-card-overlay-3 {
+    background: linear-gradient(
+        135deg,
+        rgba(245, 158, 11, 0.3) 0%,
+        rgba(217, 119, 6, 0.3) 100%
+    );
+}
+
+.banner-card-overlay-4 {
+    background: linear-gradient(
+        135deg,
+        rgba(239, 68, 68, 0.3) 0%,
+        rgba(220, 38, 38, 0.3) 100%
+    );
+}
+
+.banner-card-overlay-5 {
+    background: linear-gradient(
+        135deg,
+        rgba(139, 92, 246, 0.3) 0%,
+        rgba(124, 58, 237, 0.3) 100%
+    );
+}
+
+.banner-card-overlay-6 {
+    background: linear-gradient(
+        135deg,
+        rgba(236, 72, 153, 0.3) 0%,
+        rgba(219, 39, 119, 0.3) 100%
+    );
+}
+
+/* Emoji animations */
+.banner-emoji {
+    transition: transform 0.3s ease;
+}
+
+.banner-card-landing:hover .banner-emoji {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Text shadow for better readability */
+.banner-card-title {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-card-description {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner-cards-mobile {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .banner-card-mobile-height {
+        height: 200px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .banner-cards-tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .banner-card-tablet-height {
+        height: 240px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .banner-cards-desktop {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .banner-card-desktop-height {
+        height: 280px;
+    }
+}
+
+/* Loading state for images */
+.banner-card-image-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Fallback gradient backgrounds */
+.banner-fallback-gradient-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.banner-fallback-gradient-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.banner-fallback-gradient-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.banner-fallback-gradient-4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.banner-fallback-gradient-5 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.banner-fallback-gradient-6 {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}

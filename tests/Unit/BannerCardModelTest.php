@@ -3,13 +3,13 @@
 namespace Tests\Unit;
 
 use App\Models\BannerCard;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 
 class BannerCardModelTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseTransactions;
 
     public function test_banner_card_can_be_created_with_valid_data()
     {
