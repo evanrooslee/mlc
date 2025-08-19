@@ -277,15 +277,136 @@
     </section>
 
     <!-- Banner Section -->
-    <section class="py-16 bg-[#FAFAFA]">
+    <section class="py-32 bg-[#FAFAFA] border-y">
         <div class="container mx-auto px-6">
-            <div
-                class="relative w-full h-[322px] border-y-1 shadow-[0px_2px_20px_0px_rgba(0,0,0,0.25)] flex items-center justify-center">
-                @if (isset($banner) && $banner && $banner->image)
-                    <img src="{{ $banner->image }}" alt="Banner" class="w-full h-full object-cover">
-                @else
-                    <h2 class="font-quicksand font-bold text-base text-black">No Banner Available</h2>
-                @endif
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+
+                <div class="w-full">
+                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                        style="background-image: url('{{ asset('images/mlc-regular-class.png') }}')">
+                        <!-- Frosted glass overlay -->
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                            <div class="text-black">
+                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
+                                    MLC Regular Class
+                                </h3>
+                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
+                                    Kelas online rutin dengan jadwal terstruktur.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="text-2xl">📚</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full">
+                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                        style="background-image: url('{{ asset('images/mlc-try-out-center.png') }}')">
+                        <!-- Frosted glass overlay -->
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                            <div class="text-black">
+                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
+                                    MLC Try Out Center
+                                </h3>
+                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
+                                    Try Out mingguan untuk evaluasi kesiapan ujian.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="text-2xl">🔍</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full">
+                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                        style="background-image: url('{{ asset('images/mlc-forum-diskusi.png') }}')">
+                        <!-- Frosted glass overlay -->
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                            <div class="text-black">
+                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
+                                    MLC Forum Diskusi
+                                </h3>
+                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
+                                    Forum tanya-jawab soal dengan tutor dan teman.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="text-2xl">💬</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full">
+                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                        style="background-image: url('{{ asset('images/mlc-counseling.png') }}')">
+                        <!-- Frosted glass overlay -->
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                            <div class="text-black">
+                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
+                                    MLC Counseling
+                                </h3>
+                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
+                                    Konsultasi gratis tentang jurusan dan strategi belajar.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="text-2xl">🎓</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full">
+                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                        style="background-image: url('{{ asset('images/mlc-learning-management.png') }}')">
+                        <!-- Frosted glass overlay -->
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                            <div class="text-black">
+                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
+                                    MLC Learning Management System
+                                </h3>
+                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
+                                    Akses materi, rekaman kelas, dan progress belajar.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="text-2xl">📁</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full">
+                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                        style="background-image: url('{{ asset('images/mlc-free-trial-class.png') }}')">
+                        <!-- Frosted glass overlay -->
+                        <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
+                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                            <div class="text-black">
+                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
+                                    MLC Free Trial Class
+                                </h3>
+                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
+                                    Kelas percobaan gratis untuk semua siswa baru.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="text-2xl">🎁</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
