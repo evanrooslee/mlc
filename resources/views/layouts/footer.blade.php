@@ -41,8 +41,7 @@
                     <div class="flex space-x-4">
                         <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram"
                             class="w-8 h-8">
-                        <img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube"
-                            class="w-8 h-8">
+                        <img src="https://img.icons8.com/color/48/000000/tiktok.png" alt="TikTok" class="w-8 h-8">
                     </div>
                 </div>
             </div>
