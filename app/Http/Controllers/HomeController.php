@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Banner;
+use App\Models\BannerCard;
 use App\Models\Material;
 use App\Models\Packet;
 
@@ -15,7 +16,8 @@ class HomeController extends Controller
     {
         return view('landing', [
             'packets' => $this->getPacket(),
-            'banner' => $this->getBanner(),
+            'banner' => $this->getBanner(), // Maintain backward compatibility
+            'bannerCards' => $this->getBannerCards(),
             'materials' => $this->getFeaturedMaterials(),
             'articles' => $this->getFeaturedArticles()
         ]);
@@ -51,6 +53,17 @@ class HomeController extends Controller
     {
         $banner = Banner::first();
         return $banner;
+    }
+
+    /**
+     * Get active banner cards ordered by display_order
+     * 
+     * @return \Illuminate\Database\Eloquent\Collection Returns active BannerCard records ordered by display_order
+     */
+    public function getBannerCards()
+    {
+        $bannerCards = BannerCard::active()->ordered()->get();
+        return $bannerCards;
     }
 
     /**
