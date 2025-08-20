@@ -40,7 +40,21 @@
         </div>
     </div>
 
-    <div class="flex justify-end">
+    <div class="flex justify-between">
+        @if ($currentBannerUrl)
+            <button wire:click="deleteBanner" onclick="return confirm('Apakah Anda yakin ingin menghapus banner ini?')"
+                class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md flex items-center space-x-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9zM4 5a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 102 0v3a1 1 0 11-2 0V9zm4 0a1 1 0 10-2 0v3a1 1 0 102 0V9z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span>Hapus Banner</span>
+            </button>
+        @else
+            <div></div>
+        @endif
+
         <button wire:click="saveBannerChanges"
             class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center space-x-2 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
