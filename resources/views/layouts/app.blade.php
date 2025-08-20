@@ -39,6 +39,10 @@
 </head>
 
 <body class="antialiased bg-white font-quicksand">
+    @isset($banner)
+        @include('layouts.banner')
+    @endisset
+    
     @include('layouts.header')
     <main>
         @yield('content')

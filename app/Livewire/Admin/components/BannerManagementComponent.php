@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use App\Services\ImageService;
+use App\Models\Banner;
 
 class BannerManagementComponent extends Component
 {
@@ -20,11 +21,10 @@ class BannerManagementComponent extends Component
 
     public function mount()
     {
-        // Check if banner exists in storage and set the URL
-        if (Storage::disk('public')->exists('banners/main-banner.jpg')) {
-            $this->currentBannerUrl = Storage::url('banners/main-banner.jpg');
-        } elseif (Storage::disk('public')->exists('banners/main-banner.png')) {
-            $this->currentBannerUrl = Storage::url('banners/main-banner.png');
+        // Get banner from database and set the URL
+        $banner = Banner::first();
+        if ($banner && $banner->image) {
+            $this->currentBannerUrl = Storage::url('banners/' . $banner->image);
         }
     }
 
@@ -50,28 +50,46 @@ class BannerManagementComponent extends Component
         $this->isUploading = true;
 
         try {
-            // Delete existing banner if it exists
-            if (Storage::disk('public')->exists('banners/main-banner.jpg')) {
-                Storage::disk('public')->delete('banners/main-banner.jpg');
+            // Get existing banner from database
+            $bannerModel = Banner::first();
+
+            // Delete existing banner file if it exists
+            if ($bannerModel && $bannerModel->image) {
+                // Handle both old format (full path) and new format (filename only)
+                $existingPath = str_starts_with($bannerModel->image, '/storage/')
+                    ? str_replace('/storage/', '', $bannerModel->image)
+                    : 'banners/' . $bannerModel->image;
+
+                if (Storage::disk('public')->exists($existingPath)) {
+                    Storage::disk('public')->delete($existingPath);
+                }
             }
-            if (Storage::disk('public')->exists('banners/main-banner.png')) {
-                Storage::disk('public')->delete('banners/main-banner.png');
-            }
+
+            // Generate unique filename
+            $extension = $this->banner->getClientOriginalExtension();
+            $filename = 'banner_' . time() . '.' . $extension;
 
             // Use ImageService to resize and save the banner (with fallback)
             try {
                 $imageService = new ImageService();
-                $path = $imageService->resizeForType($this->banner, 'banner', 'banners');
+                $path = $imageService->resizeForType($this->banner, 'banner', 'banners', $filename);
             } catch (\Exception $e) {
                 // Fallback: Save without resizing if GD is not available
-                $extension = $this->banner->getClientOriginalExtension();
-                $path = $this->banner->storeAs('banners', "main-banner.{$extension}", 'public');
-
-                // Log the error for debugging
+                $path = $this->banner->storeAs('banners', $filename, 'public');
                 Log::warning('Image resizing failed, saved without resizing: ' . $e->getMessage());
             }
 
-            // Update the banner URL
+            // Extract just the filename from the path
+            $storedFilename = basename($path);
+
+            // Update or create banner record in database
+            if (!$bannerModel) {
+                $bannerModel = new Banner();
+            }
+            $bannerModel->image = $storedFilename;
+            $bannerModel->save();
+
+            // Update the banner URL for display
             $this->currentBannerUrl = Storage::url($path);
 
             $this->uploadSuccess = true;
@@ -86,19 +104,51 @@ class BannerManagementComponent extends Component
         $this->isUploading = false;
     }
 
+    public function deleteBanner()
+    {
+        try {
+            $bannerModel = Banner::first();
+
+            if ($bannerModel) {
+                // Delete the banner file from storage if it exists
+                if ($bannerModel->image) {
+                    // Handle both old format (full path) and new format (filename only)
+                    $existingPath = str_starts_with($bannerModel->image, '/storage/')
+                        ? str_replace('/storage/', '', $bannerModel->image)
+                        : 'banners/' . $bannerModel->image;
+
+                    if (Storage::disk('public')->exists($existingPath)) {
+                        Storage::disk('public')->delete($existingPath);
+                    }
+                }
+
+                // Delete the banner record from database
+                $bannerModel->delete();
+
+                // Clear the current banner URL
+                $this->currentBannerUrl = null;
+
+                session()->flash('message', 'Banner berhasil dihapus!');
+            } else {
+                session()->flash('error', 'Tidak ada banner untuk dihapus.');
+            }
+        } catch (\Exception $e) {
+            session()->flash('error', 'Gagal menghapus banner: ' . $e->getMessage());
+        }
+    }
+
     public function saveBannerChanges()
     {
         try {
             // Get or create the banner record
-            $banner = \App\Models\Banner::first();
+            $banner = Banner::first();
             if (!$banner) {
-                $banner = new \App\Models\Banner();
+                $banner = new Banner();
             }
 
-            // Update the banner image URL
-            if ($this->currentBannerUrl) {
-                $banner->image = $this->currentBannerUrl;
-                $banner->save();
+            // The banner image is already saved in uploadBanner method
+            // This method can be used for other banner properties if needed
+            if ($banner->image) {
                 session()->flash('message', 'Perubahan banner berhasil disimpan!');
             } else {
                 session()->flash('error', 'Tidak ada banner untuk disimpan. Silakan unggah banner terlebih dahulu.');
