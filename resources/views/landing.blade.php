@@ -416,9 +416,9 @@
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Video Pembelajaran</h2>
     
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                 @forelse ($materials as $material)
-                    <div x-data="{ showPlayer: false }" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div x-data="{ showPlayer: false }" class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs justify-self-center">
                         
                         <div class="relative bg-black aspect-[9/16]">
                         <template x-if="!showPlayer">
