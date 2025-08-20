@@ -415,13 +415,13 @@
     <section class="py-16 bg-[#FAFAFA]">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Video Pembelajaran</h2>
-
+    
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 @forelse ($materials as $material)
-                    <!-- Video Card -->
                     <div x-data="{ showPlayer: false }" class="bg-white rounded-lg shadow-md overflow-hidden">
-                        <div class="relative h-44 bg-black">
-                            <template x-if="!showPlayer">
+                        
+                        <div class="relative bg-black aspect-[9/16]">
+                        <template x-if="!showPlayer">
                                 <button @click="showPlayer = true"
                                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-60 transition hover:bg-opacity-70 z-10"
                                     aria-label="Play Video">
@@ -433,7 +433,6 @@
                                 </button>
                             </template>
                             <template x-if="showPlayer">
-                                <!-- Local Video File -->
                                 <video class="w-full h-full object-cover" controls autoplay preload="auto"
                                     x-ref="videoPlayer"
                                     @loadedmetadata="console.log('Video metadata loaded:', $refs.videoPlayer.duration)">
@@ -449,13 +448,12 @@
                         </div>
                     </div>
                 @empty
-                    <!-- Fallback if no materials are found -->
                     <div class="col-span-4 text-center py-8">
                         <p class="text-gray-500">No video materials available at the moment.</p>
                     </div>
                 @endforelse
             </div>
-
+    
             <div class="text-center mt-11">
                 <p class="text-gray-600 mb-4 text-2xl font-semibold">
                     "Live as if you were to die tomorrow. Learn as if you were to live forever."
