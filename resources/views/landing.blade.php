@@ -409,18 +409,18 @@
     </section>
 
     <!-- Video Pembelajaran Section -->
-    <section class="py-16 bg-[#FAFAFA]">
+    <section class="py-16 bg-[#FAFAFA]" x-data="videoManager()">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Video Pembelajaran</h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                 @forelse ($materials as $material)
-                    <div x-data="{ showPlayer: false }"
+                    <div x-data="{ showPlayer: false, videoId: '{{ $material->id }}' }"
                         class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs justify-self-center">
 
                         <div class="relative bg-black aspect-[9/16]">
                             <template x-if="!showPlayer">
-                                <button @click="showPlayer = true"
+                                <button @click="playVideo(videoId); showPlayer = true"
                                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-60 transition hover:bg-opacity-70 z-10"
                                     aria-label="Play Video">
                                     <svg class="w-16 h-16 text-white drop-shadow-lg" fill="currentColor"
@@ -432,7 +432,8 @@
                             </template>
                             <template x-if="showPlayer">
                                 <video class="w-full h-full object-cover" controls autoplay preload="auto"
-                                    x-ref="videoPlayer"
+                                    x-ref="videoPlayer" @play="setCurrentVideo(videoId, $refs.videoPlayer)"
+                                    @pause="if (currentVideoId === videoId) currentVideoId = null"
                                     @loadedmetadata="console.log('Video metadata loaded:', $refs.videoPlayer.duration)">
                                     <source src="{{ asset('storage/' . $material->video) }}" type="video/mp4">
                                     <p class="text-white text-center">Your browser does not support the video tag.</p>
@@ -586,6 +587,39 @@
 
     <!-- JS Scripts -->
     <script>
+        // Video Manager for Alpine.js
+        function videoManager() {
+            return {
+                currentVideoId: null,
+                currentVideoElement: null,
+
+                playVideo(videoId) {
+                    // If there's a currently playing video and it's different from the new one
+                    if (this.currentVideoId && this.currentVideoId !== videoId && this.currentVideoElement) {
+                        this.currentVideoElement.pause();
+                        // Reset the previous video's showPlayer state
+                        this.resetVideoPlayer(this.currentVideoId);
+                    }
+                },
+
+                setCurrentVideo(videoId, videoElement) {
+                    this.currentVideoId = videoId;
+                    this.currentVideoElement = videoElement;
+                },
+
+                resetVideoPlayer(videoId) {
+                    // Find and reset the video player state
+                    const videoCards = document.querySelectorAll('[x-data*="showPlayer"]');
+                    videoCards.forEach(card => {
+                        const cardData = Alpine.$data(card);
+                        if (cardData.videoId === videoId) {
+                            cardData.showPlayer = false;
+                        }
+                    });
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.filter-btn');
             const packetCards = document.querySelectorAll('.packet-card');
@@ -612,6 +646,21 @@
                 button.addEventListener('click', function() {
                     const filterType = this.getAttribute('data-filter-type');
                     const filterValue = this.getAttribute('data-filter-value');
+                    const isCurrentlyActive = this.classList.contains('bg-blue-600');
+
+                    // Count currently active buttons
+                    const activeButtonsCount = document.querySelectorAll('.filter-btn.bg-blue-600')
+                        .length;
+
+                    // If trying to activate a new button and already at max (3), prevent activation
+                    if (!isCurrentlyActive && activeButtonsCount >= 3) {
+                        // Show a brief visual feedback that max limit is reached
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 150);
+                        return; // Don't proceed with activation
+                    }
 
                     // Toggle active state visually
                     this.classList.toggle('bg-blue-600');
