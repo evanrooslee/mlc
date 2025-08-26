@@ -2,7 +2,7 @@
     <div class="container mx-auto px-6">
         <div class="grid md:grid-cols-3 gap-8 z-10 relative">
 
-            <div class="flex items-start">
+            <div class="flex items-start ml-20">
                 <img src="{{ asset('images/mlc-logo-colored.png') }}" alt="MLC Logo" style="width: 154px; height: 43px;">
             </div>
 
