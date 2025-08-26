@@ -20,7 +20,7 @@
                                     </path>
                                 </svg>
                             </span>
-                            <span class="text-gray-600 text-sm">info@mlc.com</span>
+                            <span class="text-gray-600 text-sm">mlconlinestudy@gmail.com</span>
                         </div>
                         <div class="flex items-center">
                             <span class="text-black mr-2">
@@ -31,7 +31,7 @@
                                     </path>
                                 </svg>
                             </span>
-                            <span class="text-gray-600 text-sm">+62 1234 5678</span>
+                            <span class="text-gray-600 text-sm">0816 81 1020</span>
                         </div>
                     </div>
                 </div>
