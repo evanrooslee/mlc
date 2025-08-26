@@ -38,11 +38,11 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
-<body class="antialiased bg-white font-quicksand mx-6">
+<body class="antialiased bg-white font-quicksand">
     @isset($banner)
         @include('layouts.banner')
     @endisset
-    
+
     @include('layouts.header')
     <main>
         @yield('content')

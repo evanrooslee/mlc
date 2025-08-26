@@ -4,14 +4,11 @@
 
     <!-- Hero Section -->
     <section class="bg-[#FAFAFA] py-5">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-3xl md:text-4xl font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
-                        Nggak semua orang<br>
-                        ngerti pelajaran di kelas.<br>
-                        Tapi semua bisa paham<br>
-                        bareng MLC!
+                        Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
                     </h1>
                     <p class="text-gray-600 mb-8 text-xl font-nunito">
                         Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
@@ -37,7 +34,7 @@
 
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Pilih Paket</h2>
             <p class="font-quicksand text-center text-gray-600 mb-8 text-lg">
                 MLC menyediakan berbagai paket pembelajaran bahasa online yang diracik dengan kebutuhan kamu.<br>
@@ -188,7 +185,7 @@
     <!-- Kenapa MLC Section -->
     <section class="py-16"
         style="background: radial-gradient(169.93% 43.19% at 50% 50%, rgba(255, 239, 235, 0.25) 0%, rgba(191, 242, 255, 0.25) 100%)">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Kenapa MLC?</h2>
             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg font-inter">
                 MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang <br> nyaman, mudah dipahami,
@@ -258,7 +255,7 @@
 
     <!-- WhatsApp Admin Section -->
     <section class="py-12 bg-[#FAFAFA]">
-        <div class="container mx-auto max-w-5xl relative">
+        <div class="max-w-5xl mx-auto px-6 relative">
             <div class="rounded-3xl px-12 py-8 relative z-10 shadow-[0px_12px_24px_0px_#B8CFF0]"
                 style="background: radial-gradient(227.11% 60.35% at 50% 50%, #F3F7FE 0%, #A2C0EB 100%);">
                 <div class="flex justify-between items-center">
@@ -278,7 +275,7 @@
 
     <!-- Banner Section -->
     <section class="py-32 bg-[#FAFAFA] border-y">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
 
                 <div class="w-full">
@@ -413,15 +410,16 @@
 
     <!-- Video Pembelajaran Section -->
     <section class="py-16 bg-[#FAFAFA]">
-        <div class="container mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Video Pembelajaran</h2>
-    
+
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                 @forelse ($materials as $material)
-                <div x-data="{ showPlayer: false }" class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs justify-self-center">
-                        
+                    <div x-data="{ showPlayer: false }"
+                        class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs justify-self-center">
+
                         <div class="relative bg-black aspect-[9/16]">
-                        <template x-if="!showPlayer">
+                            <template x-if="!showPlayer">
                                 <button @click="showPlayer = true"
                                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-60 transition hover:bg-opacity-70 z-10"
                                     aria-label="Play Video">
@@ -453,7 +451,7 @@
                     </div>
                 @endforelse
             </div>
-    
+
             <div class="text-center mt-11">
                 <p class="text-gray-600 mb-4 text-2xl font-semibold">
                     "Live as if you were to die tomorrow. Learn as if you were to live forever."
@@ -466,7 +464,7 @@
     <!-- Artikel Section -->
     <section class="py-12 bg-[#FAFAFA]">
         <h2 class="text-3xl font-bold text-center text-[#180746] mb-15 relative z-10">Artikel</h2>
-        <div class="container mx-auto px-32 py-6 relative">
+        <div class="max-w-7xl mx-auto px-6 py-6 relative">
             <!-- Decorative elements -->
             <img src="{{ asset('images/decor-book.png') }}"
                 class="absolute top-6 left-8 w-16 rotate-[-12deg] opacity-60 pointer-events-none" />
