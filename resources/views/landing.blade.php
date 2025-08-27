@@ -274,7 +274,7 @@
     </section>
 
     <!-- Banner Section -->
-    <section class="py-32 bg-[#FAFAFA] border-y">
+    <section class="py-32 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
 
