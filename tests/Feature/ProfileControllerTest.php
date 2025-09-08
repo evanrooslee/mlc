@@ -165,4 +165,102 @@ class ProfileControllerTest extends TestCase
         // Assert fallback title is used
         $response->assertSee('Untitled Packet');
     }
+
+    /** @test */
+    public function authenticated_user_can_update_profile_with_parent_name()
+    {
+        // Create and authenticate a user with student role
+        $user = User::factory()->create([
+            'name' => 'Original Name',
+            'email' => 'original@example.com',
+            'phone_number' => '081234567890',
+            'parent_name' => 'Original Parent',
+            'parents_phone_number' => '081234567891',
+            'school' => 'Original School',
+            'grade' => '10',
+            'role' => 'student'
+        ]);
+        $this->actingAs($user);
+
+        // Prepare updated data
+        $updatedData = [
+            'name' => 'Updated Name',
+            'email' => 'updated@example.com',
+            'phone_number' => '081234567892',
+            'parent_name' => 'Updated Parent Name',
+            'parents_phone_number' => '081234567893',
+            'school' => 'Updated School',
+            'grade' => '11'
+        ];
+
+        // Make POST request to update profile
+        $response = $this->withoutMiddleware()
+            ->post(route('user.profile.update'), $updatedData);
+
+        // Assert successful redirect
+        $response->assertRedirect(route('user.profile'));
+        $response->assertSessionHas('success', 'Profile updated successfully!');
+
+        // Assert user data was updated in database
+        $user->refresh();
+        $this->assertEquals('Updated Name', $user->name);
+        $this->assertEquals('updated@example.com', $user->email);
+        $this->assertEquals('081234567892', $user->phone_number);
+        $this->assertEquals('Updated Parent Name', $user->parent_name);
+        $this->assertEquals('081234567893', $user->parents_phone_number);
+        $this->assertEquals('Updated School', $user->school);
+        $this->assertEquals('11', $user->grade);
+    }
+
+    /** @test */
+    public function profile_update_requires_parent_name_field()
+    {
+        // Create and authenticate a user with student role
+        $user = User::factory()->create(['role' => 'student']);
+        $this->actingAs($user);
+
+        // Prepare data without parent_name
+        $invalidData = [
+            'name' => 'Updated Name',
+            'email' => 'updated@example.com',
+            'phone_number' => '081234567892',
+            // 'parent_name' => missing
+            'parents_phone_number' => '081234567893',
+            'school' => 'Updated School',
+            'grade' => '11'
+        ];
+
+        // Make POST request to update profile
+        $response = $this->withoutMiddleware()
+            ->post(route('user.profile.update'), $invalidData);
+
+        // Assert validation error
+        $response->assertSessionHasErrors(['parent_name']);
+    }
+
+    /** @test */
+    public function profile_update_validates_parent_name_max_length()
+    {
+        // Create and authenticate a user with student role
+        $user = User::factory()->create(['role' => 'student']);
+        $this->actingAs($user);
+
+        // Prepare data with parent_name exceeding max length
+        $invalidData = [
+            'name' => 'Updated Name',
+            'email' => 'updated@example.com',
+            'phone_number' => '081234567892',
+            'parent_name' => str_repeat('A', 256), // Exceeds 255 character limit
+            'parents_phone_number' => '081234567893',
+            'school' => 'Updated School',
+            'grade' => '11'
+        ];
+
+        // Make POST request to update profile
+        $response = $this->withoutMiddleware()
+            ->post(route('user.profile.update'), $invalidData);
+
+        // Assert validation error
+        $response->assertSessionHasErrors(['parent_name']);
+    }
 }
