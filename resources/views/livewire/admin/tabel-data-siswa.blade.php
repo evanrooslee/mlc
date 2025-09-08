@@ -20,7 +20,7 @@
         <div class="relative w-72">
             <input type="text" wire:model.live.debounce.100ms="search"
                 class="w-full px-4 py-2 border border-[rgba(223,223,223,0.8)] rounded-md pr-10"
-                placeholder="Cari nama, email, nomor HP, sekolah, kelas, atau paket...">
+                placeholder="Cari nama, email, nomor HP, nama ayah/ibu, sekolah, kelas, atau paket...">
             <div class="absolute inset-y-0 right-0 flex items-center pr-3">
                 <svg class="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -89,6 +89,30 @@
                     </th>
                     <th class="py-3 px-4 text-right text-xs text-black">
                         Nomor HP Ayah/Ibu
+                    </th>
+                    <th class="py-3 px-4 text-left text-xs text-black">
+                        <button wire:click="sortByColumn('parent_name')"
+                            class="flex items-center text-xs text-black hover:text-blue-600 transition-colors">
+                            <span>Nama Ayah/Ibu</span>
+                            @if ($sortBy === 'parent_name')
+                                @if ($sortDirection === 'asc')
+                                    <svg class="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                                    </svg>
+                                @else
+                                    <svg class="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" />
+                                    </svg>
+                                @endif
+                            @else
+                                <svg class="w-3 h-3 ml-1 opacity-30" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                                </svg>
+                            @endif
+                        </button>
                     </th>
                     <th class="py-3 px-4 text-left text-xs text-black">
                         <button wire:click="sortByColumn('school')"
@@ -174,6 +198,7 @@
                         <td class="py-2 px-4 text-xs">{{ $student->email }}</td>
                         <td class="py-2 px-4 text-xs text-right">{{ $student->phone_number }}</td>
                         <td class="py-2 px-4 text-xs text-right">{{ $student->parents_phone_number }}</td>
+                        <td class="py-2 px-4 text-xs">{{ $student->parent_name ?? '-' }}</td>
                         <td class="py-2 px-4 text-xs">{{ $student->school }}</td>
                         <td class="py-2 px-4 text-xs">{{ $student->grade }}</td>
                         <td class="py-2 px-4 text-xs">
@@ -217,7 +242,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" class="py-8 px-4 text-center text-gray-500">
+                        <td colspan="9" class="py-8 px-4 text-center text-gray-500">
                             Tidak ada data siswa yang ditemukan
                         </td>
                     </tr>
