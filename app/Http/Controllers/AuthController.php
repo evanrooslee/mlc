@@ -15,7 +15,7 @@ class AuthController extends Controller
     {
         return view('auth.register');
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
@@ -23,33 +23,39 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'required|regex:/^[0-9+\-]+$/|max:15',
             'parents_phone_number' => 'required|regex:/^[0-9+\-]+$/|max:15',
+            'parent_name' => 'required|string|max:255',
             'school' => 'required|string|max:255',
             'grade' => 'required|string|max:2',
             'password' => 'required|string|min:8',
+        ], [
+            'parent_name.required' => 'Nama ayah/ibu wajib diisi.',
+            'parent_name.string' => 'Nama ayah/ibu harus berupa teks.',
+            'parent_name.max' => 'Nama ayah/ibu tidak boleh lebih dari 255 karakter.',
         ]);
-        
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone_number' => $request->phone_number,
             'parents_phone_number' => $request->parents_phone_number,
+            'parent_name' => $request->parent_name,
             'school' => $request->school,
             'grade' => $request->grade,
             'password' => Hash::make($request->password),
             'role' => 'student', // Set default role as student
         ]);
-        
+
         // Auto-login after registration
         Auth::login($user);
-        
+
         return redirect('/')->with('success', 'Akun berhasil dibuat!');
     }
-    
+
     public function login()
     {
         return view('auth.login');
     }
-    
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -63,22 +69,22 @@ class AuthController extends Controller
             if (Auth::user()->role == 'admin') {
                 return redirect()->route('admin.pembayaran');
             }
-            
+
             return redirect()->intended('/');
         }
-        
+
         return back()->withErrors([
             'phone_number' => 'Nomor HP atau password yang dimasukkan tidak valid.',
         ])->onlyInput('phone_number');
     }
-    
+
     public function logout(Request $request)
     {
         Auth::logout();
-        
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/');
     }
 }
