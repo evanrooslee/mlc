@@ -21,6 +21,9 @@ Route::get('/test', function () {
     return view('test');
 });
 
+// Discount tracking endpoint (accessible to all users)
+Route::post('/track-discount-click', [DiscountController::class, 'trackClick'])->name('track-discount-click');
+
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/pembayaran', [AdminController::class, 'index'])->name('admin.pembayaran');
     Route::get('/pembayaran/data', [AdminController::class, 'pembayaranData'])->name('admin.pembayaran.data');
