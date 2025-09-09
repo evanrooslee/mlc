@@ -413,12 +413,12 @@
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Video Pembelajaran</h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-50 justify-center">
                 @forelse ($materials as $material)
                     <div x-data="{ showPlayer: false, videoId: '{{ $material->id }}' }"
-                        class="bg-white rounded-lg shadow-md overflow-hidden max-w-xs justify-self-center">
+                        class="bg-white rounded-lg shadow-md overflow-hidden w-[320px] flex-shrink-0 justify-self-center">
 
-                        <div class="relative bg-black aspect-[9/16]">
+                        <div class="relative bg-black w-full h-[568px]">
                             <template x-if="!showPlayer">
                                 <button @click="playVideo(videoId); showPlayer = true"
                                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-60 transition hover:bg-opacity-70 z-10"
