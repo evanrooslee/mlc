@@ -36,6 +36,11 @@ class TabelPembayaran extends Component
 
     public function sortByColumn($field)
     {
+        // Map parent_name to the actual database field
+        if ($field === 'parent_name') {
+            $field = 'users.parent_name';
+        }
+
         if ($this->sortBy === $field) {
             $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
         } else {
@@ -71,6 +76,7 @@ class TabelPembayaran extends Component
                 'users.name as student_name',
                 'users.phone_number as student_phone',
                 'users.parents_phone_number as parent_phone',
+                'users.parent_name',
                 'packets.title as pesanan',
                 'payments.status',
                 'users.name as full_name'
@@ -80,18 +86,20 @@ class TabelPembayaran extends Component
                     $q->where('users.name', 'like', '%' . $this->search . '%')
                         ->orWhere('users.phone_number', 'like', '%' . $this->search . '%')
                         ->orWhere('users.parents_phone_number', 'like', '%' . $this->search . '%')
+                        ->orWhere('users.parent_name', 'like', '%' . $this->search . '%')
                         ->orWhere('packets.title', 'like', '%' . $this->search . '%')
-                        ->orWhere('payments.status', 'like', '%' . $this->search . '%')
-                        ->orWhere('users.name', 'like', '%' . $this->search . '%');
+                        ->orWhere('payments.status', 'like', '%' . $this->search . '%');
                 });
             })
             ->orderBy($this->sortBy, $this->sortDirection)
             ->paginate($this->perPage);
 
-        // Add parent_name to each payment (database-agnostic)
+        // Provide fallback for users without parent_name
         $payments->getCollection()->transform(function ($payment) {
-            $firstName = explode(' ', $payment->student_name)[0];
-            $payment->parent_name = 'Ayah/Ibu ' . $firstName;
+            if (empty($payment->parent_name)) {
+                $firstName = explode(' ', $payment->student_name)[0];
+                $payment->parent_name = 'Ayah/Ibu ' . $firstName;
+            }
             return $payment;
         });
 

@@ -63,6 +63,7 @@ class ProfileController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'phone_number' => 'required|regex:/^[0-9+\-]+$/' . '|max:15',
+            'parent_name' => 'required|string|max:255',
             'parents_phone_number' => 'required|regex:/^[0-9+\-]+$/' . '|max:15',
             'school' => 'required|string|max:255',
             'grade' => 'required|string|max:2',
@@ -71,6 +72,7 @@ class ProfileController extends Controller
         $user->name = $validated['name'];
         $user->email = $validated['email'];
         $user->phone_number = $validated['phone_number'];
+        $user->parent_name = $validated['parent_name'];
         $user->parents_phone_number = $validated['parents_phone_number'];
         $user->school = $validated['school'];
         $user->grade = $validated['grade'];

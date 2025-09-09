@@ -67,47 +67,73 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                             Lengkap</label>
                                         <input type="text" name="name" id="name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('name') border-red-500 @enderror"
                                             value="{{ old('name', Auth::user()->name) }}" required>
+                                        @error('name')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    <div class="col-span-1">
+                                        <label for="parent_name"
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Ayah /
+                                            Ibu</label>
+                                        <input type="text" name="parent_name" id="parent_name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('parent_name') border-red-500 @enderror"
+                                            value="{{ old('parent_name', Auth::user()->parent_name) }}" required>
+                                        @error('parent_name')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="col-span-1">
                                         <label for="parents_phone_number"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor HP
                                             Orang Tua</label>
                                         <input type="text" name="parents_phone_number" id="parents_phone_number"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('parents_phone_number') border-red-500 @enderror"
                                             value="{{ old('parents_phone_number', Auth::user()->parents_phone_number) }}"
                                             required>
+                                        @error('parents_phone_number')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="col-span-1">
                                         <label for="email"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
                                             Aktif</label>
                                         <input type="email" name="email" id="email"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('email') border-red-500 @enderror"
                                             value="{{ old('email', Auth::user()->email) }}" required>
+                                        @error('email')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="col-span-1">
                                         <label for="school"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Asal
                                             Sekolah</label>
                                         <input type="text" name="school" id="school"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('school') border-red-500 @enderror"
                                             value="{{ old('school', Auth::user()->school) }}" required>
+                                        @error('school')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="col-span-1">
                                         <label for="phone_number"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No HP
                                             Siswa</label>
                                         <input type="text" name="phone_number" id="phone_number"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('phone_number') border-red-500 @enderror"
                                             value="{{ old('phone_number', Auth::user()->phone_number) }}" required>
+                                        @error('phone_number')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="col-span-1">
                                         <label for="grade"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kelas</label>
                                         <select name="grade" id="grade"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('grade') border-red-500 @enderror"
                                             required>
                                             @foreach (range(7, 12) as $gradeOption)
                                                 <option value="{{ $gradeOption }}"
@@ -115,6 +141,9 @@
                                                     {{ $gradeOption }}</option>
                                             @endforeach
                                         </select>
+                                        @error('grade')
+                                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <button type="submit"

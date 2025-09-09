@@ -87,6 +87,7 @@ class TabelDataSiswa extends Component
                         ->orWhere('email', 'like', '%' . $this->search . '%')
                         ->orWhere('phone_number', 'like', '%' . $this->search . '%')
                         ->orWhere('parents_phone_number', 'like', '%' . $this->search . '%')
+                        ->orWhere('parent_name', 'like', '%' . $this->search . '%')
                         ->orWhere('school', 'like', '%' . $this->search . '%')
                         ->orWhere('grade', 'like', '%' . $this->search . '%')
                         ->orWhereHas('packets', function ($packetQuery) {
@@ -99,7 +100,7 @@ class TabelDataSiswa extends Component
                 $query->leftJoin('packet_user', 'users.id', '=', 'packet_user.user_id')
                     ->leftJoin('packets', 'packet_user.packet_id', '=', 'packets.id')
                     ->select('users.*')
-                    ->groupBy('users.id', 'users.name', 'users.email', 'users.phone_number', 'users.parents_phone_number', 'users.school', 'users.grade', 'users.role', 'users.password', 'users.remember_token', 'users.created_at', 'users.updated_at')
+                    ->groupBy('users.id', 'users.name', 'users.email', 'users.phone_number', 'users.parents_phone_number', 'users.parent_name', 'users.school', 'users.grade', 'users.role', 'users.password', 'users.remember_token', 'users.created_at', 'users.updated_at')
                     ->orderBy(DB::raw('GROUP_CONCAT(packets.code, ", ")'), $this->sortDirection);
             }, function ($query) {
                 // Default sorting for other columns
