@@ -14,13 +14,14 @@
                         Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
                     </p>
                     <div class="relative flex items-center">
-                        <input type="text" placeholder="Masukkan nomor hp kamu.."
+                        <input type="text" id="phoneNumber" placeholder="Masukkan nomor hp kamu.."
                             class="bg-white border w-[323px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
-                        <button type="button" onclick="getDiscount()"
+                        <button type="button" onclick="getDiscount()" id="discountButton"
                             class="text-white absolute left-[200px] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-bold rounded-full text-sm px-6 py-3 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
                             Dapatkan Diskon
                         </button>
                     </div>
+                    <div id="errorMessage" class="text-red-500 text-sm mt-2 hidden"></div>
                 </div>
                 <div class="md:w-1/2 flex justify-center items-center">
                     <div class="relative w-[567px] h-[527px]">
@@ -836,6 +837,79 @@
             'Halo! Saya ingin melakukan konsultasi gratis mengenai program bimbel online MLC. Bisakah kita berdiskusi lebih lanjut?';
 
         function getDiscount() {
+            const phoneInput = document.getElementById('phoneNumber');
+            const errorDiv = document.getElementById('errorMessage');
+            const discountButton = document.getElementById('discountButton');
+            const phoneNumber = phoneInput.value.trim();
+
+            // Clear previous error messages
+            errorDiv.classList.add('hidden');
+            errorDiv.textContent = '';
+
+            // Validate phone number
+            if (!phoneNumber) {
+                showError('Nomor HP harus diisi');
+                return;
+            }
+
+            // Indonesian phone number validation (basic format)
+            const phoneRegex = /^(\+62|62|0)[0-9]{8,13}$/;
+            if (!phoneRegex.test(phoneNumber)) {
+                showError('Format nomor HP tidak valid. Gunakan format Indonesia (contoh: 08123456789)');
+                return;
+            }
+
+            // Disable button during processing
+            const originalText = discountButton.textContent;
+            discountButton.disabled = true;
+            discountButton.textContent = 'Memproses...';
+
+            // Track the click via AJAX
+            trackDiscountClick(phoneNumber)
+                .then(() => {
+                    // Success or failure, still redirect to WhatsApp
+                    redirectToWhatsApp();
+                })
+                .catch(() => {
+                    // Even if tracking fails, still redirect to WhatsApp
+                    redirectToWhatsApp();
+                })
+                .finally(() => {
+                    // Re-enable button
+                    discountButton.disabled = false;
+                    discountButton.textContent = originalText;
+                });
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('hidden');
+        }
+
+        function trackDiscountClick(phoneNumber) {
+            return fetch('/track-discount-click', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        phone_number: phoneNumber
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(data => {
+                            throw new Error(data.message || 'Tracking failed');
+                        });
+                    }
+                    return response.json();
+                });
+        }
+
+        function redirectToWhatsApp() {
             const encodedMessage = encodeURIComponent(discountMessage);
             const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
             window.open(whatsappURL, '_blank');
