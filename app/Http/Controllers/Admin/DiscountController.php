@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TrackDiscountClickRequest;
 use App\Models\DiscountClick;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+
 
 class DiscountController extends Controller
 {
@@ -16,6 +16,8 @@ class DiscountController extends Controller
     {
         return view('admin.discounts');
     }
+
+
 
     /**
      * Track discount button click from landing page
