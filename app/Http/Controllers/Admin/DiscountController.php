@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TrackDiscountClickRequest;
 use App\Models\DiscountClick;
+use App\Services\DiscountClickExportService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -56,6 +57,22 @@ class DiscountController extends Controller
                 'success' => false,
                 'message' => 'Failed to track click, but you can still proceed'
             ], 500);
+        }
+    }
+
+    /**
+     * Export discount clicks to Excel file
+     */
+    public function exportClicks(DiscountClickExportService $exportService)
+    {
+        try {
+            return $exportService->exportToExcel();
+        } catch (\Exception $e) {
+            Log::error('Failed to export discount clicks', [
+                'error' => $e->getMessage()
+            ]);
+
+            return redirect()->back()->with('error', 'Failed to export data. Please try again.');
         }
     }
 }

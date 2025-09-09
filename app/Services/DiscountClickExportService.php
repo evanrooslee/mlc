@@ -63,7 +63,7 @@ class DiscountClickExport implements FromCollection, WithHeadings, WithMapping, 
         return [
             'Nomor HP',
             'Nama',
-            'Time Stamp'
+            'Time Stamp (WIB)'
         ];
     }
 
@@ -78,7 +78,7 @@ class DiscountClickExport implements FromCollection, WithHeadings, WithMapping, 
         return [
             $discountClick->phone_number,
             $discountClick->user_name ?? ($discountClick->user ? $discountClick->user->name : ''),
-            $discountClick->clicked_at->format('Y-m-d H:i:s')
+            $discountClick->clicked_at->setTimezone('Asia/Jakarta')->format('Y-m-d H:i:s')
         ];
     }
 

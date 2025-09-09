@@ -33,6 +33,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/pengaturan', [AdminController::class, 'pengaturan'])->name('admin.pengaturan');
     Route::put('/pengaturan', [AdminController::class, 'updatePengaturan'])->name('admin.pengaturan.update');
     Route::get('/discounts', [DiscountController::class, 'index'])->name('admin.discounts');
+    Route::get('/discounts/export', [DiscountController::class, 'exportClicks'])->name('admin.discounts.export');
 });
 
 Route::middleware('role:student')->group(function () {

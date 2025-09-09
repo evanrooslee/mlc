@@ -49,7 +49,7 @@
                     <th class="py-3 px-4 text-left">
                         <button wire:click="sortByColumn('clicked_at')"
                             class="flex items-center text-xs text-black hover:text-blue-600 transition-colors">
-                            <span>Time Stamp</span>
+                            <span>Time Stamp (WIB)</span>
                             @if ($sortBy === 'clicked_at')
                                 @if ($sortDirection === 'asc')
                                     <svg class="w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
@@ -79,7 +79,8 @@
                         <td class="py-2 px-4 text-xs">
                             {{ $click->user_name ?? ($click->user ? $click->user->name : '-') }}
                         </td>
-                        <td class="py-2 px-4 text-xs">{{ $click->clicked_at->format('d/m/Y H:i:s') }}</td>
+                        <td class="py-2 px-4 text-xs">
+                            {{ $click->clicked_at->setTimezone('Asia/Jakarta')->format('d/m/Y H:i:s') }}</td>
                     </tr>
                 @empty
                     <tr>
