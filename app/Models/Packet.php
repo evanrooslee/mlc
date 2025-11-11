@@ -17,6 +17,36 @@ class Packet extends Model
     {
         parent::boot();
 
+        // Generate slug when creating a packet
+        static::creating(function ($packet) {
+            if (empty($packet->slug)) {
+                $packet->slug = \Illuminate\Support\Str::slug($packet->title);
+                
+                // Handle duplicate slugs by appending a number
+                $originalSlug = $packet->slug;
+                $count = 1;
+                while (static::where('slug', $packet->slug)->exists()) {
+                    $packet->slug = $originalSlug . '-' . $count;
+                    $count++;
+                }
+            }
+        });
+
+        // Update slug when title changes
+        static::updating(function ($packet) {
+            if ($packet->isDirty('title') && empty($packet->slug)) {
+                $packet->slug = \Illuminate\Support\Str::slug($packet->title);
+                
+                // Handle duplicate slugs
+                $originalSlug = $packet->slug;
+                $count = 1;
+                while (static::where('slug', $packet->slug)->where('id', '!=', $packet->id)->exists()) {
+                    $packet->slug = $originalSlug . '-' . $count;
+                    $count++;
+                }
+            }
+        });
+
         // Clear popular packets cache when packet data changes
         static::saved(function () {
             Cache::forget('popular_packets');
@@ -29,6 +59,7 @@ class Packet extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'code',
         'grade',
         'subject',
@@ -43,6 +74,14 @@ class Packet extends Model
         'grade' => 'integer',
         'price' => 'integer',
     ];
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     /**
      * The discount that belongs to the packet.

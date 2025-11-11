@@ -1,2 +1,19 @@
 User-agent: *
-Disallow:
+# Disallow non-public areas
+Disallow: /admin/
+Disallow: /user-profile
+Disallow: /user-kelas
+Disallow: /beli-konfirmasi
+Disallow: /packets/filter
+Disallow: /login
+Disallow: /register
+Disallow: /proses-pembayaran
+Disallow: /validate-discount
+Disallow: /get-available-discounts
+Disallow: /track-discount-click
+
+# Allow everything else
+Allow: /
+
+# Sitemap
+Sitemap: https://mlconlinestudy.com/sitemap.xml

@@ -12,8 +12,10 @@ class Article extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'source',
         'url',
+        'content',
         'image',
         'is_starred',
     ];
@@ -21,6 +23,52 @@ class Article extends Model
     protected $casts = [
         'is_starred' => 'boolean',
     ];
+
+    /**
+     * Boot the model and set up event listeners.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Generate slug when creating an article
+        static::creating(function ($article) {
+            if (empty($article->slug)) {
+                $article->slug = \Illuminate\Support\Str::slug($article->title);
+                
+                // Handle duplicate slugs by appending a number
+                $originalSlug = $article->slug;
+                $count = 1;
+                while (static::where('slug', $article->slug)->exists()) {
+                    $article->slug = $originalSlug . '-' . $count;
+                    $count++;
+                }
+            }
+        });
+
+        // Update slug when title changes
+        static::updating(function ($article) {
+            if ($article->isDirty('title') && empty($article->slug)) {
+                $article->slug = \Illuminate\Support\Str::slug($article->title);
+                
+                // Handle duplicate slugs
+                $originalSlug = $article->slug;
+                $count = 1;
+                while (static::where('slug', $article->slug)->where('id', '!=', $article->id)->exists()) {
+                    $article->slug = $originalSlug . '-' . $count;
+                    $count++;
+                }
+            }
+        });
+    }
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     /**
      * Get the image attribute with proper path handling.

@@ -1,5 +1,14 @@
 @extends('layouts.app')
-@section('title', 'MLC - Online Study')
+
+@php
+    // SEO Meta Variables for Home Page
+    $metaTitle = 'MLC Online Study - Bimbel Online Matematika & Fisika Terjangkau untuk SMP & SMA';
+    $metaDescription =
+        'Sulit paham pelajaran di kelas? Belajar matematika dan fisika online dengan cara lebih mudah di MLC! Dapatkan diskon untuk pembelian kelas pertamamu. Tutor berpengalaman, harga terjangkau.';
+    $ogImage = asset('images/hero-illustration.png');
+    $ogType = 'website';
+@endphp
+
 @section('content')
 
     <!-- Hero Section -->
@@ -25,7 +34,9 @@
                 </div>
                 <div class="md:w-1/2 flex justify-center items-center">
                     <div class="relative w-[567px] h-[527px]">
-                        <img src="{{ asset('images/hero-illustration.png') }}" alt="Hero Background"
+                        <img src="{{ asset('images/hero-illustration.png') }}"
+                            alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study" width="567"
+                            height="527" fetchpriority="high" decoding="async"
                             class="absolute top-0 left-0 w-full h-full">
                     </div>
                 </div>
@@ -87,7 +98,8 @@
                             @endif
                             <div class="relative h-48">
                                 <img src="{{ $packet->image_url }}"
-                                    alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }}"
+                                    alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }} {{ $packet->title }} - Bimbel Online {{ $packet->subject }} Kelas {{ $packet->grade }}"
+                                    width="261" height="192" loading="lazy" decoding="async"
                                     class="w-full h-full object-cover rounded-t-lg">
                                 <h3 class="absolute bottom-2 left-4 text-white text-lg font-quicksand font-semibold">
                                     {{ $packet->title }}
@@ -136,7 +148,7 @@
                                                 class="text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
                                         @endif
                                     </div>
-                                    <a href="{{ route('beli-paket.show', $packet->id) }}"
+                                    <a href="{{ route('beli-paket.show', $packet->slug ?? $packet->id) }}"
                                         class="block w-full {{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white py-2 rounded-3xl font-semibold font-quicksand text-center">
                                         Beli Paket
                                     </a>
@@ -198,8 +210,9 @@
                 <div class="bg-white px-12 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
                     <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Accessible Learning</h3>
                     <div class="flex justify-center mb-4">
-                        <img src="{{ asset('images/accessible-learning.png') }}" alt="Accessible Learning"
-                            class="h-40">
+                        <img src="{{ asset('images/accessible-learning.png') }}"
+                            alt="Accessible Learning - Belajar dapat diakses siapa saja di mana saja" width="160"
+                            height="160" loading="lazy" decoding="async" class="h-40">
                     </div>
 
                     <p class="text-center text-gray-600 text-sm">
@@ -211,8 +224,9 @@
                 <div class="bg-white px-6 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
                     <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Fun & Friendly Atmosphere</h3>
                     <div class="flex justify-center mb-4">
-                        <img src="{{ asset('images/fun-learning.png') }}" alt="Fun & Friendly Atmosphere"
-                            class="h-40">
+                        <img src="{{ asset('images/fun-learning.png') }}"
+                            alt="Fun & Friendly Atmosphere - Belajar menyenangkan dengan tutor ramah" width="160"
+                            height="160" loading="lazy" decoding="async" class="h-40">
                     </div>
 
                     <p class="text-center text-gray-600 text-sm">
@@ -224,7 +238,9 @@
                 <div class="bg-white px-12 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
                     <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Progress Oriented</h3>
                     <div class="flex justify-center mb-4">
-                        <img src="{{ asset('images/progress-oriented.png') }}" alt="Progress Oriented" class="h-40">
+                        <img src="{{ asset('images/progress-oriented.png') }}"
+                            alt="Progress Oriented - Memantau perkembangan siswa untuk mencapai target" width="160"
+                            height="160" loading="lazy" decoding="async" class="h-40">
                     </div>
                     <p class="text-center text-gray-600 text-sm">
                         Kami pantau perkembangan siswa dan bantu mereka mencapai target personal.
@@ -235,8 +251,9 @@
                 <div class="bg-white px-12 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
                     <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Tech-Integrated Learning</h3>
                     <div class="flex justify-center mb-4">
-                        <img src="{{ asset('images/tech-learning.png') }}" alt="Tech-Integrated Learning"
-                            class="h-35">
+                        <img src="{{ asset('images/tech-learning.png') }}"
+                            alt="Tech-Integrated Learning - Menggunakan LMS, Zoom, dan forum diskusi" width="160"
+                            height="140" loading="lazy" decoding="async" class="h-35">
                     </div>
                     <p class="text-center text-gray-600 text-sm">
                         LMS, Zoom, dan forum diskusi digunakan untuk menunjang efektivitas.
@@ -468,16 +485,19 @@
         <h2 class="text-3xl font-bold text-center text-[#180746] mb-15 relative z-10">Artikel</h2>
         <div class="max-w-7xl mx-auto px-6 py-6 relative">
             <!-- Decorative elements -->
-            <img src="{{ asset('images/decor-book.png') }}"
+            <img src="{{ asset('images/decor-book.png') }}" alt="" width="64" height="64"
+                loading="lazy" decoding="async"
                 class="absolute top-6 left-8 w-16 rotate-[-12deg] opacity-60 pointer-events-none" />
-            <img src="{{ asset('images/decor-circle.png') }}" alt=""
+            <img src="{{ asset('images/decor-circle.png') }}" alt="" width="300" height="300"
+                loading="lazy" decoding="async"
                 class="absolute top-[45%] left-[55%] w-[300px] -translate-x-1/2 -translate-y-1/2 opacity-25 pointer-events-none " />
-            <img src="{{ asset('images/decor-star1.png') }}" alt=""
-                class="absolute top-4 right-12 w-6 opacity-60 pointer-events-none" />
-            <img src="{{ asset('images/decor-book.png') }}" alt=""
+            <img src="{{ asset('images/decor-star1.png') }}" alt="" width="24" height="24"
+                loading="lazy" decoding="async" class="absolute top-4 right-12 w-6 opacity-60 pointer-events-none" />
+            <img src="{{ asset('images/decor-book.png') }}" alt="" width="56" height="56"
+                loading="lazy" decoding="async"
                 class="absolute bottom-8 right-10 w-14 rotate-[15deg] opacity-60 pointer-events-none" />
-            <img src="{{ asset('images/decor-star2.png') }}" alt=""
-                class="absolute bottom-6 left-10 w-6 opacity-60 pointer-events-none" />
+            <img src="{{ asset('images/decor-star2.png') }}" alt="" width="24" height="24"
+                loading="lazy" decoding="async" class="absolute bottom-6 left-10 w-6 opacity-60 pointer-events-none" />
 
 
 
