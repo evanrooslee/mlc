@@ -8,16 +8,22 @@ use App\Models\Discount;
 
 class BuypacketController extends Controller
 {
-    public function beliPaket($packet_id)
+    public function beliPaket($packetIdentifier)
     {
-        // Validate packet ID is numeric
-        if (!is_numeric($packet_id) || $packet_id <= 0) {
-            abort(404, 'Invalid packet ID provided');
+        // Check if this is an old numeric ID (for backwards compatibility and 301 redirect)
+        if (is_numeric($packetIdentifier)) {
+            try {
+                $packet = Packet::findOrFail($packetIdentifier);
+                // 301 redirect to the new slug-based URL
+                return redirect()->route('beli-paket.show', ['packet' => $packet->slug], 301);
+            } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+                abort(404, 'Packet not found');
+            }
         }
 
-        // Find the packet by ID with error handling
+        // Find the packet by slug with error handling
         try {
-            $packet = Packet::findOrFail($packet_id);
+            $packet = Packet::where('slug', $packetIdentifier)->firstOrFail();
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             abort(404, 'Packet not found');
         }
