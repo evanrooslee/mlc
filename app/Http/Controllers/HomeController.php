@@ -7,6 +7,10 @@ use App\Models\Article;
 use App\Models\Banner;
 use App\Models\Material;
 use App\Models\Packet;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\TwitterCard;
+use Artesaos\SEOTools\Facades\JsonLd;
 
 class HomeController extends Controller
 {

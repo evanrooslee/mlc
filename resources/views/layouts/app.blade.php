@@ -7,8 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
+
     {{-- SEO Meta Tags --}}
-    @include('partials.meta', [
+    {{-- @include('partials.meta', [
         'title' => $metaTitle ?? null,
         'metaDescription' => $metaDescription ?? null,
         'canonical' => $canonical ?? null,
@@ -17,7 +22,7 @@
         'ogImage' => $ogImage ?? null,
         'ogUrl' => $ogUrl ?? null,
         'robots' => $robots ?? null,
-    ])
+    ]) --}}
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
