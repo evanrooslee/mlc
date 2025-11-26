@@ -13,32 +13,30 @@
 
     <!-- Hero Section -->
     <section class="bg-[#FAFAFA] py-5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
-                        Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
-                    </h1>
-                    <p class="text-gray-600 mb-8 text-xl font-nunito">
-                        Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
-                    </p>
-                    <div class="relative flex items-center">
-                        <input type="text" id="phoneNumber" placeholder="Masukkan nomor hp kamu.."
-                            class="bg-white border w-[323px] border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
-                        <button type="button" onclick="getDiscount()" id="discountButton"
-                            class="text-white absolute left-[200px] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-bold rounded-full text-sm px-6 py-3 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
-                            Dapatkan Diskon
-                        </button>
-                    </div>
-                    <div id="errorMessage" class="text-red-500 text-sm mt-2 hidden"></div>
+        <div class="mx-auto px-32 flex gap-8 items-center self-stretch justify-between">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
+                    Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
+                </h1>
+                <p class="mb-6 text-md font-nunito">
+                    Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
+                </p>
+                <div class="relative flex items-center">
+                    <input type="text" id="phoneNumber" placeholder="Masukkan nomor hp kamu.."
+                        class="bg-white border w-3/5 border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
+                    <button type="button" onclick="getDiscount()" id="discountButton"
+                        class="text-white absolute left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-6 py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
+                        Dapatkan Diskon
+                    </button>
                 </div>
-                <div class="md:w-1/2 flex justify-center items-center">
-                    <div class="relative w-[567px] h-[527px]">
-                        <img src="{{ asset('images/hero-illustration.png') }}"
-                            alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study" width="567"
-                            height="527" fetchpriority="high" decoding="async"
-                            class="absolute top-0 left-0 w-full h-full">
-                    </div>
+                <div id="errorMessage" class="text-red-500 text-sm mt-2 hidden"></div>
+            </div>
+            <div class="md:w-1/2 flex justify-center items-center">
+                <div class="relative w-[627px] h-[527px]">
+                    <img src="{{ asset('images/hero-illustration.png') }}"
+                        alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study"
+                        width="627" fetchpriority="high"
+                        class="absolute top-0 left-0 w-full h-full">
                 </div>
             </div>
         </div>
