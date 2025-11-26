@@ -13,7 +13,7 @@
 
     <!-- Hero Section -->
     <section class="bg-[#FAFAFA] py-5">
-        <div class="mx-auto px-32 flex gap-8 items-center self-stretch justify-between">
+        <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
             <div class="md:w-1/2 mb-10 md:mb-0">
                 <h1 class="text-3xl md:text-5xl font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
                     Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
