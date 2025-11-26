@@ -45,8 +45,8 @@
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Pilih Paket</h2>
-            <p class="font-quicksand text-center text-gray-600 mb-8 text-lg">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Pilih Paket</h2>
+            <p class="font-quicksand text-center font-medium mb-14 text-md">
                 MLC menyediakan berbagai paket pembelajaran bahasa online yang diracik dengan kebutuhan kamu.<br>
                 Ayo cari yang cocok!
             </p>
