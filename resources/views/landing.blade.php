@@ -85,7 +85,7 @@
                 <!-- Package Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach ($packets as $packet)
-                        <div class="packet-card bg-white rounded-xl shadow-lg {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} w-[261px] h-[531px] flex flex-col relative"
+                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} w-[261px] h-[531px] flex flex-col relative"
                             data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
                             <div class="relative h-48">
                                 <img src="{{ $packet->image_url }}"
