@@ -34,9 +34,8 @@
             <div class="md:w-1/2 flex justify-center items-center">
                 <div class="relative w-[627px] h-[527px]">
                     <img src="{{ asset('images/hero-illustration.png') }}"
-                        alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study"
-                        width="627" fetchpriority="high"
-                        class="absolute top-0 left-0 w-full h-full">
+                        alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study" width="627"
+                        fetchpriority="high" class="absolute top-0 left-0 w-full h-full">
                 </div>
             </div>
         </div>
@@ -55,60 +54,55 @@
                 <!-- Filter Buttons -->
                 <div class="flex flex-wrap justify-start gap-2 mb-8">
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Matematika">Matematika</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="7">Kelas 7</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="8">Kelas 8</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="9">Kelas 9</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="10">Kelas 10</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="11">Kelas 11</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] text-[#125BC2] hover:bg-[#0e4a9a] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="12">Kelas 12</button>
                 </div>
 
                 <!-- Package Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach ($packets as $packet)
-                        <div class="packet-card bg-white rounded-xl shadow-lg {{ $packet->type === 'premium' ? 'border-2 border-yellow-400' : 'border border-gray-200' }} w-[261px] h-[531px] flex flex-col relative"
+                        <div class="packet-card bg-white rounded-xl shadow-lg {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} w-[261px] h-[531px] flex flex-col relative"
                             data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
-                            @if ($packet->type === 'premium')
-                                <div
-                                    class="absolute top-2 left-2 bg-yellow-400 text-white text-xs px-2 py-1 rounded-2xl font-quicksand font-bold z-10">
-                                    Premium
-                                </div>
-                            @endif
                             <div class="relative h-48">
                                 <img src="{{ $packet->image_url }}"
                                     alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }} {{ $packet->title }} - Bimbel Online {{ $packet->subject }} Kelas {{ $packet->grade }}"
                                     width="261" height="192" loading="lazy" decoding="async"
                                     class="w-full h-full object-cover rounded-t-lg">
-                                <h3 class="absolute bottom-2 left-4 text-white text-lg font-quicksand font-semibold">
-                                    {{ $packet->title }}
+                                <h3 title="{{ $packet->title }}"
+                                    class="absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
+                                    {{ Str::limit($packet->title, 50) }}
                                 </h3>
                             </div>
                             <div class="p-5 flex flex-col h-[calc(531px-12rem)]">
                                 <div class="flex flex-wrap gap-2 mb-4">
-                                    @if ($packet->type === 'premium')
+                                    {{-- @if ($packet->type === 'premium')
                                         <span
                                             class="px-2 py-1 bg-white border border-yellow-400 text-yellow-400 text-xs rounded-full font-quicksand font-bold">Premium</span>
-                                    @endif
+                                    @endif --}}
                                     <span
                                         class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">Kelas
                                         {{ $packet->grade }}
@@ -129,10 +123,10 @@
                                 <div class="mt-auto">
                                     <div class="mb-4">
                                         @if ($packet->discount && $packet->discount->percentage > 0)
+                                            <span class="text-sm text-[#868686] font-bold line-through mr-2">Rp
+                                                {{ number_format($packet->price, 0, ',', '.') }}</span>
                                             <span
-                                                class="text-sm text-gray-500 line-through mr-2">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
-                                            <span
-                                                class="text-sm text-red-500 font-semibold bg-red-100 px-2 py-1 rounded-full">{{ $packet->discount->percentage }}%
+                                                class="text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg">{{ $packet->discount->percentage }}%
                                             </span>
                                             @php
                                                 $discountedPrice =
@@ -682,6 +676,8 @@
                     }
 
                     // Toggle active state visually
+                    // Ensure any explicit white background is removed when activating
+                    this.classList.toggle('bg-white');
                     this.classList.toggle('bg-blue-600');
                     this.classList.toggle('text-white');
                     this.classList.toggle('border');
