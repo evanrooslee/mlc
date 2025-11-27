@@ -461,114 +461,131 @@
     </section>
 
     <!-- Artikel Section -->
-    <section class="py-12 bg-[#FAFAFA] mb-24">
-        <h2 class="text-3xl font-bold text-center text-[#180746] mb-12 relative z-10">Artikel</h2>
-        <div class="flex max-w-7xl gap-16 mx-auto">
-            <div class="flex-1">
-                <img src="{{ asset('images/article-image.png') }}" alt="">
-            </div>
+    <section class="py-12 bg-[#FAFAFA] mb-24 overflow-x-clip">
+        <div class="relative max-w-7xl mx-auto">
+            {{-- image decorations --}}
+            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1" class="absolute top-155 right-315 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2" class="absolute top-20 right-80 w-14 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1" class="absolute top-50 left-310 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-books.svg') }}" alt="books" class="absolute top-155 right-16 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2" class="absolute top-20 left-1 w-16 z-0 pointer-events-none">
+
+            {{-- main content --}}
+            <div class="relative z-10">
+                <h2 class="text-3xl font-bold text-center text-[#180746] mb-30 relative z-10">Artikel</h2>
+                <div class="flex gap-16">
+                    
+                    <div class="flex-1">
+                        <img src="{{ asset('images/article-image.png') }}" alt="" class="z-10">
+                    </div>
 
 
-            <div class="flex-1 flex flex-col items-center justify-center gap-6 relative z-10">
-                @if (isset($articles[0]))
-                    <!-- Article Card 1 -->
-                    <div
-                        class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
-                        @if ($articles[0]->is_starred)
-                            <div class="absolute top-2 right-2 z-10">
-                                <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>
-                                <div
-                                    class="absolute hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 right-0 bottom-full">
-                                    Artikel Unggulan
+                    <div class="flex-1 flex flex-col items-center justify-center gap-6 relative z-10">
+                        {{-- image decoration --}}
+                        <img src="{{ asset('images/article-ellipse.png') }}" alt="ellipse" class="absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
+
+                        @if (isset($articles[0]))
+                            <!-- Article Card 1 -->
+                            <div
+                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
+                                @if ($articles[0]->is_starred)
+                                    <div class="absolute top-2 right-2 z-10">
+                                        <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                        </svg>
+                                        <div
+                                            class="absolute hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 right-0 bottom-full">
+                                            Artikel Unggulan
+                                        </div>
+                                    </div>
+                                @endif
+                                <img src="{{ asset('storage/' . $articles[0]->image) }}" alt="Article"
+                                    class="w-32 h-full object-cover flex-shrink-0"
+                                    onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
+                                    loading="lazy">
+                                <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
+                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[0]->title, 125) }}</h3>
+                                    <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[0]->source }}</p>
+                                    <div class="absolute bottom-4 right-3">
+                                        <a href="{{ $articles[0]->url }}" target="_blank"
+                                            class="text-sm text-[#01A8DC] font-bold hover:underline text-center border border-[#01A8DC] rounded-full p-2.5">Baca
+                                            Sekarang</a>
+                                    </div>
                                 </div>
                             </div>
                         @endif
-                        <img src="{{ asset('storage/' . $articles[0]->image) }}" alt="Article"
-                            class="w-32 h-full object-cover flex-shrink-0"
-                            onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
-                            loading="lazy">
-                        <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                            <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[0]->title, 125) }}</h3>
-                            <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[0]->source }}</p>
-                            <div class="absolute bottom-4 right-3">
-                                <a href="{{ $articles[0]->url }}" target="_blank"
-                                    class="text-sm text-[#01A8DC] font-bold hover:underline text-center border border-[#01A8DC] rounded-full p-2.5">Baca
-                                    Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                @endif
 
-                @if (isset($articles[1]))
-                    <!-- Article Card 2 -->
-                    <div
-                        class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-end">
-                        @if ($articles[1]->is_starred)
-                            <div class="absolute top-2 right-2 z-10">
-                                <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>
-                                <div
-                                    class="absolute hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 right-0 bottom-full">
-                                    Artikel Unggulan
+                        @if (isset($articles[1]))
+                            <!-- Article Card 2 -->
+                            <div
+                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-end">
+                                @if ($articles[1]->is_starred)
+                                    <div class="absolute top-2 right-2 z-10">
+                                        <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                        </svg>
+                                        <div
+                                            class="absolute hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 right-0 bottom-full">
+                                            Artikel Unggulan
+                                        </div>
+                                    </div>
+                                @endif
+                                <img src="{{ asset('storage/' . $articles[1]->image) }}" alt="Article"
+                                    class="w-32 h-full object-cover flex-shrink-0"
+                                    onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
+                                    loading="lazy">
+                                <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
+                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[1]->title, 125) }}</h3>
+                                    <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[1]->source }}</p>
+                                    <div class="absolute bottom-4 right-3">
+                                        <a href="{{ $articles[1]->url }}" target="_blank"
+                                            class="text-sm text-white bg-[#01A8DC] font-bold hover:bg-[#29738A] rounded-full p-2.5 text-center">Baca
+                                            Sekarang</a>
+                                    </div>
                                 </div>
                             </div>
                         @endif
-                        <img src="{{ asset('storage/' . $articles[1]->image) }}" alt="Article"
-                            class="w-32 h-full object-cover flex-shrink-0"
-                            onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
-                            loading="lazy">
-                        <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                            <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[1]->title, 125) }}</h3>
-                            <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[1]->source }}</p>
-                            <div class="absolute bottom-4 right-3">
-                                <a href="{{ $articles[1]->url }}" target="_blank"
-                                    class="text-sm text-white bg-[#01A8DC] font-bold hover:bg-[#29738A] rounded-full p-2.5 text-center">Baca
-                                    Sekarang</a>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-                @if (isset($articles[2]))
-                    <!-- Article Card 3 -->
-                    <div
-                        class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
-                        @if ($articles[2]->is_starred)
-                            <div class="absolute top-2 right-2 z-10">
-                                <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                </svg>
-                                <div
-                                    class="absolute hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 right-0 bottom-full">
-                                    Artikel Unggulan
+                        @if (isset($articles[2]))
+                            <!-- Article Card 3 -->
+                            <div
+                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
+                                @if ($articles[2]->is_starred)
+                                    <div class="absolute top-2 right-2 z-10">
+                                        <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                        </svg>
+                                        <div
+                                            class="absolute hidden group-hover:block bg-black text-white text-xs rounded py-1 px-2 right-0 bottom-full">
+                                            Artikel Unggulan
+                                        </div>
+                                    </div>
+                                @endif
+                                <img src="{{ asset('storage/' . $articles[2]->image) }}" alt="Article"
+                                    class="w-32 h-full object-cover flex-shrink-0"
+                                    onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
+                                    loading="lazy">
+                                <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
+                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[2]->title, 125) }}</h3>
+                                    <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[2]->source }}</p>
+                                    <div class="absolute bottom-4 right-3">
+                                        <a href="{{ $articles[2]->url }}" target="_blank"
+                                            class="text-sm text-[#01A8DC] font-bold hover:underline border text-center border-[#01A8DC] rounded-full p-2.5">Baca
+                                            Sekarang</a>
+                                    </div>
                                 </div>
                             </div>
                         @endif
-                        <img src="{{ asset('storage/' . $articles[2]->image) }}" alt="Article"
-                            class="w-32 h-full object-cover flex-shrink-0"
-                            onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
-                            loading="lazy">
-                        <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                            <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[2]->title, 125) }}</h3>
-                            <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[2]->source }}</p>
-                            <div class="absolute bottom-4 right-3">
-                                <a href="{{ $articles[2]->url }}" target="_blank"
-                                    class="text-sm text-[#01A8DC] font-bold hover:underline border text-center border-[#01A8DC] rounded-full p-2.5">Baca
-                                    Sekarang</a>
-                            </div>
-                        </div>
                     </div>
-                @endif
+                </div>
             </div>
         </div>
+        
     </section>
 
     <!-- JS Scripts -->
