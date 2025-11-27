@@ -44,7 +44,7 @@
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Pilih Paket</h2>
+            <h2 class="text-3xl font-bold text-center text-[#2D2933] mb-6">Pilih Paket</h2>
             <p class="font-quicksand text-center font-medium mb-14 text-md">
                 MLC menyediakan berbagai paket pembelajaran bahasa online yang diracik dengan kebutuhan kamu.<br>
                 Ayo cari yang cocok!
@@ -188,73 +188,73 @@
     </section>
 
     <!-- Kenapa MLC Section -->
-    <section class="py-16"
+    <section
         style="background: radial-gradient(169.93% 43.19% at 50% 50%, rgba(255, 239, 235, 0.25) 0%, rgba(191, 242, 255, 0.25) 100%)">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-2">Kenapa MLC?</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto text-lg font-inter">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col py-12 gap-12">
+            <h2 class="text-3xl font-bold text-center text-[#180746]">Kenapa MLC?</h2>
+            <p class="text-center max-w-3xl mx-auto text-lg font-inter">
                 MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang <br> nyaman, mudah dipahami,
                 dan ramah di kantong.
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-0.5">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Feature 1 -->
-                <div class="bg-white px-12 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
-                    <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Accessible Learning</h3>
-                    <div class="flex justify-center mb-4">
+                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-xl font-bold text-center">Accessible Learning</h3>
+                    <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/accessible-learning.png') }}"
-                            alt="Accessible Learning - Belajar dapat diakses siapa saja di mana saja" width="160"
-                            height="160" loading="lazy" decoding="async" class="h-40">
+                            alt="Accessible Learning - Belajar dapat diakses siapa saja di mana saja" height="160"
+                            loading="lazy" decoding="async">
                     </div>
 
-                    <p class="text-center text-gray-600 text-sm">
+                    <p class="text-center text-md">
                         Belajar harus bisa diakses siapa saja, di mana saja, tanpa batasan biaya atau lokasi.
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="bg-white px-6 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
-                    <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Fun & Friendly Atmosphere</h3>
-                    <div class="flex justify-center mb-4">
+                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-xl font-bold text-center">Fun & Friendly Atmosphere</h3>
+                    <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/fun-learning.png') }}"
-                            alt="Fun & Friendly Atmosphere - Belajar menyenangkan dengan tutor ramah" width="160"
-                            height="160" loading="lazy" decoding="async" class="h-40">
+                            alt="Fun & Friendly Atmosphere - Belajar menyenangkan dengan tutor ramah" height="160"
+                            loading="lazy" decoding="async">
                     </div>
 
-                    <p class="text-center text-gray-600 text-sm">
+                    <p class="text-center text-md">
                         Belajar itu harus menyenangkan, bukan menekan. Tutor kami ramah dan suportif.
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="bg-white px-12 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
-                    <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Progress Oriented</h3>
-                    <div class="flex justify-center mb-4">
+                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-xl font-bold text-center">Progress Oriented</h3>
+                    <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/progress-oriented.png') }}"
-                            alt="Progress Oriented - Memantau perkembangan siswa untuk mencapai target" width="160"
-                            height="160" loading="lazy" decoding="async" class="h-40">
+                            alt="Progress Oriented - Memantau perkembangan siswa untuk mencapai target" height="160"
+                            loading="lazy" decoding="async">
                     </div>
-                    <p class="text-center text-gray-600 text-sm">
+                    <p class="text-center text-md">
                         Kami pantau perkembangan siswa dan bantu mereka mencapai target personal.
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="bg-white px-12 py-6 rounded-lg shadow-md max-w-[288px] mx-auto">
-                    <h3 class="text-lg font-semibold text-center text-gray-800 mb-2">Tech-Integrated Learning</h3>
-                    <div class="flex justify-center mb-4">
+                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-xl font-bold text-center">Tech-Integrated Learning</h3>
+                    <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/tech-learning.png') }}"
-                            alt="Tech-Integrated Learning - Menggunakan LMS, Zoom, dan forum diskusi" width="160"
-                            height="140" loading="lazy" decoding="async" class="h-35">
+                            alt="Tech-Integrated Learning - Menggunakan LMS, Zoom, dan forum diskusi" height="140"
+                            loading="lazy" decoding="async">
                     </div>
-                    <p class="text-center text-gray-600 text-sm">
+                    <p class="text-center text-md">
                         LMS, Zoom, dan forum diskusi digunakan untuk menunjang efektivitas.
                     </p>
                 </div>
             </div>
 
-            <div class="text-center mt-12">
-                <p class="text-gray-600 font-inter mb-4 max-w-3xl mx-auto text-lg">
+            <div class="text-center">
+                <p class="font-inter mb-4 max-w-3xl mx-auto text-lg">
                     Belajar dari rumah tetap bisa efektif dan terarah, tanpa khawatir tertinggal. <br>
                     MLC hadir untuk membantu siswa memahami materi dengan lebih tenang, dengan harga yang masuk akal dan
                     waktu belajar yang fleksibel.
@@ -265,151 +265,140 @@
 
     <!-- WhatsApp Admin Section -->
     <section class="py-12 bg-[#FAFAFA]">
-        <div class="max-w-5xl mx-auto px-6 relative">
-            <div class="rounded-3xl px-12 py-8 relative z-10 shadow-[0px_12px_24px_0px_#B8CFF0]"
-                style="background: radial-gradient(227.11% 60.35% at 50% 50%, #F3F7FE 0%, #A2C0EB 100%);">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <p class="text-black mb-3 text-md mx-8">Ingin tau lebih banyak tentang MLC?</p>
-                        <h2 class="text-xl font-semibold text-black mx-8">Chat WhatsApp Admin sekarang!</h2>
-                    </div>
-                    <button onclick="consultationAdmin()"
-                        class="bg-[#01A8DC] hover:bg-[#71b7cc] text-white px-4 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
-                        Konsultasi Admin
-                        <img src="{{ asset('images/ic_baseline-whatsapp.svg') }}" alt="WhatsApp" class="w-6 h-6">
-                    </button>
+        <div
+            class="max-w-5xl mx-auto rounded-3xl px-16 py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
+            <div class="absolute bottom-0 left-0 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="144" height="106" viewBox="0 0 144 106"
+                    fill="none">
+                    <path
+                        d="M46 5.5C36.5 1 8 0 8 0H-12V115H144C144 115 139 97.5 117.5 96C96 94.5 79.5 66.5 76 56.5C72.5 46.5 72 42.5 72 42.5C72 42.5 70.5 28.5 63 20C55.5 11.5 55.5 10 46 5.5Z"
+                        fill="#CADEFA" />
+                </svg>
+            </div>
+            <div class="flex justify-between items-center px-8">
+                <div class="flex flex-col gap-4">
+                    <p class="text-#373737 font-medium text-sm">Ingin tau lebih banyak tentang MLC?</p>
+                    <h2 class="text-xl font-semibold text-black">Chat WhatsApp Admin sekarang!</h2>
                 </div>
+                <button onclick="consultationAdmin()"
+                    class="bg-[#01A8DC] hover:bg-[#29738A] text-white px-4 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
+                    Konsultasi Admin
+                    <img src="{{ asset('images/ic_baseline-whatsapp.svg') }}" alt="WhatsApp" class="w-6 h-6">
+                </button>
+            </div>
+            <div class="absolute top-0 right-0 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="65" height="112" viewBox="0 0 65 112"
+                    fill="none">
+                    <path
+                        d="M2.35968 -8.92574C-3.14035 -10.4257 1.35968 11.0743 11.8597 30.5743C22.3597 50.0743 38.8597 31.5743 42.8597 47.0743C46.8597 62.5743 27.8597 67.5742 28.8597 89.5742C29.8597 111.574 51.3597 111.574 51.3597 111.574H76.3597V-8.92574C76.3597 -8.92574 7.85972 -7.42574 2.35968 -8.92574Z"
+                        fill="#CADEFA" />
+                </svg>
             </div>
         </div>
     </section>
 
     <!-- Banner Section -->
-    <section class="py-32 bg-[#FAFAFA]">
+    <section class="py-22 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-
-                <div class="w-full">
-                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                <div class="h-full">
+                    <div class="relative h-40 rounded-lg overflow-hidden"
                         style="background-image: url('{{ asset('images/mlc-regular-class.png') }}')">
                         <!-- Frosted glass overlay -->
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="text-black">
-                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
-                                    MLC Regular Class
-                                </h3>
-                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
-                                    Kelas online rutin dengan jadwal terstruktur.
-                                </p>
-                            </div>
-                            <div>
-                                <div class="text-2xl">📚</div>
-                            </div>
+                        <div class="absolute inset-0 p-4 flex flex-col">
+                            <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
+                                MLC Regular Class
+                            </h3>
+                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                                Kelas online rutin dengan jadwal terstruktur.
+                            </p>
+                            <div class="text-2xl">📚</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                <div class="h-full">
+                    <div class="relative h-40 rounded-lg overflow-hidden"
                         style="background-image: url('{{ asset('images/mlc-try-out-center.png') }}')">
                         <!-- Frosted glass overlay -->
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="text-black">
-                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
-                                    MLC Try Out Center
-                                </h3>
-                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
-                                    Try Out mingguan untuk evaluasi kesiapan ujian.
-                                </p>
-                            </div>
-                            <div>
-                                <div class="text-2xl">🔍</div>
-                            </div>
+                        <div class="absolute inset-0 p-4 flex flex-col">
+                            <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
+                                MLC Try Out Center
+                            </h3>
+                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                                Try Out mingguan untuk evaluasi kesiapan ujian.
+                            </p>
+                            <div class="text-2xl">🔍</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                <div class="h-full">
+                    <div class="relative h-40 rounded-lg overflow-hidden"
                         style="background-image: url('{{ asset('images/mlc-forum-diskusi.png') }}')">
                         <!-- Frosted glass overlay -->
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="text-black">
-                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
-                                    MLC Forum Diskusi
-                                </h3>
-                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
-                                    Forum tanya-jawab soal dengan tutor dan teman.
-                                </p>
-                            </div>
-                            <div>
-                                <div class="text-2xl">💬</div>
-                            </div>
+                        <div class="absolute inset-0 p-4 flex flex-col">
+                            <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
+                                MLC Forum Diskusi
+                            </h3>
+                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                                Forum tanya-jawab soal dengan tutor dan teman.
+                            </p>
+                            <div class="text-2xl">💬</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                <div class="h-full">
+                    <div class="relative h-40 rounded-lg overflow-hidden"
                         style="background-image: url('{{ asset('images/mlc-counseling.png') }}')">
                         <!-- Frosted glass overlay -->
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="text-black">
-                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
-                                    MLC Counseling
-                                </h3>
-                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
-                                    Konsultasi gratis tentang jurusan dan strategi belajar.
-                                </p>
-                            </div>
-                            <div>
-                                <div class="text-2xl">🎓</div>
-                            </div>
+                        <div class="absolute inset-0 p-4 flex flex-col">
+                            <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
+                                MLC Counseling
+                            </h3>
+                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                                Konsultasi gratis tentang jurusan dan strategi belajar.
+                            </p>
+                            <div class="text-2xl">🎓</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                <div class="h-full">
+                    <div class="relative h-40 rounded-lg overflow-hidden"
                         style="background-image: url('{{ asset('images/mlc-learning-management.png') }}')">
                         <!-- Frosted glass overlay -->
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="text-black">
-                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
-                                    MLC Learning Management System
-                                </h3>
-                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
-                                    Akses materi, rekaman kelas, dan progress belajar.
-                                </p>
-                            </div>
-                            <div>
-                                <div class="text-2xl">📁</div>
-                            </div>
+                        <div class="absolute inset-0 p-4 flex flex-col">
+                            <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
+                                MLC Learning Management System
+                            </h3>
+                            <p class="text-sm font-quicksand text-black mt-2 flex-1">
+                                Akses materi, rekaman kelas, dan progress belajar.
+                            </p>
+                            <div class="text-2xl">📁</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <div class="relative h-40 rounded-2xl overflow-hidden"
+                <div class="h-full">
+                    <div class="relative h-40 rounded-lg overflow-hidden"
                         style="background-image: url('{{ asset('images/mlc-free-trial-class.png') }}')">
                         <!-- Frosted glass overlay -->
                         <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px]"></div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="text-black">
-                                <h3 class="text-md font-bold font-quicksand mb-2 leading-tight">
-                                    MLC Free Trial Class
-                                </h3>
-                                <p class="text-sm font-semibold font-quicksand leading-relaxed line-clamp-2">
-                                    Kelas percobaan gratis untuk semua siswa baru.
-                                </p>
-                            </div>
-                            <div>
-                                <div class="text-2xl">🎁</div>
-                            </div>
+                        <div class="absolute inset-0 p-4 flex flex-col">
+                            <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
+                                MLC Free Trial Class
+                            </h3>
+                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                                Kelas percobaan gratis untuk semua siswa baru.
+                            </p>
+                            <div class="text-2xl">🎁</div>
                         </div>
                     </div>
                 </div>
