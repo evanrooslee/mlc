@@ -51,7 +51,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body class="antialiased bg-white font-quicksand">
+<body class="antialiased bg-[#FAFAFA] font-quicksand">
     @isset($banner)
         @include('layouts.banner')
     @endisset
