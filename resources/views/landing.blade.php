@@ -14,17 +14,18 @@
     <section class="bg-[#FAFAFA] py-5">
         <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
             <div class="w-full md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-3xl md:text-5xl text-center md:text-left font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
+                <h1
+                    class="text-3xl md:text-5xl text-center md:text-left font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
                     Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
                 </h1>
                 <p class="mb-6 text-md text-center md:text-left font-nunito">
                     Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
                 </p>
-                <div class="relative flex items-center">
+                <div class="relative flex flex-col md:flex-row gap-4 md:items-center ">
                     <input type="text" id="phoneNumber" placeholder="Masukkan nomor hp kamu.."
-                        class="bg-white border w-3/5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block py-2 md:p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
+                        class="bg-white border w-full md:w-3/5 border-gray-300 text-gray-900 md:text-sm rounded-full md:rounded-xl focus:ring-blue-500 focus:border-blue-500 py-2 md:p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
                     <button type="button" onclick="getDiscount()" id="discountButton"
-                        class=" text-white absolute right-0 md:left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-3 md:px-6 py-2 md:py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
+                        class=" text-white w-full md:w-auto md:absolute md:left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-3 md:px-6 py-2 md:py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
                         Dapatkan Diskon
                     </button>
                 </div>
