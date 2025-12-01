@@ -13,24 +13,24 @@
     <!-- Hero Section -->
     <section class="bg-[#FAFAFA] py-5">
         <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
+            <div class="w-full md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-3xl md:text-5xl text-center md:text-left font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
                     Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
                 </h1>
-                <p class="mb-6 text-md font-nunito">
+                <p class="mb-6 text-md text-center md:text-left font-nunito">
                     Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
                 </p>
                 <div class="relative flex items-center">
                     <input type="text" id="phoneNumber" placeholder="Masukkan nomor hp kamu.."
-                        class="bg-white border w-3/5 border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
+                        class="bg-white border w-3/5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block py-2 md:p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
                     <button type="button" onclick="getDiscount()" id="discountButton"
-                        class="text-white absolute left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-6 py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
+                        class=" text-white absolute right-0 md:left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-3 md:px-6 py-2 md:py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
                         Dapatkan Diskon
                     </button>
                 </div>
                 <div id="errorMessage" class="text-red-500 text-sm mt-2 hidden"></div>
             </div>
-            <div class="md:w-1/2 flex justify-center items-center">
+            <div class="hidden md:flex md:w-1/2 justify-center items-center">
                 <div class="relative w-[627px] h-[527px]">
                     <img src="{{ asset('images/hero-illustration.png') }}"
                         alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study" width="627"
@@ -265,7 +265,7 @@
     <!-- WhatsApp Admin Section -->
     <section class="py-12 bg-[#FAFAFA]">
         <div
-            class="max-w-5xl mx-auto rounded-3xl px-16 py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
+            class="max-w-5xl mx-auto rounded-3xl px-6 md:px-16 py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
             <div class="absolute bottom-0 left-0 pointer-events-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="144" height="106" viewBox="0 0 144 106"
                     fill="none">
@@ -274,8 +274,8 @@
                         fill="#CADEFA" />
                 </svg>
             </div>
-            <div class="flex justify-between items-center px-8">
-                <div class="flex flex-col gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-center px-0 md:px-8 gap-6 md:gap-0">
+                <div class="flex flex-col gap-4 text-center md:text-left">
                     <p class="text-#373737 font-medium text-sm">Ingin tau lebih banyak tentang MLC?</p>
                     <h2 class="text-xl font-semibold text-black">Chat WhatsApp Admin sekarang!</h2>
                 </div>
@@ -464,17 +464,22 @@
     <section class="py-12 bg-[#FAFAFA] mb-24 overflow-x-clip">
         <div class="relative max-w-7xl mx-auto">
             {{-- image decorations --}}
-            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1" class="absolute top-155 right-315 w-24 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2" class="absolute top-20 right-80 w-14 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1" class="absolute top-50 left-310 w-24 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-books.svg') }}" alt="books" class="absolute top-155 right-16 w-24 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2" class="absolute top-20 left-1 w-16 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1"
+                class="absolute top-155 right-315 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2"
+                class="absolute top-20 right-80 w-14 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1"
+                class="absolute top-50 left-310 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-books.svg') }}" alt="books"
+                class="absolute top-155 right-16 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2"
+                class="absolute top-20 left-1 w-16 z-0 pointer-events-none">
 
             {{-- main content --}}
             <div class="relative z-10">
                 <h2 class="text-3xl font-bold text-center text-[#180746] mb-30 relative z-10">Artikel</h2>
-                <div class="flex gap-16">
-                    
+                <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+
                     <div class="flex-1">
                         <img src="{{ asset('images/article-image.png') }}" alt="" class="z-10">
                     </div>
@@ -482,7 +487,8 @@
 
                     <div class="flex-1 flex flex-col items-center justify-center gap-6 relative z-10">
                         {{-- image decoration --}}
-                        <img src="{{ asset('images/article-ellipse.png') }}" alt="ellipse" class="absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
+                        <img src="{{ asset('images/article-ellipse.png') }}" alt="ellipse"
+                            class="absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
 
                         @if (isset($articles[0]))
                             <!-- Article Card 1 -->
@@ -506,7 +512,8 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[0]->title, 125) }}</h3>
+                                    <h3 class="text-sm font-bold text-[#180746] mb-1">
+                                        {{ Str::limit($articles[0]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[0]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[0]->url }}" target="_blank"
@@ -539,7 +546,8 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[1]->title, 125) }}</h3>
+                                    <h3 class="text-sm font-bold text-[#180746] mb-1">
+                                        {{ Str::limit($articles[1]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[1]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[1]->url }}" target="_blank"
@@ -571,7 +579,8 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[2]->title, 125) }}</h3>
+                                    <h3 class="text-sm font-bold text-[#180746] mb-1">
+                                        {{ Str::limit($articles[2]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[2]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[2]->url }}" target="_blank"
@@ -585,7 +594,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <!-- JS Scripts -->
