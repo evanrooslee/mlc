@@ -85,20 +85,25 @@
                 <!-- Package Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach ($packets as $packet)
-                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} w-[261px] h-[531px] flex flex-col relative"
+                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full h-auto min-h-[9rem] md:h-[531px] md:w-[261px] relative"
                             data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
-                            <div class="relative h-48">
+                            <div class="relative w-1/3 md:w-full h-full md:h-48 shrink-0">
                                 <img src="{{ $packet->image_url }}"
                                     alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }} {{ $packet->title }} - Bimbel Online {{ $packet->subject }} Kelas {{ $packet->grade }}"
-                                    width="261" height="192" loading="lazy" decoding="async"
-                                    class="w-full h-full object-cover rounded-t-lg">
+                                    loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover rounded-l-lg md:rounded-t-lg md:rounded-l-none">
                                 <h3 title="{{ $packet->title }}"
-                                    class="absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
+                                    class="hidden md:block absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
                                     {{ Str::limit($packet->title, 50) }}
                                 </h3>
                             </div>
-                            <div class="p-5 flex flex-col h-[calc(531px-12rem)]">
-                                <div class="flex flex-wrap gap-2 mb-4">
+                            
+                            <div class="p-3 md:p-5 flex flex-col h-auto md:h-[calc(531px-12rem)]">
+                                <h3 class="md:hidden text-gray-800 font-bold text-md mb-1 leading-tight">
+                                    {{ Str::limit($packet->title, 40) }}
+                                </h3>
+
+                                <div class="flex flex-wrap gap-2 mb-2 md:mb-4">
                                     {{-- @if ($packet->type === 'premium')
                                         <span
                                             class="px-2 py-1 bg-white border border-yellow-400 text-yellow-400 text-xs rounded-full font-quicksand font-bold">Premium</span>
@@ -110,7 +115,7 @@
                                     <span
                                         class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->subject }}</span>
                                 </div>
-                                <div class="flex-grow overflow-auto mb-4">
+                                <div class="hidden md:block flex-grow overflow-auto mb-4">
                                     <ul class="text-sm text-gray-600 space-y-2 font-quicksand">
                                         @foreach ($packet->benefits as $benefit)
                                             <li class="flex items-start">
@@ -120,28 +125,28 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <div class="mt-auto">
-                                    <div class="mb-4">
+                                <div class="mt-auto flex flex-row items-end justify-between gap-2 md:block">
+                                    <div class="mb-0 md:mb-4">
                                         @if ($packet->discount && $packet->discount->percentage > 0)
-                                            <span class="text-sm text-[#868686] font-bold line-through mr-2">Rp
+                                            <span class="text-xs md:text-sm text-[#868686] font-bold line-through mr-2">Rp
                                                 {{ number_format($packet->price, 0, ',', '.') }}</span>
                                             <span
-                                                class="text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg">{{ $packet->discount->percentage }}%
+                                                class="text-xs md:text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg">{{ $packet->discount->percentage }}%
                                             </span>
                                             @php
                                                 $discountedPrice =
                                                     $packet->price -
                                                     ($packet->price * $packet->discount->percentage) / 100;
                                             @endphp
-                                            <div class="text-2xl font-quicksand font-bold text-gray-800">
+                                            <div class="text-lg md:text-2xl font-bold text-gray-800">
                                                 Rp{{ number_format($discountedPrice, 0, ',', '.') }}</div>
                                         @else
                                             <span
-                                                class="text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
+                                                class="text-lg md:text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
                                         @endif
                                     </div>
                                     <a href="{{ route('beli-paket.show', $packet->slug ?? $packet->id) }}"
-                                        class="block w-full {{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white py-2 rounded-3xl font-semibold font-quicksand text-center">
+                                        class="{{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white px-4 py-1.5 md:w-full md:py-2 rounded-3xl text-xs font-semibold font-quicksand md:text-base md:block md:text-center">
                                         Beli Paket
                                     </a>
                                 </div>
@@ -192,8 +197,8 @@
         style="background: radial-gradient(169.93% 43.19% at 50% 50%, rgba(255, 239, 235, 0.25) 0%, rgba(191, 242, 255, 0.25) 100%)">
         <div class="max-w-7xl mx-auto px-6 flex flex-col py-12 gap-12">
             <h2 class="text-3xl font-bold text-center text-[#180746]">Kenapa MLC?</h2>
-            <p class="text-center max-w-3xl mx-auto text-lg font-inter">
-                MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang <br> nyaman, mudah dipahami,
+            <p class="text-center max-w-3xl mx-auto text-md md:text-lg font-inter">
+                MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang nyaman, mudah dipahami,
                 dan ramah di kantong.
             </p>
 
@@ -254,7 +259,7 @@
             </div>
 
             <div class="text-center">
-                <p class="font-inter mb-4 max-w-3xl mx-auto text-lg">
+                <p class="font-inter mb-4 max-w-3xl mx-auto  text-md md:text-lg">
                     Belajar dari rumah tetap bisa efektif dan terarah, tanpa khawatir tertinggal. <br>
                     MLC hadir untuk membantu siswa memahami materi dengan lebih tenang, dengan harga yang masuk akal dan
                     waktu belajar yang fleksibel.
@@ -263,13 +268,13 @@
         </div>
     </section>
 
-    <!-- WhatsApp Admin Section -->
+    <!-- Konsultasi Admin Section -->
     <section class="py-12 bg-[#FAFAFA]">
         <div
-            class="max-w-5xl mx-auto rounded-3xl px-6 md:px-16 py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
+            class="max-w-5xl mx-auto md:rounded-3xl px-6 md:px-16 py-4 md:py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
             <div class="absolute bottom-0 left-0 pointer-events-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="144" height="106" viewBox="0 0 144 106"
-                    fill="none">
+                    fill="none" class="z-0">
                     <path
                         d="M46 5.5C36.5 1 8 0 8 0H-12V115H144C144 115 139 97.5 117.5 96C96 94.5 79.5 66.5 76 56.5C72.5 46.5 72 42.5 72 42.5C72 42.5 70.5 28.5 63 20C55.5 11.5 55.5 10 46 5.5Z"
                         fill="#CADEFA" />
@@ -277,18 +282,18 @@
             </div>
             <div class="flex flex-col md:flex-row justify-between items-center px-0 md:px-8 gap-6 md:gap-0">
                 <div class="flex flex-col gap-4 text-center md:text-left">
-                    <p class="text-#373737 font-medium text-sm">Ingin tau lebih banyak tentang MLC?</p>
-                    <h2 class="text-xl font-semibold text-black">Chat WhatsApp Admin sekarang!</h2>
+                    <p class="text-#373737 font-medium text-sm z-10">Ingin tau lebih banyak tentang MLC?</p>
+                    <h2 class="text-xl font-semibold text-black z-10">Chat WhatsApp Admin sekarang!</h2>
                 </div>
                 <button onclick="consultationAdmin()"
-                    class="bg-[#01A8DC] hover:bg-[#29738A] text-white px-4 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
+                    class="bg-[#01A8DC] hover:bg-[#29738A] text-white px-4 py-2.5 rounded-full text-md font-medium flex items-center gap-2 shadow-lg">
                     Konsultasi Admin
                     <img src="{{ asset('images/ic_baseline-whatsapp.svg') }}" alt="WhatsApp" class="w-6 h-6">
                 </button>
             </div>
             <div class="absolute top-0 right-0 pointer-events-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="65" height="112" viewBox="0 0 65 112"
-                    fill="none">
+                    fill="none" class="z-0">
                     <path
                         d="M2.35968 -8.92574C-3.14035 -10.4257 1.35968 11.0743 11.8597 30.5743C22.3597 50.0743 38.8597 31.5743 42.8597 47.0743C46.8597 62.5743 27.8597 67.5742 28.8597 89.5742C29.8597 111.574 51.3597 111.574 51.3597 111.574H76.3597V-8.92574C76.3597 -8.92574 7.85972 -7.42574 2.35968 -8.92574Z"
                         fill="#CADEFA" />
@@ -481,7 +486,7 @@
                 <h2 class="text-3xl font-bold text-center text-[#180746] mb-30 relative z-10">Artikel</h2>
                 <div class="flex flex-col md:flex-row gap-8 md:gap-16">
 
-                    <div class="flex-1">
+                    <div class="hidden md:flex md:flex-1">
                         <img src="{{ asset('images/article-image.png') }}" alt="" class="z-10">
                     </div>
 

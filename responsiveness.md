@@ -1,11 +1,13 @@
 Landing page
 - hero section
 [done] Betulin text
-[] Betulin input field dan button
+[done] Betulin input field dan button
 
 - packet selection section
 
 - features section
+
+- konsultasi admin section
 
 - video section
 
