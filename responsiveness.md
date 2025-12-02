@@ -4,6 +4,8 @@ Landing page
 [done] Betulin input field dan button
 
 - packet selection section
+[done] alter card view
+[] adjust filter button size and display
 
 - features section
 

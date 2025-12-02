@@ -45,41 +45,45 @@
     <section class="py-30 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-[#2D2933] mb-6">Pilih Paket</h2>
-            <p class="font-quicksand text-center font-medium mb-14 text-md">
+            <p class="font-quicksand text-center font-medium mb-7 md:mb-14 text-md">
                 MLC menyediakan berbagai paket pembelajaran bahasa online yang diracik dengan kebutuhan kamu.<br>
                 Ayo cari yang cocok!
             </p>
 
-            <div class="w-fit mx-auto">
+            <div class="w-full md:w-fit mx-auto">
                 <!-- Filter Buttons -->
-                <div class="flex flex-wrap justify-start gap-2 mb-8">
-                    <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                <div class="flex  items-center justify-start gap-2 mb-4 md:mb-8">
+                    <p class="text-nowrap font-semibold md:hidden">Filter : </p>
+                    <div class="flex overflow-x-auto gap-2">
+                        <button
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Matematika">Matematika</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1  md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="7">Kelas 7</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="8">Kelas 8</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="9">Kelas 9</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="10">Kelas 10</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="11">Kelas 11</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="12">Kelas 12</button>
+                    </div>
+                    
                 </div>
 
                 <!-- Package Cards -->
