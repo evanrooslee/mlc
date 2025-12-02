@@ -85,7 +85,7 @@
                 <!-- Package Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach ($packets as $packet)
-                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full h-auto min-h-[9rem] md:h-[531px] md:w-[261px] relative"
+                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full h-40 md:h-[531px] md:w-[261px] relative"
                             data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
                             <div class="relative w-1/3 md:w-full h-full md:h-48 shrink-0">
                                 <img src="{{ $packet->image_url }}"
@@ -98,7 +98,7 @@
                                 </h3>
                             </div>
                             
-                            <div class="p-3 md:p-5 flex flex-col h-auto md:h-[calc(531px-12rem)]">
+                            <div class="p-3 md:p-5 flex flex-col h-full md:h-[calc(531px-12rem)]">
                                 <h3 class="md:hidden text-gray-800 font-bold text-md mb-1 leading-tight">
                                     {{ Str::limit($packet->title, 40) }}
                                 </h3>
