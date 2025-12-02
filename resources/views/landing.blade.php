@@ -11,7 +11,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="bg-[#FAFAFA] py-5">
+    <section class="mt-15 md:mt-0 bg-[#FAFAFA] py-5">
         <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
             <div class="w-full md:w-1/2 mb-10 md:mb-0">
                 <h1
@@ -199,71 +199,71 @@
     <!-- Kenapa MLC Section -->
     <section
         style="background: radial-gradient(169.93% 43.19% at 50% 50%, rgba(255, 239, 235, 0.25) 0%, rgba(191, 242, 255, 0.25) 100%)">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col py-12 gap-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col py-12 gap-8 md:gap-12">
             <h2 class="text-3xl font-bold text-center text-[#180746]">Kenapa MLC?</h2>
             <p class="text-center max-w-3xl mx-auto text-md md:text-lg font-inter">
                 MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang nyaman, mudah dipahami,
                 dan ramah di kantong.
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4 md:gap-6">
                 <!-- Feature 1 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Accessible Learning</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Accessible Learning</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/accessible-learning.png') }}"
                             alt="Accessible Learning - Belajar dapat diakses siapa saja di mana saja" height="160"
                             loading="lazy" decoding="async">
                     </div>
 
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         Belajar harus bisa diakses siapa saja, di mana saja, tanpa batasan biaya atau lokasi.
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Fun & Friendly Atmosphere</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Fun & Friendly Atmosphere</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/fun-learning.png') }}"
                             alt="Fun & Friendly Atmosphere - Belajar menyenangkan dengan tutor ramah" height="160"
                             loading="lazy" decoding="async">
                     </div>
 
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         Belajar itu harus menyenangkan, bukan menekan. Tutor kami ramah dan suportif.
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Progress Oriented</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Progress Oriented</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/progress-oriented.png') }}"
                             alt="Progress Oriented - Memantau perkembangan siswa untuk mencapai target" height="160"
                             loading="lazy" decoding="async">
                     </div>
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         Kami pantau perkembangan siswa dan bantu mereka mencapai target personal.
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Tech-Integrated Learning</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Tech-Integrated Learning</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/tech-learning.png') }}"
                             alt="Tech-Integrated Learning - Menggunakan LMS, Zoom, dan forum diskusi" height="140"
                             loading="lazy" decoding="async">
                     </div>
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         LMS, Zoom, dan forum diskusi digunakan untuk menunjang efektivitas.
                     </p>
                 </div>
             </div>
 
             <div class="text-center">
-                <p class="font-inter mb-4 max-w-3xl mx-auto  text-md md:text-lg">
+                <p class="font-inter max-w-3xl mx-auto  text-md md:text-lg">
                     Belajar dari rumah tetap bisa efektif dan terarah, tanpa khawatir tertinggal. <br>
                     MLC hadir untuk membantu siswa memahami materi dengan lebih tenang, dengan harga yang masuk akal dan
                     waktu belajar yang fleksibel.
@@ -319,10 +319,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Regular Class
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Kelas online rutin dengan jadwal terstruktur.
                             </p>
-                            <div class="text-2xl">📚</div>
+                            <div class="hidden md:block text-2xl">📚</div>
                         </div>
                     </div>
                 </div>
@@ -336,10 +336,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Try Out Center
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Try Out mingguan untuk evaluasi kesiapan ujian.
                             </p>
-                            <div class="text-2xl">🔍</div>
+                            <div class="hidden md:block text-2xl">🔍</div>
                         </div>
                     </div>
                 </div>
@@ -353,10 +353,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Forum Diskusi
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Forum tanya-jawab soal dengan tutor dan teman.
                             </p>
-                            <div class="text-2xl">💬</div>
+                            <div class="hidden md:block text-2xl">💬</div>
                         </div>
                     </div>
                 </div>
@@ -370,10 +370,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Counseling
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Konsultasi gratis tentang jurusan dan strategi belajar.
                             </p>
-                            <div class="text-2xl">🎓</div>
+                            <div class="hidden md:block text-2xl">🎓</div>
                         </div>
                     </div>
                 </div>
@@ -387,10 +387,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Learning Management System
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-2 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-2 flex-1">
                                 Akses materi, rekaman kelas, dan progress belajar.
                             </p>
-                            <div class="text-2xl">📁</div>
+                            <div class="hidden md:block text-2xl">📁</div>
                         </div>
                     </div>
                 </div>
@@ -404,10 +404,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Free Trial Class
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Kelas percobaan gratis untuk semua siswa baru.
                             </p>
-                            <div class="text-2xl">🎁</div>
+                            <div class="hidden md:block text-2xl">🎁</div>
                         </div>
                     </div>
                 </div>
