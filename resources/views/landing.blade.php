@@ -11,26 +11,27 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="bg-[#FAFAFA] py-5">
+    <section class="mt-15 md:mt-0 bg-[#FAFAFA] py-5">
         <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-3xl md:text-5xl font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
+            <div class="w-full md:w-1/2 mb-10 md:mb-0">
+                <h1
+                    class="text-3xl md:text-5xl text-center md:text-left font-extrabold text-[#180746] leading-tight mb-6 font-nunito">
                     Sulit paham pelajaran di kelas? Saatnya belajar dengan cara yang lebih mudah dipahami di MLC!
                 </h1>
-                <p class="mb-6 text-md font-nunito">
+                <p class="mb-6 text-md text-center md:text-left font-nunito">
                     Dapatkan diskon untuk pembelian kelas pertamamu sekarang!
                 </p>
-                <div class="relative flex items-center">
+                <div class="relative flex flex-col md:flex-row gap-4 md:items-center ">
                     <input type="text" id="phoneNumber" placeholder="Masukkan nomor hp kamu.."
-                        class="bg-white border w-3/5 border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
+                        class="bg-white border w-full md:w-3/5 border-gray-300 text-gray-900 md:text-sm rounded-full md:rounded-xl focus:ring-blue-500 focus:border-blue-500 py-2 md:p-3 shadow-[0px_2px_4px_0px_rgba(0,0,0,0.25)]">
                     <button type="button" onclick="getDiscount()" id="discountButton"
-                        class="text-white absolute left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-6 py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
+                        class=" text-white w-full md:w-auto md:absolute md:left-3/7 bg-linear-96 from-[#32ADCC] to-[#3BCEF3] hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-semibold rounded-full text-md px-3 md:px-6 py-2 md:py-4 text-center shadow-[0px_4px_8px_0px_#6eb9cc]">
                         Dapatkan Diskon
                     </button>
                 </div>
                 <div id="errorMessage" class="text-red-500 text-sm mt-2 hidden"></div>
             </div>
-            <div class="md:w-1/2 flex justify-center items-center">
+            <div class="hidden md:flex md:w-1/2 justify-center items-center">
                 <div class="relative w-[627px] h-[527px]">
                     <img src="{{ asset('images/hero-illustration.png') }}"
                         alt="Ilustrasi belajar matematika dan fisika online di MLC Online Study" width="627"
@@ -44,60 +45,69 @@
     <section class="py-30 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center text-[#2D2933] mb-6">Pilih Paket</h2>
-            <p class="font-quicksand text-center font-medium mb-14 text-md">
+            <p class="font-quicksand text-center font-medium mb-7 md:mb-14 text-md">
                 MLC menyediakan berbagai paket pembelajaran bahasa online yang diracik dengan kebutuhan kamu.<br>
                 Ayo cari yang cocok!
             </p>
 
-            <div class="w-fit mx-auto">
+            <div class="w-full md:w-fit mx-auto">
                 <!-- Filter Buttons -->
-                <div class="flex flex-wrap justify-start gap-2 mb-8">
-                    <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                <div class="flex  items-center justify-start gap-2 mb-4 md:mb-8">
+                    <p class="text-nowrap font-semibold md:hidden">Filter : </p>
+                    <div class="flex overflow-x-auto gap-2">
+                        <button
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Matematika">Matematika</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1  md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="7">Kelas 7</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="8">Kelas 8</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="9">Kelas 9</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="10">Kelas 10</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="11">Kelas 11</button>
                     <button
-                        class="filter-btn px-4 py-2 rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
                         data-filter-type="grade" data-filter-value="12">Kelas 12</button>
+                    </div>
+                    
                 </div>
 
                 <!-- Package Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach ($packets as $packet)
-                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} w-[261px] h-[531px] flex flex-col relative"
+                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full h-40 md:h-[531px] md:w-[261px] relative"
                             data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
-                            <div class="relative h-48">
+                            <div class="relative w-1/3 md:w-full h-full md:h-48 shrink-0">
                                 <img src="{{ $packet->image_url }}"
                                     alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }} {{ $packet->title }} - Bimbel Online {{ $packet->subject }} Kelas {{ $packet->grade }}"
-                                    width="261" height="192" loading="lazy" decoding="async"
-                                    class="w-full h-full object-cover rounded-t-lg">
+                                    loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover rounded-l-lg md:rounded-t-lg md:rounded-l-none">
                                 <h3 title="{{ $packet->title }}"
-                                    class="absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
+                                    class="hidden md:block absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
                                     {{ Str::limit($packet->title, 50) }}
                                 </h3>
                             </div>
-                            <div class="p-5 flex flex-col h-[calc(531px-12rem)]">
-                                <div class="flex flex-wrap gap-2 mb-4">
+                            
+                            <div class="p-3 md:p-5 flex flex-col h-full md:h-[calc(531px-12rem)]">
+                                <h3 class="md:hidden text-gray-800 font-bold text-md mb-1 leading-tight">
+                                    {{ Str::limit($packet->title, 40) }}
+                                </h3>
+
+                                <div class="flex flex-wrap gap-2 mb-2 md:mb-4">
                                     {{-- @if ($packet->type === 'premium')
                                         <span
                                             class="px-2 py-1 bg-white border border-yellow-400 text-yellow-400 text-xs rounded-full font-quicksand font-bold">Premium</span>
@@ -109,7 +119,7 @@
                                     <span
                                         class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->subject }}</span>
                                 </div>
-                                <div class="flex-grow overflow-auto mb-4">
+                                <div class="hidden md:block flex-grow overflow-auto mb-4">
                                     <ul class="text-sm text-gray-600 space-y-2 font-quicksand">
                                         @foreach ($packet->benefits as $benefit)
                                             <li class="flex items-start">
@@ -119,28 +129,28 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <div class="mt-auto">
-                                    <div class="mb-4">
+                                <div class="mt-auto flex flex-row items-end justify-between gap-2 md:block">
+                                    <div class="mb-0 md:mb-4">
                                         @if ($packet->discount && $packet->discount->percentage > 0)
-                                            <span class="text-sm text-[#868686] font-bold line-through mr-2">Rp
+                                            <span class="text-xs md:text-sm text-[#868686] font-bold line-through mr-2">Rp
                                                 {{ number_format($packet->price, 0, ',', '.') }}</span>
                                             <span
-                                                class="text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg">{{ $packet->discount->percentage }}%
+                                                class="text-xs md:text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg">{{ $packet->discount->percentage }}%
                                             </span>
                                             @php
                                                 $discountedPrice =
                                                     $packet->price -
                                                     ($packet->price * $packet->discount->percentage) / 100;
                                             @endphp
-                                            <div class="text-2xl font-quicksand font-bold text-gray-800">
+                                            <div class="text-lg md:text-2xl font-bold text-gray-800">
                                                 Rp{{ number_format($discountedPrice, 0, ',', '.') }}</div>
                                         @else
                                             <span
-                                                class="text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
+                                                class="text-lg md:text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
                                         @endif
                                     </div>
                                     <a href="{{ route('beli-paket.show', $packet->slug ?? $packet->id) }}"
-                                        class="block w-full {{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white py-2 rounded-3xl font-semibold font-quicksand text-center">
+                                        class="{{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white px-4 py-1.5 md:w-full md:py-2 rounded-3xl text-xs font-semibold font-quicksand md:text-base md:block md:text-center">
                                         Beli Paket
                                     </a>
                                 </div>
@@ -189,71 +199,71 @@
     <!-- Kenapa MLC Section -->
     <section
         style="background: radial-gradient(169.93% 43.19% at 50% 50%, rgba(255, 239, 235, 0.25) 0%, rgba(191, 242, 255, 0.25) 100%)">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col py-12 gap-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col py-12 gap-8 md:gap-12">
             <h2 class="text-3xl font-bold text-center text-[#180746]">Kenapa MLC?</h2>
-            <p class="text-center max-w-3xl mx-auto text-lg font-inter">
-                MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang <br> nyaman, mudah dipahami,
+            <p class="text-center max-w-3xl mx-auto text-md md:text-lg font-inter">
+                MLC Online Study adalah bimbel online yang memberikan pengalaman belajar yang nyaman, mudah dipahami,
                 dan ramah di kantong.
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4 md:gap-6">
                 <!-- Feature 1 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Accessible Learning</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Accessible Learning</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/accessible-learning.png') }}"
                             alt="Accessible Learning - Belajar dapat diakses siapa saja di mana saja" height="160"
                             loading="lazy" decoding="async">
                     </div>
 
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         Belajar harus bisa diakses siapa saja, di mana saja, tanpa batasan biaya atau lokasi.
                     </p>
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Fun & Friendly Atmosphere</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Fun & Friendly Atmosphere</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/fun-learning.png') }}"
                             alt="Fun & Friendly Atmosphere - Belajar menyenangkan dengan tutor ramah" height="160"
                             loading="lazy" decoding="async">
                     </div>
 
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         Belajar itu harus menyenangkan, bukan menekan. Tutor kami ramah dan suportif.
                     </p>
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Progress Oriented</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Progress Oriented</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/progress-oriented.png') }}"
                             alt="Progress Oriented - Memantau perkembangan siswa untuk mencapai target" height="160"
                             loading="lazy" decoding="async">
                     </div>
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         Kami pantau perkembangan siswa dan bantu mereka mencapai target personal.
                     </p>
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="flex flex-col bg-white rounded-lg h-full py-6 px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
-                    <h3 class="text-xl font-bold text-center">Tech-Integrated Learning</h3>
+                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                    <h3 class="text-lg md:text-xl font-bold text-center">Tech-Integrated Learning</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/tech-learning.png') }}"
                             alt="Tech-Integrated Learning - Menggunakan LMS, Zoom, dan forum diskusi" height="140"
                             loading="lazy" decoding="async">
                     </div>
-                    <p class="text-center text-md">
+                    <p class="text-center text-sm md:text-md">
                         LMS, Zoom, dan forum diskusi digunakan untuk menunjang efektivitas.
                     </p>
                 </div>
             </div>
 
             <div class="text-center">
-                <p class="font-inter mb-4 max-w-3xl mx-auto text-lg">
+                <p class="font-inter max-w-3xl mx-auto  text-md md:text-lg">
                     Belajar dari rumah tetap bisa efektif dan terarah, tanpa khawatir tertinggal. <br>
                     MLC hadir untuk membantu siswa memahami materi dengan lebih tenang, dengan harga yang masuk akal dan
                     waktu belajar yang fleksibel.
@@ -262,32 +272,32 @@
         </div>
     </section>
 
-    <!-- WhatsApp Admin Section -->
+    <!-- Konsultasi Admin Section -->
     <section class="py-12 bg-[#FAFAFA]">
         <div
-            class="max-w-5xl mx-auto rounded-3xl px-16 py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
+            class="max-w-5xl mx-auto md:rounded-3xl px-6 md:px-16 py-4 md:py-8 relative overflow-hidden bg-gradient-to-r from-[#A2C0EB] via-[#F3F7FE] to-[#A2C0EB]">
             <div class="absolute bottom-0 left-0 pointer-events-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="144" height="106" viewBox="0 0 144 106"
-                    fill="none">
+                    fill="none" class="z-0">
                     <path
                         d="M46 5.5C36.5 1 8 0 8 0H-12V115H144C144 115 139 97.5 117.5 96C96 94.5 79.5 66.5 76 56.5C72.5 46.5 72 42.5 72 42.5C72 42.5 70.5 28.5 63 20C55.5 11.5 55.5 10 46 5.5Z"
                         fill="#CADEFA" />
                 </svg>
             </div>
-            <div class="flex justify-between items-center px-8">
-                <div class="flex flex-col gap-4">
-                    <p class="text-#373737 font-medium text-sm">Ingin tau lebih banyak tentang MLC?</p>
-                    <h2 class="text-xl font-semibold text-black">Chat WhatsApp Admin sekarang!</h2>
+            <div class="flex flex-col md:flex-row justify-between items-center px-0 md:px-8 gap-6 md:gap-0">
+                <div class="flex flex-col gap-4 text-center md:text-left">
+                    <p class="text-#373737 font-medium text-sm z-10">Ingin tau lebih banyak tentang MLC?</p>
+                    <h2 class="text-xl font-semibold text-black z-10">Chat WhatsApp Admin sekarang!</h2>
                 </div>
                 <button onclick="consultationAdmin()"
-                    class="bg-[#01A8DC] hover:bg-[#29738A] text-white px-4 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
+                    class="bg-[#01A8DC] hover:bg-[#29738A] text-white px-4 py-2.5 rounded-full text-md font-medium flex items-center gap-2 shadow-lg">
                     Konsultasi Admin
                     <img src="{{ asset('images/ic_baseline-whatsapp.svg') }}" alt="WhatsApp" class="w-6 h-6">
                 </button>
             </div>
             <div class="absolute top-0 right-0 pointer-events-none">
                 <svg xmlns="http://www.w3.org/2000/svg" width="65" height="112" viewBox="0 0 65 112"
-                    fill="none">
+                    fill="none" class="z-0">
                     <path
                         d="M2.35968 -8.92574C-3.14035 -10.4257 1.35968 11.0743 11.8597 30.5743C22.3597 50.0743 38.8597 31.5743 42.8597 47.0743C46.8597 62.5743 27.8597 67.5742 28.8597 89.5742C29.8597 111.574 51.3597 111.574 51.3597 111.574H76.3597V-8.92574C76.3597 -8.92574 7.85972 -7.42574 2.35968 -8.92574Z"
                         fill="#CADEFA" />
@@ -297,7 +307,7 @@
     </section>
 
     <!-- Banner Section -->
-    <section class="py-22 bg-[#FAFAFA]">
+    <section class="py-10 md:py-22 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 <div class="h-full">
@@ -309,10 +319,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Regular Class
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Kelas online rutin dengan jadwal terstruktur.
                             </p>
-                            <div class="text-2xl">📚</div>
+                            <div class="hidden md:block text-2xl">📚</div>
                         </div>
                     </div>
                 </div>
@@ -326,10 +336,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Try Out Center
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Try Out mingguan untuk evaluasi kesiapan ujian.
                             </p>
-                            <div class="text-2xl">🔍</div>
+                            <div class="hidden md:block text-2xl">🔍</div>
                         </div>
                     </div>
                 </div>
@@ -343,10 +353,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Forum Diskusi
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Forum tanya-jawab soal dengan tutor dan teman.
                             </p>
-                            <div class="text-2xl">💬</div>
+                            <div class="hidden md:block text-2xl">💬</div>
                         </div>
                     </div>
                 </div>
@@ -360,10 +370,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Counseling
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Konsultasi gratis tentang jurusan dan strategi belajar.
                             </p>
-                            <div class="text-2xl">🎓</div>
+                            <div class="hidden md:block text-2xl">🎓</div>
                         </div>
                     </div>
                 </div>
@@ -377,10 +387,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Learning Management System
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-2 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-2 flex-1">
                                 Akses materi, rekaman kelas, dan progress belajar.
                             </p>
-                            <div class="text-2xl">📁</div>
+                            <div class="hidden md:block text-2xl">📁</div>
                         </div>
                     </div>
                 </div>
@@ -394,10 +404,10 @@
                             <h3 class="text-sm font-bold font-quicksand leading-tight text-black">
                                 MLC Free Trial Class
                             </h3>
-                            <p class="text-sm font-quicksand text-black mt-6.5 flex-1">
+                            <p class="text-sm font-medium font-quicksand text-black mt-6.5 flex-1">
                                 Kelas percobaan gratis untuk semua siswa baru.
                             </p>
-                            <div class="text-2xl">🎁</div>
+                            <div class="hidden md:block text-2xl">🎁</div>
                         </div>
                     </div>
                 </div>
@@ -407,16 +417,16 @@
     </section>
 
     <!-- Video Pembelajaran Section -->
-    <section class="py-24 bg-[#FAFAFA]" x-data="videoManager()">
+    <section class="py-12 md:py-24 bg-[#FAFAFA]" x-data="videoManager()">
         <div class="max-w-6xl mx-auto flex flex-col gap-12">
             <h2 class="text-3xl font-bold text-center text-gray-800">Video Pembelajaran</h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-50 justify-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mx-3 md:gap-50 justify-center">
                 @forelse ($materials as $material)
                     <div x-data="{ showPlayer: false, videoId: '{{ $material->id }}' }"
-                        class="bg-white rounded-lg shadow-[2px_2px_8px_rgba(0,0,0,0.25)] overflow-hidden w-[320px] flex-shrink-0 justify-self-center">
+                        class="bg-white rounded-lg shadow-[2px_2px_8px_rgba(0,0,0,0.25)] overflow-hidden w-full md:w-[320px] flex-shrink-0 justify-self-center">
 
-                        <div class="relative bg-black w-full h-[568px]">
+                        <div class="relative bg-black aspect-[9/16] md:w-full md:h-[568px]">
                             <template x-if="!showPlayer">
                                 <button @click="playVideo(videoId); showPlayer = true"
                                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-60 transition hover:bg-opacity-70 z-10"
@@ -438,9 +448,9 @@
                                 </video>
                             </template>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-gray-800 mb-1 text-xl">{{ $material->title }}</h3>
-                            <p class="text-sm text-[#7F7F7F] -mt-1 mb-3">{{ $material->subject }}</p>
+                        <div class="flex flex-col p-4 gap-1">
+                            <h3 class="font-semibold text-gray-800 text-lg leading-tight md:text-xl">{{ $material->title }}</h3>
+                            <p class="text-sm text-[#7F7F7F]">{{ $material->subject }}</p>
                             <p class="text-sm text-black">{{ $material->publisher }}</p>
                         </div>
                     </div>
@@ -451,8 +461,8 @@
                 @endforelse
             </div>
 
-            <div class="text-center">
-                <p class="text-gray-600 mb-4 text-2xl font-semibold">
+            <div class="text-center mx-3">
+                <p class="text-gray-600 mb-4 text-xl md:text-2xl font-semibold">
                     "Live as if you were to die tomorrow. Learn as if you were to live forever."
                 </p>
                 <p class="text-gray-500 text-lg">- Mahatma Gandhi</p>
@@ -461,33 +471,39 @@
     </section>
 
     <!-- Artikel Section -->
-    <section class="py-12 bg-[#FAFAFA] mb-24 overflow-x-clip">
+    <section class="py-6 md:py-12 bg-[#FAFAFA] mb-24 overflow-x-clip">
         <div class="relative max-w-7xl mx-auto">
             {{-- image decorations --}}
-            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1" class="absolute top-155 right-315 w-24 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2" class="absolute top-20 right-80 w-14 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1" class="absolute top-50 left-310 w-24 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-books.svg') }}" alt="books" class="absolute top-155 right-16 w-24 z-0 pointer-events-none">
-            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2" class="absolute top-20 left-1 w-16 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1"
+                class="hidden md:block absolute top-155 right-315 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2"
+                class="hidden md:block absolute top-20 right-80 w-14 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars1.svg') }}" alt="star1"
+                class="hidden md:block absolute top-50 left-310 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-books.svg') }}" alt="books"
+                class="hidden md:block absolute top-155 right-16 w-24 z-0 pointer-events-none">
+            <img src="{{ asset('images/article-stars2.svg') }}" alt="star2"
+                class="hidden md:block absolute top-20 left-1 w-16 z-0 pointer-events-none">
 
             {{-- main content --}}
             <div class="relative z-10">
-                <h2 class="text-3xl font-bold text-center text-[#180746] mb-30 relative z-10">Artikel</h2>
-                <div class="flex gap-16">
-                    
-                    <div class="flex-1">
+                <h2 class="text-3xl font-bold text-center text-[#180746] mb-15 md:mb-30 relative z-10">Artikel</h2>
+                <div class="flex flex-col md:flex-row gap-8 md:gap-16">
+
+                    <div class="hidden md:flex md:flex-1">
                         <img src="{{ asset('images/article-image.png') }}" alt="" class="z-10">
                     </div>
 
 
-                    <div class="flex-1 flex flex-col items-center justify-center gap-6 relative z-10">
+                    <div class="flex-1 flex flex-col items-center justify-center gap-6 mx-3 md:mx-0 relative z-10">
                         {{-- image decoration --}}
-                        <img src="{{ asset('images/article-ellipse.png') }}" alt="ellipse" class="absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
+                        <img src="{{ asset('images/article-ellipse.png') }}" alt="ellipse"
+                            class="hidden md:block absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
 
                         @if (isset($articles[0]))
                             <!-- Article Card 1 -->
                             <div
-                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
+                                class="bg-white rounded-lg shadow-[0px_2px_5px_rgba(0,0,0,0.25)] md:shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-full md:w-120 h-30 relative mx-auto md:mx-0 md:self-start">
                                 @if ($articles[0]->is_starred)
                                     <div class="absolute top-2 right-2 z-10">
                                         <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
@@ -506,11 +522,12 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[0]->title, 125) }}</h3>
+                                    <h3 class="text-sm font-bold text-[#180746] leading-tight md:leading-normal mb-1">
+                                        {{ Str::limit($articles[0]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[0]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[0]->url }}" target="_blank"
-                                            class="text-sm text-[#01A8DC] font-bold hover:underline text-center border border-[#01A8DC] rounded-full p-2.5">Baca
+                                            class="text-xs md:text-sm text-[#01A8DC] font-bold hover:underline text-center border border-[#01A8DC] rounded-full p-2.5">Baca
                                             Sekarang</a>
                                     </div>
                                 </div>
@@ -520,7 +537,7 @@
                         @if (isset($articles[1]))
                             <!-- Article Card 2 -->
                             <div
-                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-end">
+                                class="bg-white rounded-lg shadow-[0px_2px_5px_rgba(0,0,0,0.25)] md:shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-full md:w-120 h-30 relative mx-auto md:mx-0 md:self-end">
                                 @if ($articles[1]->is_starred)
                                     <div class="absolute top-2 right-2 z-10">
                                         <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
@@ -539,11 +556,12 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[1]->title, 125) }}</h3>
+                                    <h3 class="text-sm font-bold text-[#180746] leading-tight md:leading-normal mb-1">
+                                        {{ Str::limit($articles[1]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[1]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[1]->url }}" target="_blank"
-                                            class="text-sm text-white bg-[#01A8DC] font-bold hover:bg-[#29738A] rounded-full p-2.5 text-center">Baca
+                                            class="text-xs md:text-sm text-white bg-[#01A8DC] font-bold hover:bg-[#29738A] rounded-full p-2.5 text-center">Baca
                                             Sekarang</a>
                                     </div>
                                 </div>
@@ -552,7 +570,7 @@
                         @if (isset($articles[2]))
                             <!-- Article Card 3 -->
                             <div
-                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
+                                class="bg-white rounded-lg shadow-[0px_2px_5px_rgba(0,0,0,0.25)] md:shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-full md:w-120 h-30 mx-auto md:mx-0 relative md:self-start">
                                 @if ($articles[2]->is_starred)
                                     <div class="absolute top-2 right-2 z-10">
                                         <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
@@ -571,11 +589,12 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">{{ Str::limit($articles[2]->title, 125) }}</h3>
+                                    <h3 class="text-sm font-bold text-[#180746] leading-tight md:leading-normal mb-1">
+                                        {{ Str::limit($articles[2]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[2]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[2]->url }}" target="_blank"
-                                            class="text-sm text-[#01A8DC] font-bold hover:underline border text-center border-[#01A8DC] rounded-full p-2.5">Baca
+                                            class="text-xs md:text-sm text-[#01A8DC] font-bold hover:underline border text-center border-[#01A8DC] rounded-full p-2.5">Baca
                                             Sekarang</a>
                                     </div>
                                 </div>
@@ -585,7 +604,7 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <!-- JS Scripts -->
