@@ -307,7 +307,7 @@
     </section>
 
     <!-- Banner Section -->
-    <section class="py-22 bg-[#FAFAFA]">
+    <section class="py-10 md:py-22 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 <div class="h-full">
@@ -417,16 +417,16 @@
     </section>
 
     <!-- Video Pembelajaran Section -->
-    <section class="py-24 bg-[#FAFAFA]" x-data="videoManager()">
+    <section class="py-12 md:py-24 bg-[#FAFAFA]" x-data="videoManager()">
         <div class="max-w-6xl mx-auto flex flex-col gap-12">
             <h2 class="text-3xl font-bold text-center text-gray-800">Video Pembelajaran</h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-50 justify-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mx-3 md:gap-50 justify-center">
                 @forelse ($materials as $material)
                     <div x-data="{ showPlayer: false, videoId: '{{ $material->id }}' }"
-                        class="bg-white rounded-lg shadow-[2px_2px_8px_rgba(0,0,0,0.25)] overflow-hidden w-[320px] flex-shrink-0 justify-self-center">
+                        class="bg-white rounded-lg shadow-[2px_2px_8px_rgba(0,0,0,0.25)] overflow-hidden w-full md:w-[320px] flex-shrink-0 justify-self-center">
 
-                        <div class="relative bg-black w-full h-[568px]">
+                        <div class="relative bg-black aspect-[9/16] md:w-full md:h-[568px]">
                             <template x-if="!showPlayer">
                                 <button @click="playVideo(videoId); showPlayer = true"
                                     class="absolute inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-60 transition hover:bg-opacity-70 z-10"
@@ -448,9 +448,9 @@
                                 </video>
                             </template>
                         </div>
-                        <div class="p-4">
-                            <h3 class="font-semibold text-gray-800 mb-1 text-xl">{{ $material->title }}</h3>
-                            <p class="text-sm text-[#7F7F7F] -mt-1 mb-3">{{ $material->subject }}</p>
+                        <div class="flex flex-col p-4 gap-1">
+                            <h3 class="font-semibold text-gray-800 text-lg leading-tight md:text-xl">{{ $material->title }}</h3>
+                            <p class="text-sm text-[#7F7F7F]">{{ $material->subject }}</p>
                             <p class="text-sm text-black">{{ $material->publisher }}</p>
                         </div>
                     </div>
@@ -461,8 +461,8 @@
                 @endforelse
             </div>
 
-            <div class="text-center">
-                <p class="text-gray-600 mb-4 text-2xl font-semibold">
+            <div class="text-center mx-3">
+                <p class="text-gray-600 mb-4 text-xl md:text-2xl font-semibold">
                     "Live as if you were to die tomorrow. Learn as if you were to live forever."
                 </p>
                 <p class="text-gray-500 text-lg">- Mahatma Gandhi</p>
@@ -471,23 +471,23 @@
     </section>
 
     <!-- Artikel Section -->
-    <section class="py-12 bg-[#FAFAFA] mb-24 overflow-x-clip">
+    <section class="py-6 md:py-12 bg-[#FAFAFA] mb-24 overflow-x-clip">
         <div class="relative max-w-7xl mx-auto">
             {{-- image decorations --}}
             <img src="{{ asset('images/article-stars1.svg') }}" alt="star1"
-                class="absolute top-155 right-315 w-24 z-0 pointer-events-none">
+                class="hidden md:block absolute top-155 right-315 w-24 z-0 pointer-events-none">
             <img src="{{ asset('images/article-stars2.svg') }}" alt="star2"
-                class="absolute top-20 right-80 w-14 z-0 pointer-events-none">
+                class="hidden md:block absolute top-20 right-80 w-14 z-0 pointer-events-none">
             <img src="{{ asset('images/article-stars1.svg') }}" alt="star1"
-                class="absolute top-50 left-310 w-24 z-0 pointer-events-none">
+                class="hidden md:block absolute top-50 left-310 w-24 z-0 pointer-events-none">
             <img src="{{ asset('images/article-books.svg') }}" alt="books"
-                class="absolute top-155 right-16 w-24 z-0 pointer-events-none">
+                class="hidden md:block absolute top-155 right-16 w-24 z-0 pointer-events-none">
             <img src="{{ asset('images/article-stars2.svg') }}" alt="star2"
-                class="absolute top-20 left-1 w-16 z-0 pointer-events-none">
+                class="hidden md:block absolute top-20 left-1 w-16 z-0 pointer-events-none">
 
             {{-- main content --}}
             <div class="relative z-10">
-                <h2 class="text-3xl font-bold text-center text-[#180746] mb-30 relative z-10">Artikel</h2>
+                <h2 class="text-3xl font-bold text-center text-[#180746] mb-15 md:mb-30 relative z-10">Artikel</h2>
                 <div class="flex flex-col md:flex-row gap-8 md:gap-16">
 
                     <div class="hidden md:flex md:flex-1">
@@ -495,15 +495,15 @@
                     </div>
 
 
-                    <div class="flex-1 flex flex-col items-center justify-center gap-6 relative z-10">
+                    <div class="flex-1 flex flex-col items-center justify-center gap-6 mx-3 md:mx-0 relative z-10">
                         {{-- image decoration --}}
                         <img src="{{ asset('images/article-ellipse.png') }}" alt="ellipse"
-                            class="absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
+                            class="hidden md:block absolute right-30 bottom-1 z-0 pointer-events-none opacity-75">
 
                         @if (isset($articles[0]))
                             <!-- Article Card 1 -->
                             <div
-                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
+                                class="bg-white rounded-lg shadow-[0px_2px_5px_rgba(0,0,0,0.25)] md:shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-full md:w-120 h-30 relative mx-auto md:mx-0 md:self-start">
                                 @if ($articles[0]->is_starred)
                                     <div class="absolute top-2 right-2 z-10">
                                         <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
@@ -522,12 +522,12 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">
+                                    <h3 class="text-sm font-bold text-[#180746] leading-tight md:leading-normal mb-1">
                                         {{ Str::limit($articles[0]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[0]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[0]->url }}" target="_blank"
-                                            class="text-sm text-[#01A8DC] font-bold hover:underline text-center border border-[#01A8DC] rounded-full p-2.5">Baca
+                                            class="text-xs md:text-sm text-[#01A8DC] font-bold hover:underline text-center border border-[#01A8DC] rounded-full p-2.5">Baca
                                             Sekarang</a>
                                     </div>
                                 </div>
@@ -537,7 +537,7 @@
                         @if (isset($articles[1]))
                             <!-- Article Card 2 -->
                             <div
-                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-end">
+                                class="bg-white rounded-lg shadow-[0px_2px_5px_rgba(0,0,0,0.25)] md:shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-full md:w-120 h-30 relative mx-auto md:mx-0 md:self-end">
                                 @if ($articles[1]->is_starred)
                                     <div class="absolute top-2 right-2 z-10">
                                         <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
@@ -556,12 +556,12 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">
+                                    <h3 class="text-sm font-bold text-[#180746] leading-tight md:leading-normal mb-1">
                                         {{ Str::limit($articles[1]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[1]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[1]->url }}" target="_blank"
-                                            class="text-sm text-white bg-[#01A8DC] font-bold hover:bg-[#29738A] rounded-full p-2.5 text-center">Baca
+                                            class="text-xs md:text-sm text-white bg-[#01A8DC] font-bold hover:bg-[#29738A] rounded-full p-2.5 text-center">Baca
                                             Sekarang</a>
                                     </div>
                                 </div>
@@ -570,7 +570,7 @@
                         @if (isset($articles[2]))
                             <!-- Article Card 3 -->
                             <div
-                                class="bg-white rounded-lg shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-120 h-30 relative self-start">
+                                class="bg-white rounded-lg shadow-[0px_2px_5px_rgba(0,0,0,0.25)] md:shadow-[0px_8px_20px_rgba(0,0,0,0.25)] overflow-hidden flex gap-3 w-full md:w-120 h-30 mx-auto md:mx-0 relative md:self-start">
                                 @if ($articles[2]->is_starred)
                                     <div class="absolute top-2 right-2 z-10">
                                         <svg class="w-6 h-6 text-yellow-400 fill-current filter drop-shadow-md"
@@ -589,12 +589,12 @@
                                     onerror="this.onerror=null; this.src='{{ asset('images/placeholder.jpg') }}';"
                                     loading="lazy">
                                 <div class="flex-1 flex flex-col py-2 pr-3 min-h-0">
-                                    <h3 class="text-sm font-bold text-[#180746] mb-1">
+                                    <h3 class="text-sm font-bold text-[#180746] leading-tight md:leading-normal mb-1">
                                         {{ Str::limit($articles[2]->title, 125) }}</h3>
                                     <p class="text-xs font-medium text-[#A1A1A1] mb-2">{{ $articles[2]->source }}</p>
                                     <div class="absolute bottom-4 right-3">
                                         <a href="{{ $articles[2]->url }}" target="_blank"
-                                            class="text-sm text-[#01A8DC] font-bold hover:underline border text-center border-[#01A8DC] rounded-full p-2.5">Baca
+                                            class="text-xs md:text-sm text-[#01A8DC] font-bold hover:underline border text-center border-[#01A8DC] rounded-full p-2.5">Baca
                                             Sekarang</a>
                                     </div>
                                 </div>

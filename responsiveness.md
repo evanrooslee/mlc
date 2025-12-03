@@ -5,15 +5,15 @@ Landing page
 
 - packet selection section
 [done] alter card view
-[] adjust filter button size and display
+[done] adjust filter button size and display
 
-- features section
+[done] features section
 
-- konsultasi admin section
+[done] konsultasi admin section
 
-- video section
+[done] video section
 
-- article section
+[done] article section
 
 
 [] Header
