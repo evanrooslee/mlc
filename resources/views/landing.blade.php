@@ -56,40 +56,40 @@
                     <p class="text-nowrap font-semibold md:hidden">Filter : </p>
                     <div class="flex overflow-x-auto gap-2">
                         <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="subject" data-filter-value="Matematika">Matematika</button>
-                    <button
-                        class="filter-btn px-2 py-1  md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="grade" data-filter-value="7">Kelas 7</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="grade" data-filter-value="8">Kelas 8</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="grade" data-filter-value="9">Kelas 9</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="grade" data-filter-value="10">Kelas 10</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="grade" data-filter-value="11">Kelas 11</button>
-                    <button
-                        class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                        data-filter-type="grade" data-filter-value="12">Kelas 12</button>
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="subject" data-filter-value="Matematika">Matematika</button>
+                        <button
+                            class="filter-btn px-2 py-1  md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="grade" data-filter-value="7">Kelas 7</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="grade" data-filter-value="8">Kelas 8</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="grade" data-filter-value="9">Kelas 9</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="grade" data-filter-value="10">Kelas 10</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="grade" data-filter-value="11">Kelas 11</button>
+                        <button
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="grade" data-filter-value="12">Kelas 12</button>
                     </div>
-                    
+
                 </div>
 
                 <!-- Package Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     @foreach ($packets as $packet)
-                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full h-40 md:h-[531px] md:w-[261px] relative"
+                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full min-h-40 md:h-[531px] md:w-[261px] relative"
                             data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
                             <div class="relative w-1/3 md:w-full h-full md:h-48 shrink-0">
                                 <img src="{{ $packet->image_url }}"
@@ -101,7 +101,7 @@
                                     {{ Str::limit($packet->title, 50) }}
                                 </h3>
                             </div>
-                            
+
                             <div class="p-3 md:p-5 flex flex-col h-full md:h-[calc(531px-12rem)]">
                                 <h3 class="md:hidden text-gray-800 font-bold text-md mb-1 leading-tight">
                                     {{ Str::limit($packet->title, 40) }}
@@ -132,11 +132,14 @@
                                 <div class="mt-auto flex flex-row items-end justify-between gap-2 md:block">
                                     <div class="mb-0 md:mb-4">
                                         @if ($packet->discount && $packet->discount->percentage > 0)
-                                            <span class="text-xs md:text-sm text-[#868686] font-bold line-through mr-2">Rp
-                                                {{ number_format($packet->price, 0, ',', '.') }}</span>
-                                            <span
-                                                class="text-xs md:text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg">{{ $packet->discount->percentage }}%
-                                            </span>
+                                            <div class="flex items-center">
+                                                <span
+                                                    class="text-xs md:text-sm text-[#868686] font-bold line-through mr-2 whitespace-nowrap">Rp
+                                                    {{ number_format($packet->price, 0, ',', '.') }}</span>
+                                                <span
+                                                    class="text-xs md:text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg whitespace-nowrap">{{ $packet->discount->percentage }}%
+                                                </span>
+                                            </div>
                                             @php
                                                 $discountedPrice =
                                                     $packet->price -
@@ -150,7 +153,7 @@
                                         @endif
                                     </div>
                                     <a href="{{ route('beli-paket.show', $packet->slug ?? $packet->id) }}"
-                                        class="{{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white px-4 py-1.5 md:w-full md:py-2 rounded-3xl text-xs font-semibold font-quicksand md:text-base md:block md:text-center">
+                                        class="{{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white px-4 py-1.5 md:w-full md:py-2 rounded-3xl text-xs font-semibold font-quicksand md:text-base md:block md:text-center whitespace-nowrap">
                                         Beli Paket
                                     </a>
                                 </div>
@@ -208,7 +211,8 @@
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4 md:gap-6">
                 <!-- Feature 1 -->
-                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
                     <h3 class="text-lg md:text-xl font-bold text-center">Accessible Learning</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/accessible-learning.png') }}"
@@ -222,7 +226,8 @@
                 </div>
 
                 <!-- Feature 2 -->
-                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
                     <h3 class="text-lg md:text-xl font-bold text-center">Fun & Friendly Atmosphere</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/fun-learning.png') }}"
@@ -236,7 +241,8 @@
                 </div>
 
                 <!-- Feature 3 -->
-                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
                     <h3 class="text-lg md:text-xl font-bold text-center">Progress Oriented</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/progress-oriented.png') }}"
@@ -249,7 +255,8 @@
                 </div>
 
                 <!-- Feature 4 -->
-                <div class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
+                <div
+                    class="flex flex-col bg-white rounded-lg h-full px-5 py-4 md:py-6 md:px-10 shadow-[2px_4px_4px_rgba(0,0,0,0.25)]">
                     <h3 class="text-lg md:text-xl font-bold text-center">Tech-Integrated Learning</h3>
                     <div class="flex-1 flex justify-center items-center">
                         <img src="{{ asset('images/tech-learning.png') }}"
@@ -449,7 +456,8 @@
                             </template>
                         </div>
                         <div class="flex flex-col p-4 gap-1">
-                            <h3 class="font-semibold text-gray-800 text-lg leading-tight md:text-xl">{{ $material->title }}</h3>
+                            <h3 class="font-semibold text-gray-800 text-lg leading-tight md:text-xl">
+                                {{ $material->title }}</h3>
                             <p class="text-sm text-[#7F7F7F]">{{ $material->subject }}</p>
                             <p class="text-sm text-black">{{ $material->publisher }}</p>
                         </div>
