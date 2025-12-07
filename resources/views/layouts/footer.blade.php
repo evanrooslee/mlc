@@ -39,9 +39,8 @@
                 <div>
                     <h3 class="font-bold mb-4 text-gray-800">Ikuti Kami</h3>
                     <div class="flex space-x-4 justify-center md:justify-start">
-                        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram"
-                            class="w-8 h-8">
-                        <img src="https://img.icons8.com/color/48/000000/tiktok.png" alt="TikTok" class="w-8 h-8">
+                        <a target="_blank" href="https://www.instagram.com/mlconlinestudy?igsh=OGppb2dzOHE2YW9w"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram" class="w-8 h-8"></a>
+                        <a target="_blank" href="https://www.tiktok.com/@mlc.online.study?_r=1&_t=ZS-91zCdxm01Rd"><img src="https://img.icons8.com/color/48/000000/tiktok.png" alt="TikTok" class="w-8 h-8"></a>
                     </div>
                 </div>
             </div>

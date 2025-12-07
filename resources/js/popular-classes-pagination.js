@@ -75,9 +75,6 @@ class PopularClassesPagination {
 
     toggleButton(btn, disabled) {
         btn.disabled = disabled;
-        btn.classList.toggle("text-gray-300", disabled);
-        btn.classList.toggle("text-[#01A8DC]", !disabled);
-        btn.classList.toggle("hover:text-[#0195c9]", !disabled);
     }
 
     bindEvents() {
