@@ -16,14 +16,15 @@
                 @csrf
             </form>
         </a>
-        <div class="flex items-center p-8 pb-12 border-b border-[#C9C9C9]">
-            <div class="w-32 h-32 rounded-full overflow-hidden mr-6">
+        <div
+            class="flex flex-col md:flex-row items-center md:items-start p-4 md:p-8 pb-8 md:pb-12 border-b border-[#C9C9C9] text-center md:text-left">
+            <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden mb-4 md:mb-0 md:mr-6">
                 <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name) }}&background=01A8DC&color=fff&size=128"
                     alt="User Avatar" class="w-full h-full object-cover">
             </div>
             <div class="">
                 <p class="font-medium">Hello,</p>
-                <h1 class="text-2xl font-bold mb-3">
+                <h1 class="text-xl md:text-2xl font-bold mb-3">
                     {{ Auth::user()->name }}
                 </h1>
                 <button data-modal-target="edit-modal" data-modal-toggle="edit-modal"
@@ -61,7 +62,7 @@
                             <!-- Modal body -->
                             <form class="p-4 md:p-5" action="{{ route('user.profile.update') }}" method="POST">
                                 @csrf
-                                <div class="grid gap-4 mb-4 grid-cols-2">
+                                <div class="grid gap-4 mb-4 grid-cols-1 md:grid-cols-2">
                                     <div class="col-span-1">
                                         <label for="name"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
@@ -157,9 +158,9 @@
             </div>
         </div>
 
-        <div class="flex justify-between py-10 pl-6 pr-12">
+        <div class="flex flex-col lg:flex-row justify-between py-6 px-4 lg:py-10 lg:pl-12 lg:pr-24 gap-8 lg:gap-0">
             {{-- User Information Column --}}
-            <div class="flex flex-col gap-4 w-1/3">
+            <div class="flex flex-col gap-4 w-full lg:w-2/5">
                 <div class="flex flex-col gap-2">
                     <label class="block font-medium">Nama Lengkap</label>
                     <div class="mt-1 p-3 bg-[#EBEBEB] rounded-lg text-[#595959]">{{ Auth::user()->name }}</div>
@@ -189,7 +190,7 @@
             </div>
 
             {{-- Kelas Populer Column --}}
-            <div class="flex flex-col items-center w-1/3 h-1/2">
+            <div class="flex flex-col items-center w-full lg:w-1/3 h-auto lg:h-1/2">
                 <h2 class="text-xl font-medium text-gray-800 mb-2">Kelas Populer</h2>
                 <div class="popular-classes-container">
 

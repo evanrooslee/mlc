@@ -36,9 +36,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
-<body class="flex font-quicksand">
+<body class="flex flex-col md:flex-row font-quicksand min-h-screen">
     <div
-        class="bg-[#ffffff] w-[184px] flex-shrink-0 border-r border-[#c9c9c9] flex flex-col items-center pt-4">
+        class="hidden md:flex bg-[#ffffff] w-[184px] flex-shrink-0 border-r border-[#c9c9c9] flex-col items-center pt-4 min-h-screen sticky top-0">
         <a href="{{ route('home') }}" class="h-[43px] w-[154px] mb-8">
             <img alt="MLC LOGO" src="{{ asset('images/mlc-logo-colored.png') }}" class="block max-w-none size-full" />
         </a>
@@ -76,8 +76,8 @@
             </a>
         </div>
     </div>
-    <div class="flex-grow flex flex-col">
-        <header class="w-full border-b border-[#c9c9c9] flex items-center pl-6 pr-12 py-2.5">
+    <div class="flex-grow flex flex-col w-full md:w-auto mb-16 md:mb-0">
+        <header class="w-full border-b border-[#c9c9c9] flex items-center px-4 md:pl-6 md:pr-12 py-2.5">
             <a href="{{ route('home') }}"
                 class="bg-[#01a8dc] flex flex-row gap-1 items-center justify-start rounded-full">
                 <svg class="w-10" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,8 +93,7 @@
                     </defs>
                 </svg>
             </a>
-            <div
-                class="text-[20px] text-center text-nowrap ml-3">
+            <div class="text-[20px] text-center text-nowrap ml-3">
 
                 <p class="block font-medium leading-[normal]">Dashboard</p>
             </div>
@@ -102,6 +101,32 @@
         <main class="flex-grow">
             @yield('content')
         </main>
+    </div>
+
+    {{-- Bottom Navigation for Mobile --}}
+    <div
+        class="fixed bottom-0 left-0 w-full bg-white border-t border-[#c9c9c9] flex justify-around items-center p-2 md:hidden z-50">
+        <a href="{{ route('user.profile') }}"
+            class="flex flex-col items-center p-2 rounded-lg {{ request()->routeIs('user.profile') ? 'text-[#01a8dc]' : 'text-[#414141]' }}">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9 3C9.79565 3 10.5587 3.31607 11.1213 3.87868C11.6839 4.44129 12 5.20435 12 6C12 6.79565 11.6839 7.55871 11.1213 8.12132C10.5587 8.68393 9.79565 9 9 9C8.20435 9 7.44129 8.68393 6.87868 8.12132C6.31607 7.55871 6 6.79565 6 6C6 5.20435 6.31607 4.44129 6.87868 3.87868C7.44129 3.31607 8.20435 3 9 3ZM9 10.5C12.315 10.5 15 11.8425 15 13.5V15H3V13.5C3 11.8425 5.685 10.5 9 10.5Z"
+                    fill="currentColor" />
+            </svg>
+            <span class="text-xs mt-1">Profil</span>
+        </a>
+        <a href="{{ route('user.kelas') }}"
+            class="flex flex-col items-center p-2 rounded-lg {{ request()->routeIs('user.kelas') ? 'text-[#01a8dc]' : 'text-[#414141]' }}">
+            <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M16.9762 14.3888C17.1192 14.2774 17.2332 14.1332 17.3084 13.9684C17.3837 13.8036 17.418 13.6231 17.4085 13.4421C17.399 13.2612 17.346 13.0852 17.2538 12.9292C17.1617 12.7732 17.0333 12.6417 16.8795 12.546L16.875 5.99625L15.75 6.75V12.5437C15.5977 12.6393 15.4706 12.7699 15.3792 12.9247C15.2878 13.0794 15.2348 13.2539 15.2246 13.4333C15.2145 13.6128 15.2475 13.7921 15.3209 13.9561C15.3943 14.1202 15.506 14.2643 15.6465 14.3764L15.2212 14.9411C14.843 15.4223 14.6335 16.0144 14.625 16.6264V18.0011H15.5419C15.7621 18.0011 15.9761 17.9276 16.1499 17.7923C16.3237 17.657 16.4474 17.4676 16.5015 17.2541L16.8739 15.7511V18.0011H17.9989V16.6399C17.9891 16.025 17.7781 15.4303 17.3981 14.9468L16.9762 14.3888ZM9 0L0 4.5L9 10.125L18 4.5L9 0Z"
+                    fill="currentColor" />
+                <path
+                    d="M9 11.25L3.375 7.50378V9.42753C3.375 10.4513 6.6825 13.5 9 13.5C11.3175 13.5 14.625 10.4513 14.625 9.42753V7.50378L9 11.25Z"
+                    fill="currentColor" />
+            </svg>
+            <span class="text-xs mt-1">Kelas</span>
+        </a>
     </div>
 </body>
 
