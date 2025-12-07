@@ -38,13 +38,13 @@
 
 <body class="flex font-quicksand">
     <div
-        class="bg-[#ffffff] h-screen w-[184px] flex-shrink-0 border-r border-[#c9c9c9] flex flex-col items-center pt-4">
+        class="bg-[#ffffff] w-[184px] flex-shrink-0 border-r border-[#c9c9c9] flex flex-col items-center pt-4">
         <a href="{{ route('home') }}" class="h-[43px] w-[154px] mb-8">
             <img alt="MLC LOGO" src="{{ asset('images/mlc-logo-colored.png') }}" class="block max-w-none size-full" />
         </a>
         <div class="w-full">
             <a href="{{ route('user.profile') }}"
-                class="flex items-center py-3 px-3 {{ request()->routeIs('user.profile') ? 'bg-[#BEF2FF]' : 'bg-white' }}">
+                class="flex items-center py-3 px-3 {{ request()->routeIs('user.profile') ? 'bg-[#BEF2FF] inset-shadow-[2px_2px_4px_rgba(0,0,0,0.25)]' : 'bg-white' }}">
                 <svg class="mr-1.5" width="22" height="22" viewBox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -55,7 +55,7 @@
                     class="font-['Quicksand:Regular',_sans-serif] font-normal text-[#414141] text-[16px] text-center text-nowrap leading-[normal]">Profil</span>
             </a>
             <a href="{{ route('user.kelas') }}"
-                class="flex items-center py-3 px-3 {{ request()->routeIs('user.kelas') ? 'bg-[#BEF2FF]' : 'bg-white' }}">
+                class="flex items-center py-3 px-3 {{ request()->routeIs('user.kelas') ? 'bg-[#BEF2FF] inset-shadow-[2px_2px_4px_rgba(0,0,0,0.25)]' : 'bg-white' }}">
                 <svg width="20" height="20" viewBox="0 0 18 18" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_2171_305)">
@@ -77,10 +77,10 @@
         </div>
     </div>
     <div class="flex-grow flex flex-col">
-        <header class="bg-[#ffffff] h-[52px] w-full border-b border-[#c9c9c9] flex items-center pl-6 pr-12 py-4">
+        <header class="w-full border-b border-[#c9c9c9] flex items-center pl-6 pr-12 py-2.5">
             <a href="{{ route('home') }}"
-                class="bg-[#01a8dc] flex flex-row gap-1 items-center justify-start p-1 rounded-full">
-                <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                class="bg-[#01a8dc] flex flex-row gap-1 items-center justify-start rounded-full">
+                <svg class="w-10" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_397_1330)">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M11.0574 16.9427C10.8074 16.6927 10.667 16.3536 10.667 16.0001C10.667 15.6465 10.8074 15.3074 11.0574 15.0574L18.6 7.51472C18.723 7.38737 18.8702 7.28579 19.0328 7.21592C19.1955 7.14604 19.3705 7.10925 19.5475 7.10772C19.7245 7.10618 19.9001 7.13991 20.064 7.20696C20.2278 7.274 20.3767 7.373 20.5019 7.49819C20.6271 7.62338 20.7261 7.77225 20.7931 7.93611C20.8602 8.09997 20.8939 8.27555 20.8924 8.45259C20.8908 8.62962 20.8541 8.80458 20.7842 8.96726C20.7143 9.12993 20.6127 9.27706 20.4854 9.40005L13.8854 16.0001L20.4854 22.6001C20.7283 22.8515 20.8626 23.1883 20.8596 23.5379C20.8566 23.8875 20.7163 24.2219 20.4691 24.4691C20.2219 24.7164 19.8875 24.8566 19.5379 24.8596C19.1883 24.8627 18.8515 24.7283 18.6 24.4854L11.0574 16.9427Z"
@@ -94,12 +94,12 @@
                 </svg>
             </a>
             <div
-                class="font-['Quicksand:Medium',_sans-serif] font-medium text-[#000000] text-[20px] text-center text-nowrap ml-3">
+                class="text-[20px] text-center text-nowrap ml-3">
 
-                <p class="block leading-[normal]">Dashboard</p>
+                <p class="block font-medium leading-[normal]">Dashboard</p>
             </div>
         </header>
-        <main class="flex-grow p-6">
+        <main class="flex-grow">
             @yield('content')
         </main>
     </div>

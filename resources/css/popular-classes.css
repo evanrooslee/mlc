@@ -19,7 +19,7 @@
 }
 
 .packet-card:hover .packet-image {
-    transform: scale(1.08);
+    transform: none;
 }
 
 .packet-title {
