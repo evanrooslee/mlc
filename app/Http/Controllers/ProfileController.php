@@ -49,7 +49,7 @@ class ProfileController extends Controller
         $activePackets = Packet::whereIn('id', $activePacketIds)->get();
 
         // Get other packets (not active) with pagination
-        $otherPackets = Packet::whereNotIn('id', $activePacketIds)->paginate(4);
+        $otherPackets = Packet::whereNotIn('id', $activePacketIds)->paginate(5);
 
         return view('user.kelas', compact('activePackets', 'otherPackets'));
     }
