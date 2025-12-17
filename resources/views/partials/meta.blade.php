@@ -47,31 +47,54 @@
 <meta name="author" content="MLC Online Study">
 <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
 
-{{-- Structured Data (JSON-LD) - Organization Schema --}}
+{{-- Structured Data (JSON-LD) - Organization & WebSite Schema --}}
 @if (!isset($noSchema) || !$noSchema)
+    @php
+        $logoUrl = asset('images/mlc-logo-colored.png');
+        $siteUrl = config('app.url');
+    @endphp
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "MLC Online Study",
-  "alternateName": "MLC",
-  "url": "{{ config('app.url') }}",
-  "logo": "{{ asset('images/mlc-logo-colored.png') }}",
-  "description": "Bimbel online matematika dan fisika untuk SMP & SMA dengan harga terjangkau dan metode pembelajaran yang mudah dipahami.",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+62-816-81-1020",
-    "contactType": "Customer Service",
-    "email": "mlconlinestudy@gmail.com",
-    "availableLanguage": ["Indonesian"]
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "ID"
-  },
-  "sameAs": [
-    "https://www.instagram.com/mlconlinestudy",
-    "https://www.tiktok.com/@mlconlinestudy"
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "{{ $siteUrl }}#organization",
+      "name": "MLC Online Study",
+      "alternateName": "MLC",
+      "url": "{{ $siteUrl }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ $logoUrl }}",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Bimbel online matematika dan fisika untuk SMP & SMA dengan harga terjangkau dan metode pembelajaran yang mudah dipahami.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+62-816-81-1020",
+        "contactType": "Customer Service",
+        "email": "mlconlinestudy@gmail.com",
+        "availableLanguage": ["Indonesian"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ID"
+      },
+      "sameAs": [
+        "https://www.instagram.com/mlconlinestudy",
+        "https://www.tiktok.com/@mlconlinestudy"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ $siteUrl }}#website",
+      "url": "{{ $siteUrl }}",
+      "name": "MLC Online Study",
+      "publisher": {
+        "@id": "{{ $siteUrl }}#organization"
+      }
+    }
   ]
 }
 </script>
