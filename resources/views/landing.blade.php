@@ -11,7 +11,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="mt-15 md:mt-0 bg-[#FAFAFA] py-5">
+    <section class="mt-15 md:mt-0 bg-[#FAFAFA] py-5 mb-30">
         <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
             <div class="w-full md:w-1/2 mb-10 md:mb-0">
                 <h1
@@ -40,6 +40,22 @@
             </div>
         </div>
     </section>
+
+    {{-- Marketing Section --}}
+    <section class="flex bg-blue-700 gap-3 justify-between px-3 py-5">
+        <div class="flex bg-blue-800 w-1/3 p-4 rounded-lg gap-4 items-center">
+            <img src="{{ asset('images/staircase-arrow-up.png') }}" alt="staircase" class="w-20">
+            <p class="text-white text-lg"><b>96%</b> nilai pengguna <b>terbukti naik</b> setelah 3 bulan berlangganan MLC</p>
+        </div>
+        <div class="flex bg-blue-800 w-1/3 p-4 rounded-lg gap-4 items-center">
+            <img src="{{ asset('images/light-bulb-color-icon.png') }}" alt="lightbulb" class="w-20">
+            <p class="text-white text-lg"><b>98%</b> pengguna <b>terbantu</b> dengan pemahaman <b>konsep ala MLC</b></p>
+        </div>
+        <div class="flex bg-blue-800 w-1/3 p-4 rounded-lg gap-4 items-center">
+            <img src="{{ asset('images/thumbs-up-line-icon.png') }}" alt="thumbs up" class="w-20">
+            <p class="text-white text-lg"><b>9.3/10</b> pengguna <b>puas</b> belajar <b>menggunakan MLC</b></p>
+        </div>
+    </section> 
 
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">

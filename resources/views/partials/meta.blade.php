@@ -50,7 +50,7 @@
 {{-- Structured Data (JSON-LD) - Organization & WebSite Schema --}}
 @if (!isset($noSchema) || !$noSchema)
     @php
-        $logoUrl = asset('images/mlc-logo-colored.png');
+        $logoUrl = asset('images/mlc-logo-only.png');
         $siteUrl = config('app.url');
     @endphp
     <script type="application/ld+json">
