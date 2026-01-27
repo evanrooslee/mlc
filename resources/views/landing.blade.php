@@ -11,7 +11,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="mt-15 md:mt-0 bg-[#FAFAFA] py-5">
+    <section class="mt-15 md:mt-0 bg-[#FAFAFA] py-5 mb-30">
         <div class="max-w-7xl mx-auto px-6 flex gap-8 items-center self-stretch justify-between">
             <div class="w-full md:w-1/2 mb-10 md:mb-0">
                 <h1
@@ -41,6 +41,23 @@
         </div>
     </section>
 
+    {{-- Marketing Section --}}
+    <section class="flex flex-col md:flex-row bg-blue-700 gap-3 justify-between px-3 py-5">
+        <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
+            <img src="{{ asset('images/staircase-arrow-up.png') }}" alt="staircase" class="w-20">
+            <p class="text-white text-lg"><b>96%</b> nilai pengguna <b>terbukti naik</b> setelah 3 bulan berlangganan MLC
+            </p>
+        </div>
+        <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
+            <img src="{{ asset('images/light-bulb-color-icon.png') }}" alt="lightbulb" class="w-20">
+            <p class="text-white text-lg"><b>98%</b> pengguna <b>terbantu</b> dengan pemahaman <b>konsep ala MLC</b></p>
+        </div>
+        <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
+            <img src="{{ asset('images/thumbs-up-line-icon.png') }}" alt="thumbs up" class="w-20">
+            <p class="text-white text-lg"><b>9.3/10</b> pengguna <b>puas</b> belajar <b>menggunakan MLC</b></p>
+        </div>
+    </section>
+
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">
         <div class="max-w-7xl mx-auto px-6">
@@ -50,116 +67,158 @@
                 Ayo cari yang cocok!
             </p>
 
-            <div class="w-full md:w-fit mx-auto">
-                <!-- Filter Buttons -->
-                <div class="flex  items-center justify-start gap-2 mb-4 md:mb-8">
-                    <p class="text-nowrap font-semibold md:hidden">Filter : </p>
+            <div class="w-full mx-auto">
+                <!-- Jenjang Pendidikan Buttons -->
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6">
+                    <span class="text-sm md:text-base font-semibold text-[#2D2933] whitespace-nowrap">Jenjang
+                        Pendidikan</span>
                     <div class="flex overflow-x-auto gap-2">
                         <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="subject" data-filter-value="Matematika">Matematika</button>
+                            class="filter-btn px-3 py-1 md:px-5 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="tingkatan" data-filter-value="SMP">SMP</button>
                         <button
-                            class="filter-btn px-2 py-1  md:px-4 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="subject" data-filter-value="Fisika">Fisika</button>
+                            class="filter-btn px-3 py-1 md:px-5 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="tingkatan" data-filter-value="SMA">SMA</button>
                         <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="subject" data-filter-value="Campuran">Campuran</button>
-                        <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="grade" data-filter-value="7">Kelas 7</button>
-                        <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="grade" data-filter-value="8">Kelas 8</button>
-                        <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="grade" data-filter-value="9">Kelas 9</button>
-                        <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="grade" data-filter-value="10">Kelas 10</button>
-                        <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="grade" data-filter-value="11">Kelas 11</button>
-                        <button
-                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-3xl text-nowrap md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
-                            data-filter-type="grade" data-filter-value="12">Kelas 12</button>
+                            class="filter-btn px-3 py-1 md:px-5 md:py-2 rounded-3xl md:rounded-full border border-[#125BC2] bg-white text-[#125BC2] hover:bg-[#4E7EC2] hover:text-white hover:shadow-sm font-quicksand transition-colors duration-200"
+                            data-filter-type="tingkatan" data-filter-value="Olimpiade">Olimpiade</button>
                     </div>
-
                 </div>
 
-                <!-- Package Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    @foreach ($packets as $packet)
-                        <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full min-h-40 md:h-[531px] md:w-[261px] relative"
-                            data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
-                            <div class="relative w-1/3 md:w-full h-full md:h-48 shrink-0">
-                                <img src="{{ $packet->image_url }}"
-                                    alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }} {{ $packet->title }} - Bimbel Online {{ $packet->subject }} Kelas {{ $packet->grade }}"
-                                    loading="lazy" decoding="async"
-                                    class="w-full h-full object-cover rounded-l-lg md:rounded-t-lg md:rounded-l-none">
-                                <h3 title="{{ $packet->title }}"
-                                    class="hidden md:block absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
-                                    {{ Str::limit($packet->title, 50) }}
-                                </h3>
-                            </div>
-
-                            <div class="p-3 md:p-5 flex flex-col h-full md:h-[calc(531px-12rem)]">
-                                <h3 class="md:hidden text-gray-800 font-bold text-md mb-1 leading-tight">
-                                    {{ Str::limit($packet->title, 40) }}
-                                </h3>
-
-                                <div class="flex flex-wrap gap-2 mb-2 md:mb-4">
-                                    {{-- @if ($packet->type === 'premium')
-                                        <span
-                                            class="px-2 py-1 bg-white border border-yellow-400 text-yellow-400 text-xs rounded-full font-quicksand font-bold">Premium</span>
-                                    @endif --}}
-                                    <span
-                                        class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">Kelas
-                                        {{ $packet->grade }}
-                                    </span>
-                                    <span
-                                        class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->subject }}</span>
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Left Filter Panel -->
+                    <div class="w-full lg:w-1/4">
+                        <div class="bg-blue-500 rounded-2xl shadow-[2px_2px_10px_rgba(0,0,0,0.15)] p-4 md:p-6 h-full">
+                            <h3 class="text-xl font-bold text-white mb-4">Filter</h3>
+                            <div class="space-y-5">
+                                <div>
+                                    <label for="filter-kurikulum"
+                                        class="text-md font-semibold text-white mb-2 block">Kurikulum</label>
+                                    <select id="filter-kurikulum" data-filter-type="kurikulum"
+                                        class="filter-select w-full rounded-xl border border-[#125BC2] bg-white px-3 py-2 text-sm text-[#2D2933] shadow-sm focus:border-[#125BC2] focus:ring-[#125BC2]">
+                                        <option value="">Semua</option>
+                                        <option value="NAS">NAS</option>
+                                        <option value="NAS+/International">NAS+/International</option>
+                                    </select>
                                 </div>
-                                <div class="hidden md:block flex-grow overflow-auto mb-4">
-                                    <ul class="text-sm text-gray-600 space-y-2 font-quicksand">
-                                        @foreach ($packet->benefits as $benefit)
-                                            <li class="flex items-start">
-                                                <span class="text-green-500 mr-2 flex-shrink-0">✓</span>
-                                                <span class="flex-1">{{ $benefit }}</span>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+
+                                <div>
+                                    <label for="filter-subject" class="text-md font-semibold text-white mb-2 block">Mata
+                                        Pelajaran</label>
+                                    <select id="filter-subject" data-filter-type="subject"
+                                        class="filter-select w-full rounded-xl border border-[#125BC2] bg-white px-3 py-2 text-sm text-[#2D2933] shadow-sm focus:border-[#125BC2] focus:ring-[#125BC2]">
+                                        <option value="">Semua</option>
+                                        <option value="Matematika">Matematika</option>
+                                        <option value="Fisika">Fisika</option>
+                                    </select>
                                 </div>
-                                <div class="mt-auto flex flex-row items-end justify-between gap-2 md:block">
-                                    <div class="mb-0 md:mb-4">
-                                        @if ($packet->discount && $packet->discount->percentage > 0)
-                                            <div class="flex items-center">
-                                                <span
-                                                    class="text-xs md:text-sm text-[#868686] font-bold line-through mr-2 whitespace-nowrap">Rp
-                                                    {{ number_format($packet->price, 0, ',', '.') }}</span>
-                                                <span
-                                                    class="text-xs md:text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg whitespace-nowrap">{{ $packet->discount->percentage }}%
-                                                </span>
-                                            </div>
-                                            @php
-                                                $discountedPrice =
-                                                    $packet->price -
-                                                    ($packet->price * $packet->discount->percentage) / 100;
-                                            @endphp
-                                            <div class="text-lg md:text-2xl font-bold text-gray-800">
-                                                Rp{{ number_format($discountedPrice, 0, ',', '.') }}</div>
-                                        @else
-                                            <span
-                                                class="text-lg md:text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
-                                        @endif
-                                    </div>
-                                    <a href="{{ route('beli-paket.show', $packet->slug ?? $packet->id) }}"
-                                        class="{{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white px-4 py-1.5 md:w-full md:py-2 rounded-3xl text-xs font-semibold font-quicksand md:text-base md:block md:text-center whitespace-nowrap">
-                                        Beli Paket
-                                    </a>
+
+                                <div>
+                                    <label for="filter-grade"
+                                        class="text-md font-semibold text-white mb-2 block">Kelas</label>
+                                    <select id="filter-grade" data-filter-type="grade"
+                                        class="filter-select w-full rounded-xl border border-[#125BC2] bg-white px-3 py-2 text-sm text-[#2D2933] shadow-sm focus:border-[#125BC2] focus:ring-[#125BC2]">
+                                        <option value="">Semua</option>
+                                        <option value="7">Kelas 7</option>
+                                        <option value="8">Kelas 8</option>
+                                        <option value="9">Kelas 9</option>
+                                        <option value="10">Kelas 10</option>
+                                        <option value="11">Kelas 11</option>
+                                        <option value="12">Kelas 12</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+
+                    <!-- Package Cards -->
+                    <div class="w-full lg:w-3/4">
+                        <div id="packet-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                            @foreach ($packets as $packet)
+                                <div class="packet-card bg-white shadow-[2px_2px_10px_rgba(0,0,0,0.25)] rounded-xl {{ $packet->type === 'premium' ? 'border-4 border-yellow-400' : 'border border-gray-200' }} flex flex-row md:flex-col w-full min-h-40 md:h-[531px] md:w-[261px] relative"
+                                    data-tingkatan="{{ $packet->tingkatan }}" data-kurikulum="{{ $packet->kurikulum }}"
+                                    data-subject="{{ $packet->subject }}" data-grade="{{ $packet->grade }}">
+                                    <div class="relative w-1/3 md:w-full h-full md:h-48 shrink-0">
+                                        <img src="{{ $packet->image_url }}"
+                                            alt="Paket {{ $packet->type === 'premium' ? 'Premium' : 'Standar' }} {{ $packet->title }} - Bimbel Online {{ $packet->subject }} Kelas {{ $packet->grade }}"
+                                            loading="lazy" decoding="async"
+                                            class="w-full h-full object-cover rounded-l-lg md:rounded-t-lg md:rounded-l-none">
+                                        <h3 title="{{ $packet->title }}"
+                                            class="hidden md:block absolute bottom-2 left-2 text-white text-lg font-quicksand font-semibold">
+                                            {{ Str::limit($packet->title, 50) }}
+                                        </h3>
+                                    </div>
+
+                                    <div class="p-3 md:p-5 flex flex-col h-full md:h-[calc(531px-12rem)]">
+                                        <h3 class="md:hidden text-gray-800 font-bold text-md mb-1 leading-tight">
+                                            {{ Str::limit($packet->title, 40) }}
+                                        </h3>
+
+                                        <div class="flex flex-wrap gap-2 mb-2 md:mb-4">
+                                            {{-- @if ($packet->type === 'premium')
+                                                <span
+                                                    class="px-2 py-1 bg-white border border-yellow-400 text-yellow-400 text-xs rounded-full font-quicksand font-bold">Premium</span>
+                                            @endif --}}
+                                            @if ($packet->tingkatan)
+                                                <span
+                                                    class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->tingkatan }}</span>
+                                            @endif
+                                            @if ($packet->kurikulum)
+                                                <span
+                                                    class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->kurikulum }}</span>
+                                            @endif
+                                            @if (!is_null($packet->grade))
+                                                <span
+                                                    class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">Kelas
+                                                    {{ $packet->grade }}
+                                                </span>
+                                            @endif
+                                            <span
+                                                class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->subject }}</span>
+                                        </div>
+                                        <div class="hidden md:block flex-grow overflow-auto mb-4">
+                                            <ul class="text-sm text-gray-600 space-y-2 font-quicksand">
+                                                @foreach ($packet->benefits as $benefit)
+                                                    <li class="flex items-start">
+                                                        <span class="text-green-500 mr-2 flex-shrink-0">✓</span>
+                                                        <span class="flex-1">{{ $benefit }}</span>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        <div class="mt-auto flex flex-row items-end justify-between gap-2 md:block">
+                                            <div class="mb-0 md:mb-4">
+                                                @if ($packet->discount && $packet->discount->percentage > 0)
+                                                    <div class="flex items-center">
+                                                        <span
+                                                            class="text-xs md:text-sm text-[#868686] font-bold line-through mr-2 whitespace-nowrap">Rp
+                                                            {{ number_format($packet->price, 0, ',', '.') }}</span>
+                                                        <span
+                                                            class="text-xs md:text-sm text-[#932525] font-bold bg-[#F99F9F] px-1 py-0.5 rounded-lg whitespace-nowrap">{{ $packet->discount->percentage }}%
+                                                        </span>
+                                                    </div>
+                                                    @php
+                                                        $discountedPrice =
+                                                            $packet->price -
+                                                            ($packet->price * $packet->discount->percentage) / 100;
+                                                    @endphp
+                                                    <div class="text-lg md:text-2xl font-bold text-gray-800">
+                                                        Rp{{ number_format($discountedPrice, 0, ',', '.') }}</div>
+                                                @else
+                                                    <span
+                                                        class="text-lg md:text-2xl font-quicksand font-bold text-gray-800">Rp{{ number_format($packet->price, 0, ',', '.') }}</span>
+                                                @endif
+                                            </div>
+                                            <a href="{{ route('beli-paket.show', $packet->slug ?? $packet->id) }}"
+                                                class="{{ $packet->type === 'premium' ? 'bg-yellow-400 hover:bg-yellow-500' : 'bg-blue-500 hover:bg-blue-600' }} text-white px-4 py-1.5 md:w-full md:py-2 rounded-3xl text-xs font-semibold font-quicksand md:text-base md:block md:text-center whitespace-nowrap">
+                                                Beli Paket
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Carousel Navigation -->
@@ -652,8 +711,11 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.filter-btn');
+            const filterSelects = document.querySelectorAll('.filter-select');
             const packetCards = document.querySelectorAll('.packet-card');
             const activeFilters = {
+                tingkatan: [],
+                kurikulum: [],
                 subject: [],
                 grade: []
             };
@@ -678,22 +740,22 @@
                     const filterValue = this.getAttribute('data-filter-value');
                     const isCurrentlyActive = this.classList.contains('bg-blue-600');
 
-                    // Count currently active buttons
-                    const activeButtonsCount = document.querySelectorAll('.filter-btn.bg-blue-600')
-                        .length;
+                    if (filterType === 'tingkatan') {
+                        const tingkatanButtons = document.querySelectorAll(
+                            '.filter-btn[data-filter-type="tingkatan"]'
+                        );
 
-                    // If trying to activate a new button and already at max (3), prevent activation
-                    if (!isCurrentlyActive && activeButtonsCount >= 3) {
-                        // Show a brief visual feedback that max limit is reached
-                        this.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            this.style.transform = 'scale(1)';
-                        }, 150);
-                        return; // Don't proceed with activation
+                        tingkatanButtons.forEach(btn => {
+                            if (btn !== this) {
+                                btn.classList.remove('bg-blue-600', 'text-white');
+                                btn.classList.add('bg-white', 'border', 'border-[#125BC2]',
+                                    'text-[#125BC2]');
+                            }
+                        });
+
+                        activeFilters.tingkatan = [];
                     }
 
-                    // Toggle active state visually
-                    // Ensure any explicit white background is removed when activating
                     this.classList.toggle('bg-white');
                     this.classList.toggle('bg-blue-600');
                     this.classList.toggle('text-white');
@@ -701,21 +763,28 @@
                     this.classList.toggle('border-[#125BC2]');
                     this.classList.toggle('text-[#125BC2]');
 
-                    // Update active filters
                     if (this.classList.contains('bg-blue-600')) {
-                        // Add to active filters
                         if (!activeFilters[filterType].includes(filterValue)) {
                             activeFilters[filterType].push(filterValue);
                         }
                     } else {
-                        // Remove from active filters
                         const index = activeFilters[filterType].indexOf(filterValue);
                         if (index > -1) {
                             activeFilters[filterType].splice(index, 1);
                         }
                     }
 
-                    // Apply filters
+                    applyFilters();
+                });
+            });
+
+            filterSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    const filterType = this.getAttribute('data-filter-type');
+                    const filterValue = this.value;
+
+                    activeFilters[filterType] = filterValue ? [filterValue] : [];
+
                     applyFilters();
                 });
             });
@@ -724,13 +793,28 @@
                 let visibleCards = 0;
 
                 packetCards.forEach(card => {
+                    const cardTingkatan = card.getAttribute('data-tingkatan');
+                    const cardKurikulum = card.getAttribute('data-kurikulum');
                     const cardSubject = card.getAttribute('data-subject');
                     const cardGrade = card.getAttribute('data-grade');
                     let showCard = true;
 
+                    if (activeFilters.tingkatan.length > 0) {
+                        if (!activeFilters.tingkatan.includes(cardTingkatan)) {
+                            showCard = false;
+                        }
+                    }
+
                     // Check if we need to filter by subject
                     if (activeFilters.subject.length > 0) {
                         if (!activeFilters.subject.includes(cardSubject)) {
+                            showCard = false;
+                        }
+                    }
+
+                    // Check if we need to filter by kurikulum
+                    if (activeFilters.kurikulum.length > 0) {
+                        if (!activeFilters.kurikulum.includes(cardKurikulum)) {
                             showCard = false;
                         }
                     }
@@ -740,6 +824,11 @@
                         if (!activeFilters.grade.includes(cardGrade)) {
                             showCard = false;
                         }
+                    }
+
+                    if ((activeFilters.kurikulum.length > 0 || activeFilters.grade.length > 0) &&
+                        cardTingkatan === 'Olimpiade') {
+                        showCard = false;
                     }
 
                     // Show or hide card
@@ -756,13 +845,14 @@
 
                 // Show message if no cards match
                 const noResultsMessage = document.getElementById('no-results-message');
-                if (visibleCards === 0 && (activeFilters.subject.length > 0 || activeFilters.grade.length > 0)) {
+                const isAnyFilterActive = Object.values(activeFilters).some(values => values.length > 0);
+                if (visibleCards === 0 && isAnyFilterActive) {
                     if (!noResultsMessage) {
                         const message = document.createElement('p');
                         message.id = 'no-results-message';
                         message.className = 'text-center text-gray-600 col-span-full py-4';
-                        message.textContent = 'No packets found for the selected filters.';
-                        document.querySelector('.grid.grid-cols-1').appendChild(message);
+                        message.textContent = 'Paket tidak ditemukan untuk filter yang dipilih.';
+                        document.getElementById('packet-grid').appendChild(message);
                     }
                 } else if (noResultsMessage) {
                     noResultsMessage.remove();

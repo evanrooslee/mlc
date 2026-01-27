@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Super Admin',
             'role' => 'admin',
             'email' => 'superadmin@example.com',
-            'phone_number' => fake()->phoneNumber(),
+            'phone_number' => '00000001',
             'parents_phone_number' => fake()->phoneNumber(),
             'school' => 'Admin School',
             'grade' => 12,

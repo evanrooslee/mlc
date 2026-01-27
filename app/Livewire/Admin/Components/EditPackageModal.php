@@ -2,47 +2,70 @@
 
 namespace App\Livewire\Admin\Components;
 
-use LivewireUI\Modal\ModalComponent;
-use Livewire\WithFileUploads;
 use App\Models\Discount;
 use App\Models\Packet;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Log;
 use App\Services\ImageService;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use Livewire\WithFileUploads;
+use LivewireUI\Modal\ModalComponent;
 
 class EditPackageModal extends ModalComponent
 {
     use WithFileUploads;
 
     public $packageId;
+
     public $title;
+
     public $code;
+
+    public $tingkatan;
+
+    public $kurikulum;
+
     public $grade;
+
     public $subject;
-    public $type;
+
     public $benefit;
+
+    public $sesi = 8;
+
     public $price;
+
     public $has_discount = false;
+
     public $selected_discount_id = null;
+
     public $discount_search = '';
+
     public $discount_search_results = [];
+
     public $show_discount_dropdown = false;
+
     public $image;
+
     public $current_image;
+
     public $showDeleteConfirmation = false;
 
     // Error handling properties
     public $networkError = '';
+
     public $isSubmitting = false;
+
     public $isDeleting = false;
 
     protected $rules = [
         'title' => 'required|string|max:255',
         'code' => 'required|string|max:50',
-        'grade' => 'required|integer|min:1|max:12',
+        'tingkatan' => 'required|in:SMP,SMA,Olimpiade',
+        'kurikulum' => 'nullable|in:NAS,NAS+/International',
+        'grade' => 'nullable|integer|min:1|max:12',
         'subject' => 'required|in:Matematika,Fisika,Kimia,Campuran',
-        'type' => 'required|in:standard,premium',
         'benefit' => 'nullable|string|max:2000',
+        'sesi' => 'required|integer|in:8',
         'price' => 'required|numeric|min:0|max:99999999',
         'has_discount' => 'boolean',
         'selected_discount_id' => 'nullable|exists:discounts,id',
@@ -56,14 +79,17 @@ class EditPackageModal extends ModalComponent
         'code.required' => 'Kode paket harus diisi',
         'code.string' => 'Kode paket harus berupa teks',
         'code.max' => 'Kode paket maksimal 50 karakter',
+        'tingkatan.required' => 'Jenjang pendidikan harus diisi',
+        'tingkatan.in' => 'Jenjang pendidikan harus salah satu dari: SMP, SMA, atau Olimpiade',
+        'kurikulum.required' => 'Kurikulum harus diisi',
+        'kurikulum.in' => 'Kurikulum tidak valid',
         'grade.required' => 'Kelas harus diisi',
         'grade.integer' => 'Kelas harus berupa angka',
-        'grade.min' => 'Kelas minimal 1',
-        'grade.max' => 'Kelas maksimal 12',
+        'grade.in' => 'Kelas harus sesuai jenjang yang dipilih',
         'subject.required' => 'Mata pelajaran harus diisi',
         'subject.in' => 'Mata pelajaran harus salah satu dari: Matematika, Fisika, Kimia, atau Campuran',
-        'type.required' => 'Tipe paket harus diisi',
-        'type.in' => 'Tipe paket harus standard atau premium',
+        'sesi.required' => 'Sesi harus diisi',
+        'sesi.in' => 'Sesi harus bernilai 8',
         'benefit.string' => 'Manfaat harus berupa teks',
         'benefit.max' => 'Manfaat maksimal 2000 karakter',
         'price.required' => 'Harga harus diisi',
@@ -85,18 +111,25 @@ class EditPackageModal extends ModalComponent
         if ($package) {
             $this->title = $package->title;
             $this->code = $package->code;
+            $this->tingkatan = $package->tingkatan;
+            $this->kurikulum = $package->kurikulum;
             $this->grade = $package->grade;
             $this->subject = $package->subject;
-            $this->type = $package->type;
             $this->benefit = $package->benefit;
+            $this->sesi = $package->sesi ?? 8;
             $this->price = $package->price;
             $this->current_image = $package->image;
+
+            if ($this->tingkatan === 'Olimpiade') {
+                $this->kurikulum = null;
+                $this->grade = null;
+            }
 
             // Handle discount
             if ($package->discount_id && $package->discount instanceof Discount) {
                 $this->has_discount = true;
                 $this->selected_discount_id = $package->discount_id;
-                $this->discount_search = $package->discount->code . ' (' . $package->discount->percentage . '%)';
+                $this->discount_search = $package->discount->code.' ('.$package->discount->percentage.'%)';
             } else {
                 $this->has_discount = false;
                 $this->selected_discount_id = null;
@@ -119,7 +152,7 @@ class EditPackageModal extends ModalComponent
         }
 
         // Custom validation for discount fields
-        if ($propertyName === 'has_discount' && !$this->has_discount) {
+        if ($propertyName === 'has_discount' && ! $this->has_discount) {
             $this->selected_discount_id = null;
             $this->discount_search = '';
             $this->discount_search_results = [];
@@ -146,17 +179,27 @@ class EditPackageModal extends ModalComponent
     // Custom validation rules
     protected function rules()
     {
+        $allowedGrades = $this->getAllowedGradesForTingkatan();
+
         $rules = [
             'title' => 'required|string|max:255',
-            'code' => 'required|string|max:50|unique:packets,code,' . $this->packageId,
-            'grade' => 'required|integer|min:1|max:12',
+            'code' => 'required|string|max:50|unique:packets,code,'.$this->packageId,
+            'tingkatan' => 'required|in:SMP,SMA,Olimpiade',
             'subject' => 'required|in:Matematika,Fisika,Kimia,Campuran',
-            'type' => 'required|in:standard,premium',
             'benefit' => 'nullable|string|max:2000',
+            'sesi' => 'required|integer|in:8',
             'price' => 'required|numeric|min:0|max:99999999',
             'has_discount' => 'boolean',
             'image' => 'nullable|image|max:2048',
         ];
+
+        if ($this->tingkatan === 'Olimpiade') {
+            $rules['kurikulum'] = 'required|in:SMP,SMA';
+            $rules['grade'] = 'nullable';
+        } else {
+            $rules['kurikulum'] = 'required|in:NAS,NAS+/International';
+            $rules['grade'] = 'required|integer|in:'.implode(',', $allowedGrades);
+        }
 
         // Add discount validation only if discount is enabled
         if ($this->has_discount) {
@@ -180,7 +223,7 @@ class EditPackageModal extends ModalComponent
 
             // Find the package
             $package = Packet::find($this->packageId);
-            if (!$package) {
+            if (! $package) {
                 throw new \Exception('Paket tidak ditemukan.');
             }
 
@@ -189,15 +232,15 @@ class EditPackageModal extends ModalComponent
             if ($this->image) {
                 // Use ImageService to resize and save the image (with fallback)
                 try {
-                    $imageService = new ImageService();
+                    $imageService = new ImageService;
                     $path = $imageService->resizeForType($this->image, 'package', 'images');
                 } catch (\Exception $e) {
                     // Fallback: Save without resizing if GD is not available
-                    $imageName = time() . '.' . $this->image->getClientOriginalExtension();
+                    $imageName = time().'.'.$this->image->getClientOriginalExtension();
                     $path = $this->image->storePubliclyAs('images', $imageName, 'public');
 
                     // Log the error for debugging
-                    Log::warning('Image resizing failed, saved without resizing: ' . $e->getMessage());
+                    Log::warning('Image resizing failed, saved without resizing: '.$e->getMessage());
                 }
 
                 // Store the full path for database storage
@@ -208,11 +251,14 @@ class EditPackageModal extends ModalComponent
             $package->update([
                 'title' => $this->title,
                 'code' => $this->code,
+                'tingkatan' => $this->tingkatan,
+                'kurikulum' => $this->kurikulum,
                 'grade' => $this->grade,
                 'subject' => $this->subject,
-                'type' => $this->type,
                 'benefit' => $this->benefit,
+                'sesi' => $this->sesi,
                 'price' => $this->price,
+                'type' => 'standard',
                 'discount_id' => $this->has_discount ? $this->selected_discount_id : null,
                 'image' => $imageName,
             ]);
@@ -220,7 +266,7 @@ class EditPackageModal extends ModalComponent
             // Dispatch success event
             $this->dispatch('packageUpdated', [
                 'message' => 'Paket berhasil diperbarui',
-                'package' => $package->fresh()->toArray()
+                'package' => $package->fresh()->toArray(),
             ]);
 
             $this->closeModal();
@@ -257,7 +303,7 @@ class EditPackageModal extends ModalComponent
         try {
             // Find and delete the package
             $package = Packet::find($this->packageId);
-            if (!$package) {
+            if (! $package) {
                 throw new \Exception('Paket tidak ditemukan.');
             }
 
@@ -266,7 +312,7 @@ class EditPackageModal extends ModalComponent
             // Dispatch success event
             $this->dispatch('packageDeleted', [
                 'message' => 'Paket berhasil dihapus',
-                'id' => $this->packageId
+                'id' => $this->packageId,
             ]);
 
             $this->closeModal();
@@ -289,8 +335,8 @@ class EditPackageModal extends ModalComponent
             } else {
                 $this->discount_search_results = Discount::where('is_valid', true)
                     ->where(function ($query) {
-                        $query->where('code', 'like', '%' . $this->discount_search . '%')
-                            ->orWhere('percentage', 'like', '%' . $this->discount_search . '%');
+                        $query->where('code', 'like', '%'.$this->discount_search.'%')
+                            ->orWhere('percentage', 'like', '%'.$this->discount_search.'%');
                     })
                     ->orderBy('code')
                     ->limit(10)
@@ -308,7 +354,7 @@ class EditPackageModal extends ModalComponent
         $discount = Discount::find($discountId);
         if ($discount) {
             $this->selected_discount_id = $discountId;
-            $this->discount_search = $discount->code . ' (' . $discount->percentage . '%)';
+            $this->discount_search = $discount->code.' ('.$discount->percentage.'%)';
             $this->show_discount_dropdown = false;
             $this->discount_search_results = [];
         }
@@ -326,6 +372,46 @@ class EditPackageModal extends ModalComponent
     {
         $this->resetErrorStates();
         $this->closeModal();
+    }
+
+    public function updatedTingkatan(): void
+    {
+        if ($this->tingkatan === 'Olimpiade') {
+            $this->kurikulum = null;
+            $this->grade = null;
+        }
+
+        if ($this->tingkatan === 'SMP' && $this->grade !== null && ($this->grade < 7 || $this->grade > 9)) {
+            $this->grade = null;
+        }
+
+        if ($this->tingkatan === 'SMA' && $this->grade !== null && ($this->grade < 10 || $this->grade > 12)) {
+            $this->grade = null;
+        }
+
+        if ($this->tingkatan === 'Olimpiade' && in_array($this->kurikulum, ['NAS', 'NAS+/International'], true)) {
+            $this->kurikulum = null;
+        }
+
+        if (in_array($this->tingkatan, ['SMP', 'SMA'], true) && in_array($this->kurikulum, ['SMP', 'SMA'], true)) {
+            $this->kurikulum = null;
+        }
+
+        if ($this->tingkatan === null || $this->tingkatan === '') {
+            $this->kurikulum = null;
+            $this->grade = null;
+        }
+
+        $this->resetErrorBag(['kurikulum', 'grade']);
+    }
+
+    private function getAllowedGradesForTingkatan(): array
+    {
+        return match ($this->tingkatan) {
+            'SMP' => [7, 8, 9],
+            'SMA' => [10, 11, 12],
+            default => [7, 8, 9, 10, 11, 12],
+        };
     }
 
     // Handle browser back button or ESC key
@@ -357,8 +443,6 @@ class EditPackageModal extends ModalComponent
 
     /**
      * Specify the modal size.
-     *
-     * @return string
      */
     public static function modalMaxWidth(): string
     {
