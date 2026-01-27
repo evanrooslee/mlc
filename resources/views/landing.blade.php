@@ -98,8 +98,7 @@
                                         class="filter-select w-full rounded-xl border border-[#125BC2] bg-white px-3 py-2 text-sm text-[#2D2933] shadow-sm focus:border-[#125BC2] focus:ring-[#125BC2]">
                                         <option value="">Semua</option>
                                         <option value="NAS">NAS</option>
-                                        <option value="NAS+">NAS+</option>
-                                        <option value="International">International</option>
+                                        <option value="NAS+/International">NAS+/International</option>
                                     </select>
                                 </div>
 
@@ -168,10 +167,12 @@
                                                 <span
                                                     class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->kurikulum }}</span>
                                             @endif
-                                            <span
-                                                class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">Kelas
-                                                {{ $packet->grade }}
-                                            </span>
+                                            @if (!is_null($packet->grade))
+                                                <span
+                                                    class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">Kelas
+                                                    {{ $packet->grade }}
+                                                </span>
+                                            @endif
                                             <span
                                                 class="px-2 py-1 bg-white border border-black text-black text-xs rounded-full font-quicksand font-bold">{{ $packet->subject }}</span>
                                         </div>

@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Packet;
 use App\Models\Discount;
+use App\Models\Packet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -25,13 +25,21 @@ class PacketFactory extends Factory
      */
     public function definition(): array
     {
+        $tingkatan = $this->faker->randomElement(['SMP', 'SMA']);
+        $grade = $tingkatan === 'SMP'
+            ? $this->faker->numberBetween(7, 9)
+            : $this->faker->numberBetween(10, 12);
+
         return [
             'title' => $this->faker->sentence(3),
             'code' => strtoupper($this->faker->unique()->bothify('PKT###')),
-            'grade' => $this->faker->numberBetween(1, 12),
-            'subject' => $this->faker->randomElement(['Mathematics', 'Science', 'English', 'History', 'Geography']),
-            'type' => $this->faker->randomElement(['premium', 'standard']),
+            'tingkatan' => $tingkatan,
+            'kurikulum' => $this->faker->randomElement(['NAS', 'NAS+/International']),
+            'grade' => $grade,
+            'subject' => $this->faker->randomElement(['Matematika', 'Fisika', 'Kimia', 'Campuran']),
+            'type' => 'standard',
             'benefit' => $this->faker->paragraph(),
+            'sesi' => 8,
             'price' => $this->faker->numberBetween(50000, 500000),
             'discount_id' => null, // Default to no discount
             'image' => $this->faker->imageUrl(640, 480, 'education'),
@@ -43,7 +51,7 @@ class PacketFactory extends Factory
      */
     public function withDiscount(): static
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'discount_id' => Discount::factory(),
         ]);
     }
@@ -53,7 +61,7 @@ class PacketFactory extends Factory
      */
     public function premium(): static
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'type' => 'premium',
         ]);
     }
@@ -63,7 +71,7 @@ class PacketFactory extends Factory
      */
     public function standard(): static
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'type' => 'standard',
         ]);
     }
