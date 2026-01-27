@@ -41,7 +41,7 @@
         </div>
     </section>
 
-    {{-- Marketing Section --}}
+    {{-- Marketing Section
     <section class="flex flex-col md:flex-row bg-blue-700 gap-3 justify-between px-3 py-5">
         <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
             <img src="{{ asset('images/staircase-arrow-up.png') }}" alt="staircase" class="w-20">
@@ -56,7 +56,7 @@
             <img src="{{ asset('images/thumbs-up-line-icon.png') }}" alt="thumbs up" class="w-20">
             <p class="text-white text-lg"><b>9.3/10</b> pengguna <b>puas</b> belajar <b>menggunakan MLC</b></p>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">
