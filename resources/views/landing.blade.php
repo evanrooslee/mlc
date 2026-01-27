@@ -41,22 +41,22 @@
         </div>
     </section>
 
-    {{-- Marketing Section
+    {{-- Marketing Section --}}
     <section class="flex flex-col md:flex-row bg-blue-700 gap-3 justify-between px-3 py-5">
         <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
             <img src="{{ asset('images/staircase-arrow-up.png') }}" alt="staircase" class="w-20">
-            <p class="text-white text-lg"><b>96%</b> nilai pengguna <b>terbukti naik</b> setelah 3 bulan berlangganan MLC
+            <p class="text-white text-md"><b>97%</b> murid di MLC Online Study <b>merasa terbantu</b> dengan metode belajar MLC yang mudah dipahami.
             </p>
         </div>
         <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
             <img src="{{ asset('images/light-bulb-color-icon.png') }}" alt="lightbulb" class="w-20">
-            <p class="text-white text-lg"><b>98%</b> pengguna <b>terbantu</b> dengan pemahaman <b>konsep ala MLC</b></p>
+            <p class="text-white text-md"><b>Konsep rumit</b> pelajaran di sekolah dapat dijelaskan dengan cara yang <b>sederhana dan terstruktur</b> oleh mentor MLC!</p>
         </div>
         <div class="flex bg-blue-800 w-full md:w-1/3 p-4 rounded-lg gap-4 items-center">
             <img src="{{ asset('images/thumbs-up-line-icon.png') }}" alt="thumbs up" class="w-20">
-            <p class="text-white text-lg"><b>9.3/10</b> pengguna <b>puas</b> belajar <b>menggunakan MLC</b></p>
+            <p class="text-white text-md">Tak perlu lagi merasa tertinggal di kelas, karena murid MLC merasa <b>lebih percaya diri</b> menghadapi ujian setelah belajar bareng MLC Online Study! </p>
         </div>
-    </section> --}}
+    </section>
 
     <!-- Pilih Paket Section -->
     <section class="py-30 bg-[#FAFAFA]">
