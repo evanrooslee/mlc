@@ -2,11 +2,11 @@
 
 namespace App\Livewire\Admin;
 
+use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Livewire\Attributes\Url;
-use Livewire\Attributes\On;
-use Illuminate\Support\Facades\DB;
 
 class TabelPembayaran extends Component
 {
@@ -55,14 +55,56 @@ class TabelPembayaran extends Component
     {
         $this->dispatch('openModal', 'admin.components.verify-payment-modal', [
             'userId' => $userId,
-            'packetId' => $packetId
+            'packetId' => $packetId,
         ]);
+    }
+
+    public function openCancelPaymentModal(int $userId, int $packetId): void
+    {
+        $this->dispatch('openModal', 'admin.components.cancel-payment-modal', [
+            'userId' => $userId,
+            'packetId' => $packetId,
+        ]);
+    }
+
+    public function openDeletePaymentModal(int $userId, int $packetId): void
+    {
+        $this->dispatch('openModal', 'admin.components.delete-payment-modal', [
+            'userId' => $userId,
+            'packetId' => $packetId,
+        ]);
+    }
+
+    public function cancelPayment(int $userId, int $packetId): void
+    {
+        DB::table('payments')
+            ->where('user_id', $userId)
+            ->where('packet_id', $packetId)
+            ->where('status', 'Belum Bayar')
+            ->update(['status' => 'Batal']);
+
+        session()->flash('message', 'Pembayaran berhasil dibatalkan.');
+        $this->resetPage();
     }
 
     #[On('paymentVerified')]
     public function handlePaymentVerified($data)
     {
         session()->flash('message', $data['message']);
+    }
+
+    #[On('paymentDeleted')]
+    public function handlePaymentDeleted($data): void
+    {
+        session()->flash('message', $data['message']);
+        $this->resetPage();
+    }
+
+    #[On('paymentCanceled')]
+    public function handlePaymentCanceled($data): void
+    {
+        session()->flash('message', $data['message']);
+        $this->resetPage();
     }
 
     public function render()
@@ -83,12 +125,12 @@ class TabelPembayaran extends Component
             )
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
-                    $q->where('users.name', 'like', '%' . $this->search . '%')
-                        ->orWhere('users.phone_number', 'like', '%' . $this->search . '%')
-                        ->orWhere('users.parents_phone_number', 'like', '%' . $this->search . '%')
-                        ->orWhere('users.parent_name', 'like', '%' . $this->search . '%')
-                        ->orWhere('packets.title', 'like', '%' . $this->search . '%')
-                        ->orWhere('payments.status', 'like', '%' . $this->search . '%');
+                    $q->where('users.name', 'like', '%'.$this->search.'%')
+                        ->orWhere('users.phone_number', 'like', '%'.$this->search.'%')
+                        ->orWhere('users.parents_phone_number', 'like', '%'.$this->search.'%')
+                        ->orWhere('users.parent_name', 'like', '%'.$this->search.'%')
+                        ->orWhere('packets.title', 'like', '%'.$this->search.'%')
+                        ->orWhere('payments.status', 'like', '%'.$this->search.'%');
                 });
             })
             ->orderBy($this->sortBy, $this->sortDirection)
@@ -98,8 +140,9 @@ class TabelPembayaran extends Component
         $payments->getCollection()->transform(function ($payment) {
             if (empty($payment->parent_name)) {
                 $firstName = explode(' ', $payment->student_name)[0];
-                $payment->parent_name = 'Ayah/Ibu ' . $firstName;
+                $payment->parent_name = 'Ayah/Ibu '.$firstName;
             }
+
             return $payment;
         });
 
